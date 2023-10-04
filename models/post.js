@@ -16,8 +16,12 @@ Post.init(
         id: 'id'
       }
     },
-    post_id: {
+    user_id: {
       type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        id: 'user_id'
+      }
     },
     content: {
         type: DataTypes.TEXT,
