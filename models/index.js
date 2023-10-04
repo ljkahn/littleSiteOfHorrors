@@ -7,8 +7,7 @@ const Profile = require('../Profile')
 
 User.hasMany(Movies, {
     foreignKey: 'movie_id',
-  
-  })
+  });
 
 
 

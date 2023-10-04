@@ -7,6 +7,7 @@ Post.init(
   {
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
       references: {
@@ -16,26 +17,31 @@ Post.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
         id: 'user_id'
       }
     },
     content: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
+        allowNull: false,
 
     },
     topic: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING,
+    allowNull: false,
 
     },
 
     user_name: {
     type: DataTypes.TEXT,
+    allowNull: false,
   },
 
     comment: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -56,4 +62,4 @@ Post.init(
   }
 );
 
-module.exports = User;
+module.exports = Post;

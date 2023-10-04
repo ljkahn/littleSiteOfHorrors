@@ -9,11 +9,13 @@ Review.init(
   {
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
     productId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: Product,
         key: 'id'
@@ -21,6 +23,7 @@ Review.init(
     },
     userId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
         key: 'id'
@@ -34,7 +37,8 @@ Review.init(
       }
     },
     comment: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -55,4 +59,4 @@ Review.init(
   }
 );
 
-module.exports = User;
+module.exports = Review;
