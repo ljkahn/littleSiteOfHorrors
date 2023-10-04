@@ -1,38 +1,37 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Review extends Model {
+class Post extends Model {
 
 }
 
-Review.init( 
+Post.init( 
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
-    },
-    productId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: Product,
-        key: 'id'
-      }
-    },
-    userId: {
-      type: DataTypes.INTEGER,
+      autoIncrement: true,
       references: {
         model: 'user',
-        key: 'id'
+        id: 'id'
       }
     },
-    spoooky_scale: {
+    post_id: {
       type: DataTypes.INTEGER,
-      validate: {
-        min: 1,
-        max: 5
-      }
     },
+    content: {
+        type: DataTypes.TEXT,
+
+    },
+    topic: {
+    type: DataTypes.TEXT,
+
+    },
+
+    user_name: {
+    type: DataTypes.TEXT,
+  },
+
     comment: {
       type: DataTypes.STRING
     },
