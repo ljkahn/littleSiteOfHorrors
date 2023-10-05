@@ -5,7 +5,7 @@ const router = require("express").Router();
 router.get("/", async (req, res) => {
   try {
     const data = "You have reached the landing page!";
-    res.status(200).json(data);
+    res.render('homepage', {data});
   } catch (err) {
     res.status(500).json(err);
   }
