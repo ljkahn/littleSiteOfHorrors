@@ -1,25 +1,25 @@
 const router = require("express").Router();
-const { user } = require("../../models");
+// const { user } = require("../../models");
 
 // LOGIN & SIGN UP PAGE
 
 // GET login page
 // http://localhost:3001/api/users/login
-router.get("/login", async (req, res) => {
-  try {
-    const data = await user.create({
-      email: req.body.email,
-      password: req.body.password,
-    });
+// router.get("/login", async (req, res) => {
+//   try {
+//     const data = await user.create({
+//       email: req.body.email,
+//       password: req.body.password,
+//     });
 
-    req.save(() => {
-      req.loggedIn = true;
-      res.status(200).json(data);
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     req.save(() => {
+//       req.loggedIn = true;
+//       res.status(200).json(data);
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // GET create account page
 // http://localhost:3001/api/users/create
