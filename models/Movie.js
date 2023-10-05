@@ -7,7 +7,7 @@ Movie.init(
     {
         movie_id: {
             type: DataTypes.INTEGER,
-            foreignKey: true,
+            primaryKey: true,
             autoIncrement: true,
         },
 
@@ -36,6 +36,17 @@ Movie.init(
         release_year: {
             type: DataTypes.INTEGER
 
+        },
+
+        description: {
+            type:DataTypes.STRING
+        },
+
+        poster_url: {
+            type:DataTypes.STRING,
+            validate: {
+                isURL: true
+            }
         }
 
 
