@@ -17,6 +17,7 @@ const movieData = [
         rating: '4',
         release_year: 1999,
         description: 'Three film students vanish after traveling into a Maryland forest to film a documentary on the local Blair Witch legend, leaving only their footage behind.',
+        poster: ""
     },
 
     {

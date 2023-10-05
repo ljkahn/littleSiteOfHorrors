@@ -1,5 +1,6 @@
 const {Model, DataTypes } = require ('sequlize');
 const sequelize = require('../config/connection');
+const { default: isURL } = require('validator/lib/isURL');
 
 class favMovies extends Model {}
 
@@ -23,6 +24,13 @@ favMovies.init(
 
         director: {
             type: DataTypes.STRING
+        },
+
+        poster_url: {
+            type: DataTypes.STRING,
+            validate: {
+                isURL: true,
+            },
         },
 
         spooky_scale: {
