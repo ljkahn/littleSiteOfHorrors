@@ -124,3 +124,54 @@ height: 100px;
   padding-right: 20px;
 }
 }
+
+
+/*  ---------------  sign in css ---------------  */
+html,
+body {
+  height: 100%;
+  font-family: Montserrat Subrayada;
+}
+
+.background {
+  background-color: #212121;
+}
+
+/*  ---------------  Sign In/ Create Account css ---------------  */
+.btn {
+  --bs-btn-hover-border-color: var(--regular-red);
+}
+.btn-log {
+  background-color: var(--regular-red);
+}
+.btn-log1 {
+  background-color: var(--regular-red);
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.h3 {
+  color: #a50021;
+}
+/* */
+
+/* --------------- sign in css END ---------------  */
