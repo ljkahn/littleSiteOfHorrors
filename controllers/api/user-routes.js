@@ -43,7 +43,8 @@ router.post("/create", async (req, res) => {
 router.get("/profile", async (req, res) => {
   try {
     const data = "This page should return user profile!";
-    res.status(200).json(data);
+    //we need to serilaize this "data" to have it return the profile information saved in the profile database that is connected to the particular user logging in
+    res.render('userProfile', {data});
   } catch (err) {
     res.status(500).json(err);
   }
