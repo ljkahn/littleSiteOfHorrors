@@ -158,6 +158,7 @@
         "rating": 4,
         "release_year": 2020,
         "description": "error grips a small mountain town as bodies are discovered after each full moon. Losing sleep, raising a teenage daughter, and caring for his ailing father, officer Marshall struggles to remind himself there's no such thing as werewolves.",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BOWZlMDBiMmItMWU0Ny00MGIzLWI1NTQtZDEwMjM0MzBiYjhkXkEyXkFqcGdeQXVyMzIxMjMyODY@._V1_SX300.jpg"
     },
     {
         "title": "Jennifer's Body",
@@ -166,6 +167,7 @@
         "rating": 4,
         "release_year": 2009,
         "description": "A newly-possessed high-school cheerleader turns into a succubus who specializes in killing her male classmates. Can her best friend put an end to the horror?",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMTMxNzYwMjc1Ml5BMl5BanBnXkFtZTcwNDI3MDE3Mg@@._V1_SX300.jpg"
     },
     {
         "title": "Bodies Bodies Bodies",
@@ -174,6 +176,7 @@
         "rating": 4,
         "release_year": 2022,
         "description": "When a group of rich 20-somethings plan a hurricane party at a remote family mansion, a party game turns deadly in this fresh and funny look at backstabbing, fake friends, and one party gone very, very wrong.",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BYTA2ODg5ZjgtOTU2My00MzFkLWI0NzMtZmQ5MmRhMWU1NzhlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg",
     },
     {
         "title": "The Witch",
@@ -182,6 +185,7 @@
         "rating": 4,
         "release_year": 2015,
         "description": "A family in 1630s New England is torn apart by the forces of witchcraft, black magic and possession.",
+        "poster_url":"https://m.media-amazon.com/images/M/MV5BMTUyNzkwMzAxOF5BMl5BanBnXkFtZTgwMzc1OTk1NjE@._V1_SX300.jpg"
     },
 
     {
@@ -190,7 +194,8 @@
         "genre": "Elevated Horror",
         "rating": 4,
         "release_year": 2019, 
-        "description": "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish mid-summer festival. What begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult."
+        "description": "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish mid-summer festival. What begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult.",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMzQxNzQzOTQwM15BMl5BanBnXkFtZTgwMDQ2NTcwODM@._V1_SX300.jpg"
 
     },
 
@@ -201,6 +206,7 @@
         "rating": 5,
         "release_year": 2018, 
         "description": "A grieving family is haunted by tragic and disturbing occurrences.",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BOTU5MDg3OGItZWQ1Ny00ZGVmLTg2YTUtMzBkYzQ1YWIwZjlhXkEyXkFqcGdeQXVyNTAzMTY4MDA@._V1_SX300.jpg"
 
     },
 
@@ -211,6 +217,7 @@
         "rating": 4,
         "release_year": 2017, 
         "description": "A young African-American visits his White girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point.",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMjUxMDQwNjcyNl5BMl5BanBnXkFtZTgwNzcwMzc0MTI@._V1_SX300.jpg"
 
     },
 
@@ -221,6 +228,7 @@
         "rating": 4,
         "release_year": 2019, 
         "description": "A family's serene beach vacation turns to chaos when their doppelgängers appear and begin to terrorize them.",
+        "poster_url":"https://m.media-amazon.com/images/M/MV5BZTliNWJhM2YtNDc1MC00YTk1LWE2MGYtZmE4M2Y5ODdlNzQzXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_SX300.jpg"
 
     },
 
@@ -231,6 +239,8 @@
         "rating":4 ,
         "release_year": 2022, 
         "description": "The residents of a lonely gulch in inland California bear witness to an uncanny and chilling discovery.",
+        "poster_url":"https://m.media-amazon.com/images/M/MV5BMGIyNTI3NWItNTJkOS00MGYyLWE4NjgtZDhjMWQ4Y2JkZTU5XkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_SX300.jpg",
+
 
     },
 
@@ -241,6 +251,7 @@
         "rating": 4,
         "release_year":2011 , 
         "description": "When the Davison family comes under attack during their wedding anniversary getaway, the gang of mysterious killers soon learns that one of the victims harbors a secret talent for fighting back.",
+        "poster_url":"https://m.media-amazon.com/images/M/MV5BMTQwODAxMTE1NF5BMl5BanBnXkFtZTcwNTQ0MjY3OQ@@._V1_SX300.jpg"
 
     },
 
@@ -251,6 +262,7 @@
         "rating": 3,
         "release_year": 2015, 
         "description": "A young woman grieving the loss of her mother, a famous scream queen from the 1980s, finds herself pulled into the world of her mom's most famous movie. Reunited, the women must fight off the film's maniacal killer.",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMjI4Nzk2NzAzOV5BMl5BanBnXkFtZTgwNjI1NzY4NjE@._V1_SX300.jpg",
 
     },
 
@@ -261,6 +273,7 @@
         "rating": 4,
         "release_year": 2019 , 
         "description": "A bride's wedding night takes a sinister turn when her eccentric new in-laws force her to take part in a terrifying game.",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BYzBkMzAyMDUtZTFkZS00OWUyLTgwM2ItNGI3MTQ5NzA3NTVkXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg"
 
     },
 
@@ -271,6 +284,7 @@
         "rating": 4,
         "release_year": 2009, 
         "description": "In 1983, financially struggling college student Samantha Hughes takes a strange babysitting job that coincides with a full lunar eclipse. She slowly realizes her clients harbor a terrifying secret, putting her life in mortal danger.",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMTAxMDAxODg5ODReQTJeQWpwZ15BbWU3MDI5ODYxODI@._V1_SX300.jpg",
 
     },
 
@@ -281,6 +295,7 @@
         "rating":4 ,
         "release_year": 1980, 
         "description": "A group of camp counselors trying to reopen a summer camp called Crystal Lake, which has a grim past, are stalked by a mysterious killer.",
+        "poster_url":"https://m.media-amazon.com/images/M/MV5BNWMxYTYzYWQtNGZmNy00MTg5LTk1N2MtNzQ5NjQxYjQ5NTJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
 
     },
 
@@ -291,6 +306,7 @@
         "rating": 4,
         "release_year": 2022, 
         "description": "In 1979, a group of young filmmakers set out to make an adult film in rural Texas, but when their reclusive, elderly hosts catch them in the act, the cast find themselves fighting for their lives.",
+        "poster_url":"https://m.media-amazon.com/images/M/MV5BMTJiMmE5YWItOWZjYS00YTg0LWE0MTYtMzg2ZTY4YjNkNDEzXkEyXkFqcGdeQXVyMTAzMDg4NzU0._V1_SX300.jpg"
 
     },
 
@@ -301,6 +317,7 @@
         "rating": 4,
         "release_year": 2022, 
         "description": "In 1918, a young woman on the brink of madness pursues stardom in a desperate attempt to escape the drudgery, isolation, and lovelessness of life on her parents' farm.",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BZTFkNmE5MjUtZDE1Yi00ZmQyLTk2YWUtN2EwODA1ZmNlOTA5XkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg",
 
     },
 
@@ -311,6 +328,7 @@
         "rating": 5,
         "release_year": 1981, 
         "description": "Five friends travel to a cabin in the woods, where they unknowingly release flesh-possessing demons.",
+        "poster_url":"https://m.media-amazon.com/images/M/MV5BNjRmY2NmN2UtMmRlMS00Mjg2LTgwNjUtZjYyZjc0NDJjODFkXkEyXkFqcGdeQXVyNjc5NjEzNA@@._V1_SX300.jpg"
 
     },
 
@@ -320,7 +338,8 @@
         "genre": "Torture",
         "rating": 5,
         "release_year": 2005,
-        "description": "Three backpackers head to a Slovak city that promises to meet their hedonistic expectations, with no idea of the hell that awaits them."
+        "description": "Three backpackers head to a Slovak city that promises to meet their hedonistic expectations, with no idea of the hell that awaits them.",
+        "poster_url":"https://m.media-amazon.com/images/M/MV5BMTY1NDA3ODM1OV5BMl5BanBnXkFtZTcwMDM5NzEzMQ@@._V1_SX300.jpg",
         
     }
 
