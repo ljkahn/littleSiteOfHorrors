@@ -7,3 +7,215 @@
 --platinum: #e5e4e2;
 --white-text: #f5f5f5;
 }
+
+/* * {
+  font-size: 62.5%
+} */
+
+/* body {
+  display: flex;
+  flex-direction: column;
+} */
+
+.background {
+  background-color: #212121;
+}
+
+/* NAV BAR CSS */
+.custom-nav-bar {
+  background: transparent;
+  
+}
+
+.custom-nav-hamburger {
+  background-color: var(--regular-red);
+  color: var(--white-text);
+
+}
+
+.custom-all-movies-card {
+  background-color: #343434;
+  margin: 3rem;
+  padding: 3rem;
+  width: 36rem;
+  height: 17rem;
+  align-items: center;
+}
+
+.custom-all-movies-button {
+font-family: 'Montserrat Subrayada';
+background-color: var(--regular-red);
+color: var(--white-text);
+width: 20rem;
+height: 10rem;
+font-size: 2rem;
+}
+
+.custom-all-movies-button:hover {
+background-color: #660000;
+color: var(--white-text);
+}
+
+.body-text {
+  color: var(--platinum);
+  font-family: Work Sans;
+}
+
+.custom-nav-link {
+  color: var(--platinum);
+  font-family: 'Montserrat Subrayada';
+  font-size: 2.5rem;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-decoration: none; 
+}
+
+.custom-nav-link:hover {
+  color: var(--regular-red);
+}
+
+.custom-nav-link:hover::after {
+  content: "🩸";
+}
+
+/* ADD IN ACTIVE NAV TAB TO BE RED WITH BLOOD */
+
+.logo {
+  width: 200px;
+  height: 200px;
+}
+
+.brand1 {
+  display: none;
+}
+/* END NAV BAR CSS */
+
+/* HOMEPAGE CSS */
+.custom-all-movies-card {
+  background-color: #343434;
+  margin: 3rem;
+  padding: 3rem;
+  width: 36rem;
+  height: 17rem;
+  align-items: center;
+}
+
+.custom-all-movies-button {
+font-family: 'Montserrat Subrayada';
+background-color: var(--regular-red);
+color: var(--white-text);
+width: 20rem;
+height: 10rem;
+font-size: 2rem;
+}
+
+.custom-all-movies-button:hover {
+background-color: #660000;
+color: var(--white-text);
+}
+
+.body-text {
+  color: var(--platinum);
+  font-family: Work Sans;
+}
+/* END HOMEPAGE CSS */
+
+
+/* FOOTER CSS */
+footer {
+  background: transparent; 
+  bottom: 0;
+  color: var(--white-text);
+  border: none;
+  text-decoration: none;
+}
+
+footer h3 {
+  color: var(--regular-red);
+  font-family: 'Montserrat Subrayada';
+}
+
+footer p {
+font-family: 'Work Sans';
+}
+
+.footer-brand {
+  height: 100px;
+  width: 100px;
+}
+/* END FOOTER CSS */
+
+
+/* FOR NAV BAR LOGO */
+@media (min-width: 0px) and (max-width: 991px) {
+.logo {
+width: 100px;
+height: 100px;
+}
+.brand2 {
+  display: none;
+}
+.brand1 {
+  display: block;
+}
+}
+
+
+@media (min-width: 0px) and (max-width: 1250px) {
+.custom-nav-link {
+  font-size: 2rem; 
+  padding-left: 20px; 
+  padding-right: 20px;
+}
+}
+
+
+/*  ---------------  sign in css ---------------  */
+html,
+body {
+  height: 100%;
+  font-family: Montserrat Subrayada;
+}
+
+.background {
+  background-color: #212121;
+}
+
+/*  ---------------  Sign In/ Create Account css ---------------  */
+.btn {
+  --bs-btn-hover-border-color: var(--regular-red);
+}
+.btn-log {
+  background-color: var(--regular-red);
+}
+.btn-log1 {
+  background-color: var(--regular-red);
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.h3 {
+  color: #a50021;
+}
+/* */
+
+/* --------------- sign in css END ---------------  */
