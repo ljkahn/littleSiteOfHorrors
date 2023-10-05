@@ -16,22 +16,27 @@ Movie.init(
 
         },
 
-        genre: {
-            type: DataTypes.STRING
-
-        },
-
         director: {
             type: DataTypes.STRING
+
         },
 
-        spooky_scale: {
+        genre: {
+            type: DataTypes.STRING
+        },
+
+        rating: {
             type: DataTypes.INTEGER,
             validate: {
                 min:1,
                 max:5
             }
         }, 
+
+        release_year: {
+            type: DataTypes.INTEGER
+
+        }
 
 
     },
