@@ -1,13 +1,21 @@
 const router = require("express").Router();
+const { user } = require("../../models");
 
 // LOGIN & SIGN UP PAGE
 
 // GET login page
 // http://localhost:3001/api/users/login
-router.get("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
-    const data = "You have reached the login page!";
-    res.status(200).json(data);
+    const data = await user.create({
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+    req.save(() => {
+      req.loggedIn = true;
+      res.status(200).json(data);
+    });
   } catch (err) {
     res.status(500).json(err);
   }

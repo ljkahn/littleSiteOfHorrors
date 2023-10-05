@@ -5,7 +5,7 @@ const router = require("express").Router();
 router.get("/", async (req, res) => {
   try {
     const data = "You have reached the landing page!";
-    res.render('homepage', {data});
+    res.render("homepage", { data });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -36,14 +36,18 @@ router.get("/movies/:id", async (req, res) => {
 // GET discussion page
 // http://localhost:3001/forum
 router.get("/forum", async (req, res) => {
-  try {
-    const data = "This page should return the forum!";
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(500).json(err);
+  if (!req.loggedIn) {
+    res.redirect("/login");
+  } else {
+    try {
+      const data = "This page should return the forum!";
+      res.status(200).json(data);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+    // ADD AUTHENTICATION:
+    // This page should only be viewable if the user is logged in
   }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
 });
 
 // POST on forum
