@@ -46,6 +46,18 @@ router.get("/profile", async (req, res) => {
   // This page should only be viewable if the user is logged in
 });
 
+// PUT (edit) user profile
+router.put("/profile", async (req, res) => {
+  try {
+    const data = "This page should allow the user to edit their profile!";
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+  // ADD AUTHENTICATION:
+  // This page should only be viewable if the user is logged in
+});
+
 // GET discussion page
 // http://localhost:3001/forum
 router.get("/forum", async (req, res) => {
@@ -60,7 +72,7 @@ router.get("/forum", async (req, res) => {
 });
 
 // POST on forum
-// http://localhost:3001/profile
+// http://localhost:3001/forum
 router.post("/create", async (req, res) => {
   try {
     const postForum = "This page will be where a user can post on the forum";
@@ -69,6 +81,8 @@ router.post("/create", async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
+  // ADD AUTHENTICATION:
+  // This page should only be viewable if the user is logged in
 });
 
 module.exports = router;
