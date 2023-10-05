@@ -5,7 +5,7 @@ const { user } = require("../../models");
 
 // GET login page
 // http://localhost:3001/api/users/login
-router.post("/login", async (req, res) => {
+router.get("/login", async (req, res) => {
   try {
     const data = await user.create({
       email: req.body.email,
