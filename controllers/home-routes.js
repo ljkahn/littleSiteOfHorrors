@@ -59,4 +59,16 @@ router.get("/forum", async (req, res) => {
   // This page should only be viewable if the user is logged in
 });
 
+// POST on forum
+// http://localhost:3001/profile
+router.post("/create", async (req, res) => {
+  try {
+    const postForum = "This page will be where a user can post on the forum";
+    res.status(200).json(postForum);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
