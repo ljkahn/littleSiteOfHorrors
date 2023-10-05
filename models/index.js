@@ -11,6 +11,6 @@ User.hasMany(Movies, {
 
 
 
-Profile.oneToMany(Movies, { 
+Profile.hasMany(Movies, { 
   through: Movies, foreignKey: 'user_id' 
 });
