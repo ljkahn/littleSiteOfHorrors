@@ -1,3 +1,8 @@
+const {Movies} =require('../models')
+
+
+
+const movieData=
 [
     {
         "title": "Candyman",

@@ -33,7 +33,11 @@ Profile.init(
     },
 
     top_movies: {
-        type: DataTypes.UUID,
+        type: DataTypes.STRING,
+        validate: {
+            max:5
+            //Datatype correct?
+        }
 
     },
 
@@ -50,7 +54,10 @@ Profile.init(
 
   {
     sequelize,
-    modelName: "profile",
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'profile',
   }
 );
 
