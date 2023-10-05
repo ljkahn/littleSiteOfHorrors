@@ -7,7 +7,7 @@ Movie.init(
     {
         movie_id: {
             type: DataTypes.INTEGER,
-            foreignKey: true,
+            primaryKey: true,
             autoIncrement: true,
         },
 
@@ -16,16 +16,16 @@ Movie.init(
 
         },
 
-        genre: {
-            type: DataTypes.STRING
-
-        },
-
         director: {
             type: DataTypes.STRING
+
         },
 
-        spooky_scale: {
+        genre: {
+            type: DataTypes.STRING
+        },
+
+        rating: {
             type: DataTypes.INTEGER,
             validate: {
                 min:1,
@@ -33,10 +33,29 @@ Movie.init(
             }
         }, 
 
+        release_year: {
+            type: DataTypes.INTEGER
+
+        },
+
+        description: {
+            type:DataTypes.STRING
+        },
+
+        poster_url: {
+            type:DataTypes.STRING,
+            validate: {
+                isURL: true
+            }
+        }
+
 
     },
 {
-    sequelize, 
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
     modelName: 'movie',
 
 }
