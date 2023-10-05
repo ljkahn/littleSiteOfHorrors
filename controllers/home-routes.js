@@ -33,44 +33,6 @@ router.get("/movies/:id", async (req, res) => {
   }
 });
 
-// GET user profile
-// http://localhost:3001/profile
-router.get("/profile", async (req, res) => {
-  try {
-    const data = "This page should return user profile!";
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
-
-// GET edit profile page
-router.get("/profile/edit", async (req, res) => {
-  try {
-    const data = "This page should return a profile page that can be edited!";
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
-
-// PUT (edit) user profile
-// http://localhost:3001/profile
-router.put("/profile", async (req, res) => {
-  try {
-    const data = "This action should allow the user to edit their profile!";
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
-
 // GET discussion page
 // http://localhost:3001/forum
 router.get("/forum", async (req, res) => {
@@ -85,7 +47,7 @@ router.get("/forum", async (req, res) => {
 });
 
 // POST on forum
-// http://localhost:3001/forum
+// http://localhost:3001/forum/create
 router.post("/create", async (req, res) => {
   try {
     const postForum = "This action will let a user post on the forum!";
