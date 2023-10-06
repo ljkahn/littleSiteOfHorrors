@@ -220,6 +220,13 @@ body {
 
 /* --------------- sign in css END ---------------  */
 
+/* --------------- on search css ----- ----------  */
+.text {
+  color: var(--white-text);
+
+}
+/* --------------- on search css END ---------------  */
+
 
 /* USER PROFILE CSS */
 
