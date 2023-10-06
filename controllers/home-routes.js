@@ -38,7 +38,7 @@ router.get("/movies/:id", async (req, res) => {
 router.get("/profile", async (req, res) => {
   try {
     const data = "This page should return user profile!";
-    res.status(200).json(data);
+    res.render('userProfile', {data});
   } catch (err) {
     res.status(500).json(err);
   }
