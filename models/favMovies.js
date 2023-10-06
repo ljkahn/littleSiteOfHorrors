@@ -45,10 +45,10 @@ favMovies.init(
     },
 {
     sequelize, 
-    modelName: 'movie',
+    modelName: 'favMovies',
 
 }
 
 );
 
-module.exports = Movie
+module.exports = favMovies

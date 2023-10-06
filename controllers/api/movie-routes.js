@@ -13,7 +13,7 @@ app.get('/movies', async (req, res) => {
       // Extracting movie URLs from the result
       const posterUrl = posterData.map((movie) => movie.poster_url);
   
-      res.json(posterUrl);
+      res.render("book_list", { title: "Book List", book_list: allBooks });
     } catch (error) {
       console.error('Error fetching movie URLs:', error);
       res.status(500).json({ error: 'An error occurred while fetching movie URLs' });
