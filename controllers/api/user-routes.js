@@ -1,32 +1,58 @@
 const router = require("express").Router();
-// const { user } = require("../../models");
+const { user } = require("../../models");
 
 // LOGIN & SIGN UP PAGE
 
-// GET login page
+// PURPOSE: user tries to log in here, checks that their login is valid
+// GET login page, changed to post
 // http://localhost:3001/api/users/login
-// router.get("/login", async (req, res) => {
-//   try {
-//     const data = await user.create({
-//       email: req.body.email,
-//       password: req.body.password,
-//     });
+router.post("/login", async (req, res) => {
+  try {
+    const userEmail = await user.findOne({
+      email: req.body.email,
+    });
 
-//     req.save(() => {
-//       req.loggedIn = true;
-//       res.status(200).json(data);
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    if (!userEmail) {
+      res
+        .status(400)
+        .json({ message: "Incorrect email or password. Please try again!" });
+      return;
+    }
+
+    const validPassword = await userData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: "Incorrect email or password. Please try again!" });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      res
+        .status(200)
+        .json({ user: userEmail, message: "You are now logged in!" });
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // GET create account page
 // http://localhost:3001/api/users/create
-router.get("/create", async (req, res) => {
+router.post("/create", async (req, res) => {
   try {
-    const data = "You have reached the create account page!";
-    res.status(200).json(data);
+    const newUserData = await user.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      res.status(200).json(newUserData);
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -34,15 +60,15 @@ router.get("/create", async (req, res) => {
 
 // POST create account
 // http://localhost:3001/api/users/create
-router.post("/create", async (req, res) => {
-  try {
-    const createAccount = "This action will let a user create a new account";
-    res.status(200).json(createAccount);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+// router.post("/create", async (req, res) => {
+//   try {
+//     const createAccount = "This action will let a user create a new account";
+//     res.status(200).json(createAccount);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 // PROFILE PAGE
 

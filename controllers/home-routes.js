@@ -35,21 +35,23 @@ router.get("/movies/:id", async (req, res) => {
 
 // GET discussion page
 // http://localhost:3001/forum
-router.get("/forum", async (req, res) => {
-  if (!req.loggedIn) {
-    res.redirect("/login");
-  } else {
-    try {
-      const data = "This page should return the forum!";
-      res.status(200).json(data);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-    // ADD AUTHENTICATION:
-    // This page should only be viewable if the user is logged in
-  }
-});
+// router.get("/forum", async (req, res) => {
+//   if (!req.loggedIn) {
+//     res.redirect("/login");
+//   } else {
+//     try {
+//       const data = "This page should return the forum!";
+//       res.status(200).json(data);
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//     // ADD AUTHENTICATION:
+//     // This page should only be viewable if the user is logged in
+//   }
+// });
 
+// We need a post route hooked up to the modal on our movies/:id route
+// The user will create a review in the modal and we want that to post into the reviews section of movies/:id
 // POST on forum
 // http://localhost:3001/forum/create
 router.post("/create", async (req, res) => {
