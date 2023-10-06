@@ -1,0 +1,50 @@
+<main class="container">
+  <div class="row">
+
+    <div class="col-lg-2">
+      <div>
+        <img class="forum-movie-img"
+          src="https://m.media-amazon.com/images/M/MV5BNTUxNzYyMjg2N15BMl5BanBnXkFtZTcwMTExNzExNw@@._V1_SX300.jpg"
+          alt="movie-poster"
+        />
+      </div>
+      <div class="card">
+        <div class="card-body forum-movie-info">
+          <p>{MOVIE TITLE}</p>
+          <p>{MOVIE YEAR}</p>
+          <p>{MOVIE RATING/SPOOKY SCALE}</p>
+          <p>{PLOT}</p>
+        </div>
+      </div>
+    </div>
+    {{! END OF COLUMN 1 - MOVIE ASIDE INFO }}
+    <div class="col-lg-10">
+      <div>
+        <textarea
+          name="forum-post"
+          id="forum-post"
+          cols="30"
+          rows="10"
+        ></textarea>
+      </div>
+      <div class="d-flex">
+        <a href="/create">
+          <button class="form-submit-btn p-3">Sumbit</button></a>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Select Discussion Topic</option>
+          <option value="1">Plot</option>
+          <option value="2">Actors</option>
+          <option value="3">Critique</option>
+          <option value="4">Other</option>
+        </select>
+      </div>
+      <div class="card comments-holder">
+        <div class="card-body">
+          {{!-- DYNAMICALLY CREATE COMMENT CARDS UPON CREATION --}}
+          DYNAMICALLY CREATE 
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

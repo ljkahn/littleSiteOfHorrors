@@ -90,23 +90,15 @@ router.get("/profile", async (req, res) => {
   // This page should only be viewable if the user is logged in
 });
 
-// GET edit profile page
-// http://localhost:3001/api/users/profile/edit
-router.get("/profile/edit", async (req, res) => {
-  try {
-    const data = "This page should return a profile page that can be edited!";
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
+
 
 // PUT (edit) user profile
 // http://localhost:3001/api/users/profile/edit
 router.put("/profile/edit", async (req, res) => {
   try {
+    console.log("=================================")
+    console.log(req.body)
+    console.log("=================================")
     const data = "This action should allow the user to edit their profile!";
     res.status(200).json(data);
   } catch (err) {
