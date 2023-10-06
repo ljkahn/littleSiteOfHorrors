@@ -59,34 +59,52 @@ router.get("/profile/edit", async (req, res) => {
 });
 
 
+router.get('/login', async (req,res) => {
+  try {
+    const data = "This should present the login page!";
+    res.render('login', {data})
+  } catch (err) {
+    res.status(500),json(err);
+  }
+});
+
+router.get('/create', async (req,res) => {
+  try {
+    const data = "This should present the create account page!";
+    res.render('newAccount', {data})
+  } catch (err) {
+    res.status(500),json(err);
+  }
+});
+
 
 // GET discussion page
 // http://localhost:3001/forum
-router.get("/forum", async (req, res) => {
-  try {
-    const data = "This page should return the forum!";
-    res.render('discussionForum', {data});
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
+// router.get("/forum", async (req, res) => {
+//   try {
+//     const data = "This page should return the forum!";
+//     res.render('discussionForum', {data});
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+//   // ADD AUTHENTICATION:
+//   // This page should only be viewable if the user is logged in
+// });
 
 // We need a post route hooked up to the modal on our movies/:id route
 // The user will create a review in the modal and we want that to post into the reviews section of movies/:id
 // POST on forum
 // http://localhost:3001/forum/create
-router.post("/create", async (req, res) => {
-  try {
-    const postForum = "This action will let a user post on the forum!";
-    res.status(200).json(postForum);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
+// router.post("/create", async (req, res) => {
+//   try {
+//     const postForum = "This action will let a user post on the forum!";
+//     res.status(200).json(postForum);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+//   // ADD AUTHENTICATION:
+//   // This page should only be viewable if the user is logged in
+// });
 
 module.exports = router;
