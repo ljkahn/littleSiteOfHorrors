@@ -1,5 +1,4 @@
-
-const { Model, DataTypes } = require("sequlize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 class Profile extends Model {}
@@ -20,25 +19,24 @@ Profile.init(
     },
 
     answer_1: {
-        type:DataTypes.String,
-        allowNull: true,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     answer_2: {
-        type:DataTypes.String,
-        allowNull: true,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     answer_3: {
-        type:DataTypes.String,
-        allowNull: true,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
 
     top_movies: {
-        type: DataTypes.STRING,
-        validate: {
-            max:5
-            //Datatype correct?
-        }
-
+      type: DataTypes.STRING,
+      validate: {
+        max: 5,
+        //Datatype correct?
+      },
     },
 
     spooky_scale: {
@@ -48,8 +46,6 @@ Profile.init(
         max: 5,
       },
     },
-
-
   },
 
   {
@@ -57,7 +53,7 @@ Profile.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'profile',
+    modelName: "profile",
   }
 );
 
