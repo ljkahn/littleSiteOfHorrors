@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Movie } = require('../../models');
+const { Movie, Review } = require('../../models');
 
 // /movies get all poster images
 // http://localhost:3001/movies/
@@ -10,7 +10,7 @@ router.get('/movies', async (req, res) => {
         attributes: ['poster_url'], 
       });
   
-      // Extracting movie URLs from the result
+    //   // Extracting movie URLs from the result
       const posterUrls = posterData.map((movie) => movie.poster_url);
   
       res.render('searchResults', { posterUrls });
@@ -31,7 +31,7 @@ router.get('/movie/:id', async (req, res) => {
       if (!movie) {
         res.status(404).send('Movie not found');
       } else {
-        res.render('searchResults', { title: movie.title });
+        res.render('oneSearchResult', { title: movie.title });
       }
     } catch (error) {
       console.error('Error fetching movie title:', error);
@@ -49,7 +49,7 @@ router.get('/movie/:id', async (req, res) => {
       if (!movie) {
         res.status(404).send('Movie not found');
       } else {
-        res.render('searchResults', { title: movie.director });
+        res.render('oneSearchResult', { title: movie.director });
       }
     } catch (error) {
       console.error('Error fetching movie director:', error);
@@ -67,7 +67,7 @@ router.get('/movie/:id', async (req, res) => {
       if (!movie) {
         res.status(404).send('Movie not found');
       } else {
-        res.render('searchResults', { title: movie.release_year });
+        res.render('oneSearchResult', { title: movie.release_year });
       }
     } catch (error) {
       console.error('Error fetching release year:', error);
@@ -84,7 +84,7 @@ router.get('/movie/:id', async (req, res) => {
       if (!movie) {
         res.status(404).send('Movie not found');
       } else {
-        res.render('searchResults', { title: movie.description });
+        res.render('oneSearchResult', { title: movie.description });
       }
     } catch (error) {
       console.error('Error fetching movie year:', error);
@@ -93,10 +93,40 @@ router.get('/movie/:id', async (req, res) => {
   });
 
 // /movies/:id generate rating /spooky scale on page
+router.get('/movie/:id', async (req, res) => {
+    try {
+      const movieId = parseInt(req.params.id);
+      const movie = await Movie.findByPk(movieId);
+  
+      if (!movie) {
+        res.status(404).send('Movie not found');
+      } else {
+        res.render('oneSearchResult', { title: movie.rating });
+      }
+    } catch (error) {
+      console.error('Error fetching movie rating:', error);
+      res.status(500).send('An error occurred while fetching the movie rating.');
+    }
+  });
+
 
 // /movies/:id create modal for user reviews to save to reviews
 
 // /movies/:id generate reviews from reviews table
-
+// router.get('/movie/:id', async (req, res) => {
+//     try {
+//       const reviewId = parseInt(req.params.id);
+//       const movie = await Review.findByPk(reviewId);
+  
+//       if (!review) {
+//         res.status(404).send('Review not found');
+//       } else {
+//         res.render('searchResults', [ title: review.id ]);
+//       }
+//     } catch (error) {
+//       console.error('Error fetching movie year:', error);
+//       res.status(500).send('An error occurred while fetching the movie year.');
+//     }
+//   });
 
 module.exports = router;
