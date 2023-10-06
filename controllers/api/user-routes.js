@@ -28,6 +28,10 @@ router.get("/create", async (req, res) => {
 // http://localhost:3001/api/users/create
 router.post("/create", async (req, res) => {
   try {
+    console.log("==============");
+    console.log(req.body);
+    console.log("==============");
+
     const createAccount = "This action will let a user create a new account";
     res.status(200).json(createAccount);
   } catch (err) {
