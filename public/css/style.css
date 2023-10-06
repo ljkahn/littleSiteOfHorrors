@@ -219,3 +219,81 @@ body {
 /* */
 
 /* --------------- sign in css END ---------------  */
+
+
+/* USER PROFILE CSS */
+
+.user-image {
+  width: 17rem;
+  height: 17rem;
+  border-radius: 100%;
+}
+
+.user-info-card {
+/* height: 6.25rem; */
+width: 18rem;
+background-color: var(--regular-red);
+color: var(--white-text);
+font-family: 'Work Sans';
+}
+
+.user-prompt-card {
+width: 100%;
+/* height: 24rem; */
+background-color: var(--platinum);
+
+}
+
+.prompt-answer {
+  font-family: 'Work Sans';
+  margin:auto;
+  padding-top: 10px;
+  font-size: 1.5rem;
+}
+
+.prompt-question-cards {
+  background-color: #660000;
+  color: var(--white-text);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.user-top5 {
+  /* height: 40rem; */
+  width: 100%;
+  font-family: 'Work Sans';
+  background: var(--platinum);
+  margin-right: auto;
+  margin-top: 50px;
+}
+.top5{
+  font-family: 'Montserrat Subrayada';
+  text-align: center;
+  color:#660000
+}
+.user-movie {
+  background-color: #343434;
+  color: var(--white-text);
+  padding: 10px;
+  margin: 10px;
+  font-size: 1.5rem;
+
+}
+
+/* .profile-info {
+
+} */
+.edit-profile-btn {
+margin-top: 50px;
+border-radius: 10px;
+background-color: #343434;
+color: var(--white-text)
+}
+/* .carousel {
+
+
+} */
+
+
+
+/* END USER PROFILE CSS */

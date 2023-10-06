@@ -7,7 +7,7 @@ const router = require("express").Router();
 router.get("/login", async (req, res) => {
   try {
     const data = "You have reached the login page!";
-    res.status(200).json(data);
+    res.render('login', {data}); //don't know if this should be {data}
   } catch (err) {
     res.status(500).json(err);
   }
@@ -18,7 +18,7 @@ router.get("/login", async (req, res) => {
 router.get("/create", async (req, res) => {
   try {
     const data = "You have reached the create account page!";
-    res.status(200).json(data);
+    res.render('newAccount', {data}); //don't know if this should be {data}
   } catch (err) {
     res.status(500).json(err);
   }
