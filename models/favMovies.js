@@ -1,18 +1,31 @@
-const { Model, DataTypes } = require("sequlize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const { default: isURL } = require("validator/lib/isURL");
 const Movie = require("./Movie");
 
-class favMovies extends Model {}
+class FavMovies extends Model {}
 
-favMovies.init(
+FavMovies.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     movie_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "movie",
         id: "movie_id",
+      },
+    },
+    profile_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "profile",
+        id: "id",
       },
     },
 
@@ -47,8 +60,10 @@ favMovies.init(
   },
   {
     sequelize,
-    modelName: "movie",
+    freezeTableName: true,
+    timestamps: false,
+    modelName: "favMovie",
   }
 );
 
-module.exports = Movie;
+module.exports = FavMovies;

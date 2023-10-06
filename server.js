@@ -4,6 +4,7 @@ const controllers = require("./controllers");
 const sequelize = require("./config/connection");
 const exphbs = require("express-handlebars");
 const helpers = require("./utils/helpers");
+const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
@@ -33,6 +34,6 @@ app.set("view engine", "handlebars");
 
 app.use(controllers);
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`Now listening at ${PORT}`));
 });
