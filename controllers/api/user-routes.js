@@ -7,7 +7,7 @@ const router = require("express").Router();
 router.get("/login", async (req, res) => {
   try {
     const data = "You have reached the login page!";
-    res.status(200).json(data);
+    res.render('login', {data}); //don't know if this should be {data}
   } catch (err) {
     res.status(500).json(err);
   }
@@ -18,7 +18,7 @@ router.get("/login", async (req, res) => {
 router.get("/create", async (req, res) => {
   try {
     const data = "You have reached the create account page!";
-    res.status(200).json(data);
+    res.render('newAccount', {data}); //don't know if this should be {data}
   } catch (err) {
     res.status(500).json(err);
   }
@@ -43,7 +43,8 @@ router.post("/create", async (req, res) => {
 router.get("/profile", async (req, res) => {
   try {
     const data = "This page should return user profile!";
-    res.status(200).json(data);
+    //we need to serilaize this "data" to have it return the profile information saved in the profile database that is connected to the particular user logging in
+    res.render('userProfile', {data});
   } catch (err) {
     res.status(500).json(err);
   }
