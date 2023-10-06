@@ -320,6 +320,11 @@ height: 37rem;
 }
 
 
+#previewIcon {
+border-radius: 100%;
+
+}
+
 
 
 /* END USER PROFILE EDIT CSS */
