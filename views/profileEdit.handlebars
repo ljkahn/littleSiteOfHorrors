@@ -1,0 +1,113 @@
+<main class="container">
+  <div class="row">
+    <div class="col-lg-4">
+
+      {{! SELECT USER ICON - DONT KNOW HOW TO GET THIS TO WORK }}
+
+      <select class="form-select" aria-label="Filter select">
+        <option selected>&#x29E9; Filter</option>
+        <option value="1"><img
+            src="../public/icons/UserIconChoices/1.svg"
+            alt=""
+          /></option>
+        <option value="2">Active</option>
+        <option value="3">Inactive</option>
+      </select>
+
+      <div class="form-group">
+        <label
+          class="updateLabel"
+          for="exampleFormControlTextarea1"
+        >Name</label>
+        <textarea
+          class="form-control textUpdate"
+          id="nameEditProfile"
+          rows="3"
+        ></textarea>
+        <label
+          class="updateLabel"
+          for="exampleFormControlTextarea1"
+        >Location</label>
+        <textarea
+          class="form-control"
+          id="locationEditProfile"
+          rows="3"
+        ></textarea>
+
+        <label for="exampleFormControlSelect1">Spooky Scale</label>
+        <select class="form-control" id="spooky_scale">
+          <option value="1">🎃 G Rated</option>
+          <option value="2">🎃🎃 PG Rated</option>
+          <option value="3">🎃🎃🎃 PG 13 Rated</option>
+          <option value="4">🎃🎃🎃🎃 R Rated</option>
+          <option value="5">🎃🎃🎃🎃🎃 NC 17 Rated</option>
+        </select>
+      </div>
+
+      
+
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card user-top5">
+        <ul class="card-body">
+          <p class="top5">My Top Five Movies</p>
+          <div id="top_movie1" class="card  p-1">
+            <li>{MOVIE 1}</li>
+          </div>
+          <div id="top_movie2" class="card  p-1">
+            <li>{MOVIE 2}</li>
+          </div>
+          <div id="top_movie3" class="card  p-1">
+            <li>{MOVIE 3}</li>
+          </div>
+          <div id="top_movie4" class="card  p-1">
+            <li>{MOVIE 4}</li>
+          </div>
+          <div id="top_movie5" class="card  p-1">
+            <li>{MOVIE 5}</li>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label
+          class="updateLabel"
+          for="exampleFormControlTextarea1"
+        >My Favorite Spooky Movie Snack Is:</label>
+        <textarea
+          class="form-control textUpdate"
+          id="prompt_answer1"
+          rows="3"
+        ></textarea>
+        <label
+          class="updateLabel"
+          for="exampleFormControlTextarea1"
+        >My Top 3 October Activites Are:</label>
+        <textarea
+          class="form-control"
+          id="prompt_answer2"
+          rows="3"
+        ></textarea>
+        <label
+          class="updateLabel"
+          for="exampleFormControlTextarea1"
+        >My Best Halloween Costume Ever Was:</label>
+        <textarea
+          class="form-control"
+          id="prompt_answer3"
+          rows="3"
+        ></textarea>
+      </div>
+
+
+      <div>
+        <button class="edit-profile-btn p-3">Save Profile</button>
+      </div>
+    </div>
+
+  </div>
+
+</main>

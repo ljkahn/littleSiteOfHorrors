@@ -6,24 +6,39 @@ class Profile extends Model {}
 
 Profile.init(
     {
-        user_id: {
+        id: {
             type: DataTypes.INTEGER,
-            foreignKey: true,
             autoIncrement: true,
+            allowNull: false,
         },
 
         location: {
             type: DataTypes.STRING,
-            allowNull,
+            allowNull: true,
 
         },
-
-        top_movies: {
-
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
-
-    
-
+        prompt_answer1: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+        },
+        prompt_answer2: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+        },
+        prompt_answer3: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'            }
+        },
         spooky_scale: {
             type: DataTypes.INTEGER,
             validate: {
@@ -31,7 +46,23 @@ Profile.init(
                 max:5
             }
         }, 
+        top_movie1: {
+            type: DataTypes.STRING,
+        },
+        top_movie2: {
+            type: DataTypes.STRING
 
+        },
+        top_movie3: {
+            type: DataTypes.STRING
+
+        },
+        top_movie4: {
+            type: DataTypes.STRING
+        },
+        top_movie5: {
+            type: DataTypes.STRING
+        }
     },
     
 {

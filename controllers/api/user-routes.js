@@ -57,7 +57,7 @@ router.get("/profile", async (req, res) => {
 router.get("/profile/edit", async (req, res) => {
   try {
     const data = "This page should return a profile page that can be edited!";
-    res.status(200).json(data);
+    res.render('profileEdit', {data});
   } catch (err) {
     res.status(500).json(err);
   }

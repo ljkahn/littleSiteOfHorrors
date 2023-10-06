@@ -6,27 +6,25 @@ class favMovies extends Model {}
 
 favMovies.init(
     {
-        movie_id: {
-            type: DataTypes.INTEGER,
-            foreignKey: true,
-            autoIncrement: true,
+        top_movie1: {
+            type: DataTypes.STRING,
         },
 
-        title: {
+        top_movie2: {
             type: DataTypes.STRING
 
         },
 
-        genre: {
+        top_movie3: {
             type: DataTypes.STRING
 
         },
 
-        director: {
+        top_movie4: {
             type: DataTypes.STRING
         },
 
-        poster_url: {
+        top_movie5: {
             type: DataTypes.STRING,
             validate: {
                 isURL: true,
