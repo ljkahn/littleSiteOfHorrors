@@ -15,8 +15,9 @@ router.get("/", async (req, res) => {
 // http://localhost:3001/movies/
 router.get("/movies", async (req, res) => {
   try {
-    const data = "You have reached the all movies page!";
-    res.status(200).json(data);
+    const data = "You have reached the landing page!";
+    // const allMoviesData = await movies.findAll();
+    res.render('searchResults', {data});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -27,7 +28,7 @@ router.get("/movies", async (req, res) => {
 router.get("/movies/:id", async (req, res) => {
   try {
     const data = "This page should return one movie!";
-    res.status(200).json(data);
+    res.render('searchResults', {data});
   } catch (err) {
     res.status(500).json(err);
   }
