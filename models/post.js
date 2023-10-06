@@ -1,3 +1,5 @@
+// NOT USING NOW THAT DISCUSSION BOARD IS ICE BOXED
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
