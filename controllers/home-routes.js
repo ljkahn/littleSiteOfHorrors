@@ -28,7 +28,7 @@ router.get("/movies", async (req, res) => {
 router.get("/movies/:id", async (req, res) => {
   try {
     const data = "This page should return one movie!";
-    res.render('searchResults', {data});
+    res.render('oneSearchResult', {data});
   } catch (err) {
     res.status(500).json(err);
   }
