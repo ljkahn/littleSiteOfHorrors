@@ -3,15 +3,9 @@
     <div class="col-lg-4">
 
       {{! SELECT USER ICON - DONT KNOW HOW TO GET THIS TO WORK }}
-
-      <select class="form-select" aria-label="Filter select">
-        <option selected>&#x29E9; Filter</option>
-        <option value="1"><img
-            src="../public/icons/UserIconChoices/1.svg"
-            alt=""
-          /></option>
-        <option value="2">Active</option>
-        <option value="3">Inactive</option>
+    <img id="previewIcon" src="/icons/placeholder.jpg" alt="placeholder" width="200px" height="200px">
+      <select id="dropdownIcon" class="form-select" aria-label="Filter select">
+        <option selected>&#x29E9; Choose your profile image</option>
       </select>
 
       <div class="form-group">
@@ -21,7 +15,7 @@
         >Name</label>
         <textarea
           class="form-control textUpdate"
-          id="nameEditProfile"
+          id="name"
           rows="3"
         ></textarea>
         <label
@@ -30,7 +24,7 @@
         >Location</label>
         <textarea
           class="form-control"
-          id="locationEditProfile"
+          id="location"
           rows="3"
         ></textarea>
 
@@ -79,7 +73,7 @@
         >My Favorite Spooky Movie Snack Is:</label>
         <textarea
           class="form-control textUpdate"
-          id="prompt_answer1"
+          id="answer_1"
           rows="3"
         ></textarea>
         <label
@@ -88,7 +82,7 @@
         >My Top 3 October Activites Are:</label>
         <textarea
           class="form-control"
-          id="prompt_answer2"
+          id="answer_2"
           rows="3"
         ></textarea>
         <label
@@ -104,10 +98,12 @@
 
 
       <div>
-        <button class="edit-profile-btn p-3">Save Profile</button>
+        <button id="save-profile-btn" class="edit-profile-btn p-3">Save Profile</button>
       </div>
     </div>
 
   </div>
 
 </main>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="/js/profileEdit.js"></script>

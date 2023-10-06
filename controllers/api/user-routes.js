@@ -96,6 +96,9 @@ router.get("/profile", async (req, res) => {
 // http://localhost:3001/api/users/profile/edit
 router.put("/profile/edit", async (req, res) => {
   try {
+    console.log("=================================")
+    console.log(req.body)
+    console.log("=================================")
     const data = "This action should allow the user to edit their profile!";
     res.status(200).json(data);
   } catch (err) {
