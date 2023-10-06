@@ -3,24 +3,28 @@
             <div class=" text row gx-4 gx-lg-5 align-items-center">
                 <div class="col-md-6"><img src="https://m.media-amazon.com/images/M/MV5BNzQ1NDBlNDItMDAyYS00YTI2LTgwMmYtMzAwMzg4NDFlM2ZmXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" class="img-fluid img-thumbnail" alt="..." href="/movies/:id"></div>
                 <div class="col-md-6">
-                    <h1 class="display-5 fw-bolder">Name</h1>
-                    <h2 class="display-5 fw-bolder">Director</h2>
-                    <h3 class="display-5 fw-bolder">Year</h3>
+                    <h1 class="display-5 fw-bolder">{{title}}</h1>
+                    <h2 class="display-5 fw-bolder">{{director}}</h2>
+                    <h3 class="display-5 fw-bolder">{{release_year}}</h3>
                     <div class="fs-5 mb-5">
                     </div>
-                    <p class="lead">Plot</p>
-                    <div class="d-flex">
+                    <p class="lead">{{description}}</p>
+                    <br />
+                    <div class="d-flex flex-column">
                        <button
                         class="d-flex btn btn-log1 text-white w-100 py-2"
                         type="button">
                         Add to Favorites
                         </button>
+                        <br />
                         <button
                         class="d-flex btn btn-log1 text-white w-100 py-2"
                         type="button">
                         post a review
                         </button>
-                </div>
+                         <br />
+                        <h2>Spooky Scale: <span class="badge bg-secondary">{rating}</span></h2>
+                    </div>
                 </div>
             </div>
         </div>
