@@ -5,7 +5,7 @@ const router = require("express").Router();
 router.get("/", async (req, res) => {
   try {
     const data = "You have reached the landing page!";
-    res.render('homepage', {data});
+    res.render("homepage", { data });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -33,59 +33,27 @@ router.get("/movies/:id", async (req, res) => {
   }
 });
 
-// GET user profile
-// http://localhost:3001/profile
-router.get("/profile", async (req, res) => {
-  try {
-    const data = "This page should return user profile!";
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
-
-// GET edit profile page
-router.get("/profile/edit", async (req, res) => {
-  try {
-    const data = "This page should return a profile page that can be edited!";
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
-
-// PUT (edit) user profile
-// http://localhost:3001/profile
-router.put("/profile", async (req, res) => {
-  try {
-    const data = "This action should allow the user to edit their profile!";
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
-
 // GET discussion page
 // http://localhost:3001/forum
-router.get("/forum", async (req, res) => {
-  try {
-    const data = "This page should return the forum!";
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
+// router.get("/forum", async (req, res) => {
+//   if (!req.loggedIn) {
+//     res.redirect("/login");
+//   } else {
+//     try {
+//       const data = "This page should return the forum!";
+//       res.status(200).json(data);
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//     // ADD AUTHENTICATION:
+//     // This page should only be viewable if the user is logged in
+//   }
+// });
 
+// We need a post route hooked up to the modal on our movies/:id route
+// The user will create a review in the modal and we want that to post into the reviews section of movies/:id
 // POST on forum
-// http://localhost:3001/forum
+// http://localhost:3001/forum/create
 router.post("/create", async (req, res) => {
   try {
     const postForum = "This action will let a user post on the forum!";
