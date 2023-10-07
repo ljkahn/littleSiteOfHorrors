@@ -32,8 +32,8 @@
         <ul class="card-body" id="sortable-container">
           <p class="top5">My Top Five Movies</p>
           <div id="top_movie1 sortable" class="card p-1">
-            <li>{{movie.title}}</li>
-            {{!-- HOW WOULD I TIE THIS TO THE USERS/PROFILE TABLE --}}
+            <li>{{favMovies}}</li>
+            {{!-- HOW WOULD I TIE THIS TO THE USERS/PROFILE TABLE AND ADDING DELETE BY ID BUTTON - likely with updat movie function on profileEdit.js --}}
           </div>
           <div id="top_movie2" class="card p-1 sortable-item">
             <li>{{movie.title}}</li>
@@ -46,9 +46,10 @@
           </div>
           <div id="top_movie5" class="card p-1">
             <li>{{movie.title}}</li>
+            
           </div>
         </ul>
-        <p></p>
+        <p>Drag the titles to sort into a different order. </p>
       </div>
       <div>
         <button id="save-profile-btn" class="edit-profile-btn p-3">Save Profile</button>

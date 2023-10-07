@@ -34,6 +34,7 @@ function iconChange (event) {
 
 }
 
+//FOR SORTING TOP 5 MOVIE ORDER
 $( function() {
   $("#sortable-container").sortable();
 } );
