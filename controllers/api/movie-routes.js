@@ -22,18 +22,14 @@ router.get('/movies', async (req, res) => {
 
 
   // get posters for oneSearchResult
-  router.get('/movies', async (req, res) => {
+  router.get('/movies/:id', async (req, res) => {
 
     try {
       
       const posterData = await Movie.findByPk(req.params.id, {
-        attributes: [
-         title,
-         director,
-         year,
-         rating
-        ]
-      })
+          include: [Movie],
+          attributes: {poster_url}
+    });
       if(posterData) {
       const poster = posterData.get({ plain: true });
 
