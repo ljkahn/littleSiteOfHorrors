@@ -4,7 +4,7 @@ const { Movie, Review } = require('../../models');
 // /movies get all poster images
 // http://localhost:3001/movies/
 router.get('/movies', async (req, res) => {
-    console.log(res)
+    console.log(posterData);
     try {
       const posterData = await Movie.findAll({
         // Selecting only the 'poster_url' attribute
@@ -21,9 +21,29 @@ router.get('/movies', async (req, res) => {
   });
 
 
+  // get posters for oneSearchResult
+  router.get('/movies', async (req, res) => {
+
+    try {
+      
+      const posterData = await Movie.findByPk(req.params.id, {
+        attributes: {
+         title: movie.title,
+         director: movie.director,
+         year: movie.release_year,
+         rating: movie.rating,
+        }
+      })
+      const poster = posterData.map((movie) => movie.get({ plain: true }));
+
+    res.render('oneSearchResult', { poster });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+  });
 
 // /movies/:id generate title on page
-router.get('/movie/:id', async (req, res) => {
+router.get('/movies/:id', async (req, res) => {
     try {
       const movieId = parseInt(req.params.id);
       const movie = await Movie.findByPk(movieId);
