@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const {Movie} = require('../models')
 
 // GET landing page
 // http://localhost:3001/
@@ -15,9 +16,17 @@ router.get("/", async (req, res) => {
 // http://localhost:3001/movies/
 router.get("/movies", async (req, res) => {
   try {
-    const data = "You have reached the all search page!";
+    const posterData = await Movie.findAll({
+      // // Selecting only the 'poster_url' attribute
+      attributes: ['poster_url'], 
+    });
+console.log(posterData)
+
+  // const poster = posterData.map((movie) => movie.get({ plain: true }));
+  // console.log(poster)
+    // const data = "You have reached the all search page!";
     // const allMoviesData = await movies.findAll();
-    res.render('searchResults', {data});
+    // res.render('searchResults', {poster});
   } catch (err) {
     res.status(500).json(err);
   }

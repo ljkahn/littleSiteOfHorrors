@@ -3,37 +3,37 @@ const { Movie, Review } = require('../../models');
 
 // /movies get all poster images
 // http://localhost:3001/movies/
-router.get('/movies', async (req, res) => {
-    console.log(posterData);
-    try {
-      const posterData = await Movie.findAll({
-        // Selecting only the 'poster_url' attribute
-        attributes: ['poster_url'], 
-      });
+// router.get('/movies', async (req, res) => {
+//     try {
+//       const posterData = await Movie.findAll({
+//         // Selecting only the 'poster_url' attribute
+//         attributes: ['poster_url'], 
+//       });
   
  
-    const poster = posterData.map((movie) => movie.get({ plain: true }));
+//     const poster = posterData.map((movie) => movie.get({ plain: true }));
+//     console.log(posterData)
 
-    res.render('searchResults', { poster });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  });
+//     res.render('searchResults', { poster });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+//   });
 
 
-  // get posters for oneSearchResult
+  // get posters, title, director, release_year, description, and rating for oneSearchResult
   router.get('/movies/:id', async (req, res) => {
 
     try {
       
-      const posterData = await Movie.findByPk(req.params.id, {
+      const movieData = await Movie.findByPk(req.params.id, {
           include: [Movie],
-          attributes: {poster_url}
+          attributes: {poster_url, title, director, release_year, description, rating}
     });
-      if(posterData) {
+      if(movieData) {
       const poster = posterData.get({ plain: true });
 
-    res.render('oneSearchResult', { poster });
+      res.render('oneSearchResult', { poster, title, director, release_year, description, rating });
   } else {
     res.status(404)
   }
@@ -42,92 +42,92 @@ router.get('/movies', async (req, res) => {
     }
   });
 
-// /movies/:id generate title on page
-router.get('/movies/:id', async (req, res) => {
-    try {
-      const movieId = parseInt(req.params.id);
-      const movie = await Movie.findByPk(movieId);
+// // /movies/:id generate title on page
+// router.get('/movies/:id', async (req, res) => {
+//     try {
+//       const movieId = parseInt(req.params.id);
+//       const movie = await Movie.findByPk(movieId);
   
-      if (!movie) {
-        res.status(404).send('Movie not found');
-      } else {
-        res.render('oneSearchResult', { title: movie.title });
-      }
-    } catch (error) {
-      console.error('Error fetching movie title:', error);
-      res.status(500).send('An error occurred while fetching the movie title.');
-    }
-  });
+//       if (!movie) {
+//         res.status(404).send('Movie not found');
+//       } else {
+//         res.render('oneSearchResult', { title: movie.title });
+//       }
+//     } catch (error) {
+//       console.error('Error fetching movie title:', error);
+//       res.status(500).send('An error occurred while fetching the movie title.');
+//     }
+//   });
 
 
-// /movies/:id generate director on page
-router.get('/movie/:id', async (req, res) => {
-    try {
-      const movieId = parseInt(req.params.id);
-      const movie = await Movie.findByPk(movieId);
+// // /movies/:id generate director on page
+// router.get('/movie/:id', async (req, res) => {
+//     try {
+//       const movieId = parseInt(req.params.id);
+//       const movie = await Movie.findByPk(movieId);
   
-      if (!movie) {
-        res.status(404).send('Movie not found');
-      } else {
-        res.render('oneSearchResult', { title: movie.director });
-      }
-    } catch (error) {
-      console.error('Error fetching movie director:', error);
-      res.status(500).send('An error occurred while fetching the movie director.');
-    }
-  });
+//       if (!movie) {
+//         res.status(404).send('Movie not found');
+//       } else {
+//         res.render('oneSearchResult', { title: movie.director });
+//       }
+//     } catch (error) {
+//       console.error('Error fetching movie director:', error);
+//       res.status(500).send('An error occurred while fetching the movie director.');
+//     }
+//   });
 
 
-// /movies/:id generate year on page
-router.get('/movie/:id', async (req, res) => {
-    try {
-      const movieId = parseInt(req.params.id);
-      const movie = await Movie.findByPk(movieId);
+// // /movies/:id generate year on page
+// router.get('/movie/:id', async (req, res) => {
+//     try {
+//       const movieId = parseInt(req.params.id);
+//       const movie = await Movie.findByPk(movieId);
   
-      if (!movie) {
-        res.status(404).send('Movie not found');
-      } else {
-        res.render('oneSearchResult', { title: movie.release_year });
-      }
-    } catch (error) {
-      console.error('Error fetching release year:', error);
-      res.status(500).send('An error occurred while fetching the release year.');
-    }
-  });
+//       if (!movie) {
+//         res.status(404).send('Movie not found');
+//       } else {
+//         res.render('oneSearchResult', { title: movie.release_year });
+//       }
+//     } catch (error) {
+//       console.error('Error fetching release year:', error);
+//       res.status(500).send('An error occurred while fetching the release year.');
+//     }
+//   });
 
-// /movies/:id generate summary on page
-router.get('/movie/:id', async (req, res) => {
-    try {
-      const movieId = parseInt(req.params.id);
-      const movie = await Movie.findByPk(movieId);
+// // /movies/:id generate summary on page
+// router.get('/movie/:id', async (req, res) => {
+//     try {
+//       const movieId = parseInt(req.params.id);
+//       const movie = await Movie.findByPk(movieId);
   
-      if (!movie) {
-        res.status(404).send('Movie not found');
-      } else {
-        res.render('oneSearchResult', { title: movie.description });
-      }
-    } catch (error) {
-      console.error('Error fetching movie year:', error);
-      res.status(500).send('An error occurred while fetching the movie year.');
-    }
-  });
+//       if (!movie) {
+//         res.status(404).send('Movie not found');
+//       } else {
+//         res.render('oneSearchResult', { title: movie.description });
+//       }
+//     } catch (error) {
+//       console.error('Error fetching movie year:', error);
+//       res.status(500).send('An error occurred while fetching the movie year.');
+//     }
+//   });
 
-// /movies/:id generate rating /spooky scale on page
-router.get('/movie/:id', async (req, res) => {
-    try {
-      const movieId = parseInt(req.params.id);
-      const movie = await Movie.findByPk(movieId);
+// // /movies/:id generate rating /spooky scale on page
+// router.get('/movie/:id', async (req, res) => {
+//     try {
+//       const movieId = parseInt(req.params.id);
+//       const movie = await Movie.findByPk(movieId);
   
-      if (!movie) {
-        res.status(404).send('Movie not found');
-      } else {
-        res.render('oneSearchResult', { title: movie.rating });
-      }
-    } catch (error) {
-      console.error('Error fetching movie rating:', error);
-      res.status(500).send('An error occurred while fetching the movie rating.');
-    }
-  });
+//       if (!movie) {
+//         res.status(404).send('Movie not found');
+//       } else {
+//         res.render('oneSearchResult', { title: movie.rating });
+//       }
+//     } catch (error) {
+//       console.error('Error fetching movie rating:', error);
+//       res.status(500).send('An error occurred while fetching the movie rating.');
+//     }
+//   });
 
 
 // /movies/:id create modal for user reviews to save to reviews
