@@ -27,19 +27,23 @@ router.get('/movies', async (req, res) => {
     try {
       
       const posterData = await Movie.findByPk(req.params.id, {
-        attributes: {
-         title: movie.title,
-         director: movie.director,
-         year: movie.release_year,
-         rating: movie.rating,
-        }
+        attributes: [
+         title,
+         director,
+         year,
+         rating
+        ]
       })
-      const poster = posterData.map((movie) => movie.get({ plain: true }));
+      if(posterData) {
+      const poster = posterData.get({ plain: true });
 
     res.render('oneSearchResult', { poster });
-  } catch (err) {
-    res.status(500).json(err);
+  } else {
+    res.status(404)
   }
+  } catch (err) {
+      res.status(500).json(err);
+    }
   });
 
 // /movies/:id generate title on page
