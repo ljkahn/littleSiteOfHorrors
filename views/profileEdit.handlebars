@@ -3,7 +3,13 @@
     <div class="col-lg-4">
 
       {{! SELECT USER ICON - DONT KNOW HOW TO GET THIS TO WORK }}
-    <img id="previewIcon" src="/icons/placeholder.jpg" alt="placeholder" width="200px" height="200px">
+      <img
+        id="previewIcon"
+        src="/icons/placeholder.jpg"
+        alt="placeholder"
+        width="200px"
+        height="200px"
+      />
       <select id="dropdownIcon" class="form-select" aria-label="Filter select">
         <option selected>&#x29E9; Choose your profile image</option>
       </select>
@@ -13,11 +19,7 @@
           class="updateLabel"
           for="exampleFormControlTextarea1"
         >Name</label>
-        <textarea
-          class="form-control textUpdate"
-          id="name"
-          rows="3"
-        ></textarea>
+        <textarea class="form-control textUpdate" id="name" rows="3"></textarea>
         <label
           class="updateLabel"
           for="exampleFormControlTextarea1"
@@ -38,57 +40,52 @@
         </select>
       </div>
 
-      
-
     </div>
 
-    <div class="col-lg-4 d-flex align-items-center">
+    <div class="col-lg-4 d-flex flex-column justify-content-end">
       <div class="card user-top5">
         <ul class="card-body" id="sortable">
           <p class="top5">My Top Five Movies</p>
-          <div id="top_movie1" class="card  p-1">
+          <div id="top_movie1" class="card p-1">
             <li>{MOVIE 1}</li>
           </div>
-          <div id="top_movie2" class="card  p-1">
+          <div id="top_movie2" class="card p-1">
             <li>{MOVIE 2}</li>
           </div>
-          <div id="top_movie3" class="card  p-1">
+          <div id="top_movie3" class="card p-1">
             <li>{MOVIE 3}</li>
           </div>
-          <div id="top_movie4" class="card  p-1">
+          <div id="top_movie4" class="card p-1">
             <li>{MOVIE 4}</li>
           </div>
-          <div id="top_movie5" class="card  p-1">
+          <div id="top_movie5" class="card p-1">
             <li>{MOVIE 5}</li>
           </div>
         </ul>
+      </div>
+      <div>
+        <button id="save-profile-btn" class="edit-profile-btn p-3">Save Profile</button>
       </div>
     </div>
 
     <div class="col-lg-4 d-flex align-items-end">
       <div class="form-group">
-        <label
-          class="updateLabel"
-          for="exampleFormControlTextarea1"
-        >My Favorite Spooky Movie Snack Is:</label>
+        <label class="updateLabel" for="exampleFormControlTextarea1">My Favorite
+          Spooky Movie Snack Is:</label>
         <textarea
           class="form-control textUpdate"
           id="answer_1"
           rows="3"
         ></textarea>
-        <label
-          class="updateLabel"
-          for="exampleFormControlTextarea1"
-        >My Top 3 October Activites Are:</label>
+        <label class="updateLabel" for="exampleFormControlTextarea1">My Top 3
+          October Activites Are:</label>
         <textarea
           class="form-control textUpdate"
           id="answer_2"
           rows="3"
         ></textarea>
-        <label
-          class="updateLabel"
-          for="exampleFormControlTextarea1"
-        >My Best Halloween Costume Ever Was:</label>
+        <label class="updateLabel" for="exampleFormControlTextarea1">My Best
+          Halloween Costume Ever Was:</label>
         <textarea
           class="form-control textUpdate"
           id="answer_3"
@@ -96,14 +93,11 @@
         ></textarea>
       </div>
 
-
-      <div>
-        <button id="save-profile-btn" class="edit-profile-btn p-3">Save Profile</button>
-      </div>
     </div>
 
   </div>
 
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="/js/profileEdit.js"></script>
