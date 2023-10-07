@@ -30,6 +30,10 @@ Profile.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    name: {
+      type:DataTypes.STRING,
+      allowNull:false,
+    },
 
     top_movies: {
       type: DataTypes.STRING,
@@ -46,6 +50,11 @@ Profile.init(
         max: 5,
       },
     },
+
+    user_icon: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    }
   },
 
   {

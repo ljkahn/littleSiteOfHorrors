@@ -1,0 +1,79 @@
+
+<main class="container">
+  <div class="row">
+    <div class="col-lg-4">
+
+      {{! SELECT USER ICON - DONT KNOW HOW TO GET THIS TO WORK }}
+      <img id="previewIcon" src="/icons/placeholder.jpg" alt="placeholder" width="200px" height="200px" />
+      <select id="dropdownIcon" class="form-select" aria-label="Filter select">
+        <option selected>&#x29E9; Choose your profile image</option>
+      </select>
+
+      <div class="form-group">
+        <label class="updateLabel" for="exampleFormControlTextarea1">Name</label>
+        <textarea class="form-control textUpdate" id="name" rows="3"></textarea>
+        <label class="updateLabel" for="exampleFormControlTextarea1">Location</label>
+        <textarea class="form-control textUpdate" id="location" rows="3"></textarea>
+
+        <label for="exampleFormControlSelect1">Spooky Scale</label>
+        <select class="form-control" id="spooky_scale">
+          <option value="1">🎃 G Rated</option>
+          <option value="2">🎃🎃 PG Rated</option>
+          <option value="3">🎃🎃🎃 PG 13 Rated</option>
+          <option value="4">🎃🎃🎃🎃 R Rated</option>
+          <option value="5">🎃🎃🎃🎃🎃 NC 17 Rated</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="col-lg-4 d-flex flex-column justify-content-end">
+      <div class="card user-top5" >
+        <ul class="card-body" id="sortable-container">
+          <p class="top5">My Top Five Movies</p>
+          <div id="top_movie1 sortable" class="card p-1">
+            <li>{{favMovies}}</li>
+            {{!-- HOW WOULD I TIE THIS TO THE USERS/PROFILE TABLE AND ADDING DELETE BY ID BUTTON - likely with updat movie function on profileEdit.js --}}
+          </div>
+          <div id="top_movie2" class="card p-1 sortable-item">
+            <li>{{movie.title}}</li>
+          </div>
+          <div id="top_movie3" class="card p-1">
+            <li>{{movie.title}}</li>
+          </div>
+          <div id="top_movie4" class="card p-1">
+            <li>{{movie.title}}</li>
+          </div>
+          <div id="top_movie5" class="card p-1">
+            <li>{{movie.title}}</li>
+            
+          </div>
+        </ul>
+        <p>Drag the titles to sort into a different order. </p>
+      </div>
+      <div>
+        <button id="save-profile-btn" class="edit-profile-btn p-3">Save Profile</button>
+      </div>
+    </div>
+
+    <div class="col-lg-4 d-flex align-items-end">
+      <div class="form-group">
+        <label class="updateLabel" for="exampleFormControlTextarea1">My Favorite
+          Spooky Movie Snack Is:</label>
+        <textarea class="form-control textUpdate" id="answer_1" rows="3"></textarea>
+        <label class="updateLabel" for="exampleFormControlTextarea1">My Top 3
+          October Activites Are:</label>
+        <textarea class="form-control textUpdate" id="answer_2" rows="3"></textarea>
+        <label class="updateLabel" for="exampleFormControlTextarea1">My Best
+          Halloween Costume Ever Was:</label>
+        <textarea class="form-control textUpdate" id="answer_3" rows="3"></textarea>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="/js/profileEdit.js"></script>
