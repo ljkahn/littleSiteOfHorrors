@@ -78,17 +78,17 @@ router.post("/create", async (req, res) => {
 
 // GET user profile
 // http://localhost:3001/api/users/profile
-router.get("/profile", async (req, res) => {
-  try {
-    const data = "This page should return user profile!";
-    //we need to serilaize this "data" to have it return the profile information saved in the profile database that is connected to the particular user logging in
-    res.render("userProfile", { data });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
+// router.get("/profile", async (req, res) => {
+//   try {
+//     const data = "This page should return user profile!";
+//     //we need to serilaize this "data" to have it return the profile information saved in the profile database that is connected to the particular user logging in
+//     res.render("userProfile", { data });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+//   // ADD AUTHENTICATION:
+//   // This page should only be viewable if the user is logged in
+// });
 
 
 
@@ -107,5 +107,24 @@ router.put("/profile/edit", async (req, res) => {
   // ADD AUTHENTICATION:
   // This page should only be viewable if the user is logged in
 });
+
+
+
+// // POST (add Movie to favorites by ID)
+// // http://localhost:3001/api/users/movies/:id
+// router.post('/movies/:id', async (req, res) => {
+//   try {
+//     const userFavorite = await Profile.findByPk(req.params.id {
+//       attributes: {
+        
+//       }
+//     })
+// ADD THIS TO MOVIE ROUTES
+
+//   } catch {
+
+
+//   }
+// })
 
 module.exports = router;
