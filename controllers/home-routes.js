@@ -7,16 +7,15 @@ const router = require("express").Router();
 router.get("/", async (req, res) => {
   try {
     const data = "You have reached the landing page!";
-    const posters = await Movie.findAll( {
-      where: {
-        poster_url: req.body.poster_url
-      }
-    });
-    res.render("homepage", {data, posters});
+    res.render("homepage", { data });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+
+// GET landing page carousel movies 
+//http://localhost:3001/
 
 // GET all movie results
 // http://localhost:3001/movies/
