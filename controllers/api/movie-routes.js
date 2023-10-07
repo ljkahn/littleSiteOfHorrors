@@ -4,20 +4,20 @@ const { Movie, Review } = require('../../models');
 // /movies get all poster images
 // http://localhost:3001/movies/
 router.get('/movies', async (req, res) => {
+    console.log(res)
     try {
       const posterData = await Movie.findAll({
-        // Selecting only the 'movie_url' attribute
+        // Selecting only the 'poster_url' attribute
         attributes: ['poster_url'], 
       });
   
-    //   // Extracting movie URLs from the result
-      const posterUrls = posterData.map((movie) => movie.poster_url);
-  
-      res.render('searchResults', { posterUrls });
-    } catch (error) {
-      console.error('Error fetching movie URLs:', error);
-      res.status(500).json({ error: 'An error occurred while fetching movie URLs' });
-    }
+ 
+    const poster = posterData.map((movie) => movie.get({ plain: true }));
+
+    res.render('searchResults', { poster });
+  } catch (err) {
+    res.status(500).json(err);
+  }
   });
 
 

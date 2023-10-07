@@ -605,3 +605,7 @@ const movieData =
 
 
 ]
+
+const seedMovies = () => Movies.bulkCreate(movieData);
+
+module.exports = seedMovies;
