@@ -1,3 +1,5 @@
+const Movie = require("../models/Movie");
+
 const router = require("express").Router();
 
 // GET landing page
@@ -5,7 +7,12 @@ const router = require("express").Router();
 router.get("/", async (req, res) => {
   try {
     const data = "You have reached the landing page!";
-    res.render("homepage", { data });
+    const posters = await Movie.findAll( {
+      where: {
+        poster_url: req.body.poster_url
+      }
+    });
+    res.render("homepage", {data, posters});
   } catch (err) {
     res.status(500).json(err);
   }
@@ -83,7 +90,6 @@ router.get('/create', async (req,res) => {
 });
 
 
-//
 
 
 // GET discussion page

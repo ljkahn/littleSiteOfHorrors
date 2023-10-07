@@ -110,21 +110,6 @@ router.put("/profile/edit", async (req, res) => {
 
 
 
-// // POST (add Movie to favorites by ID)
-// // http://localhost:3001/api/users/movies/:id
-// router.post('/movies/:id', async (req, res) => {
-//   try {
-//     const userFavorite = await Profile.findByPk(req.params.id {
-//       attributes: {
-        
-//       }
-//     })
-// ADD THIS TO MOVIE ROUTES
 
-//   } catch {
-
-
-//   }
-// })
 
 module.exports = router;
