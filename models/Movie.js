@@ -36,7 +36,7 @@ Movie.init(
     },
 
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
 
     poster_url: {
