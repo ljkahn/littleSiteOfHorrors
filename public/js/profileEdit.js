@@ -35,7 +35,7 @@ function iconChange (event) {
 }
 
 $( function() {
-  $( "#sortable" ).sortable();
+  $("#sortable-container").sortable();
 } );
 
 
@@ -76,7 +76,23 @@ $.ajax({
 .then(()=> {
   console.log({message: "Your profile has been updated!"})
 })
+};
+
+
+
+const updateTopMovies = async function(event) {
+  const topMovie1 = $('#top_movie1');
+  const topMovie2 = $('#top_movie2');
+  const topMovie3 = $('#top_movie3');
+  const topMovie4 = $('#top_movie4');
+  const topMovie5 = $('#top_movie5');
+  
+
+
 }
+
+
 //EVENT LISTENERS
 dropdownIcon.on("change", iconChange );
 saveProfileBtn.on("click", submitChanges);
+saveProfileBtn.on("click", updateTopMovies)
