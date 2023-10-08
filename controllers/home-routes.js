@@ -1,3 +1,5 @@
+const Movie = require("../models/Movie");
+
 const router = require("express").Router();
 const {Movie} = require('../models')
 
@@ -11,6 +13,10 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+// GET landing page carousel movies 
+//http://localhost:3001/
 
 // GET all movie results
 // http://localhost:3001/movies/
@@ -57,6 +63,7 @@ router.get("/profile", async (req, res) => {
 });
 
 // GET edit profile page
+// http://localhost:3001/profile/edit
 router.get("/profile/edit", async (req, res) => {
   try {
     const data = "This page should return a profile page that can be edited!";
@@ -68,7 +75,8 @@ router.get("/profile/edit", async (req, res) => {
   // This page should only be viewable if the user is logged in
 });
 
-
+//GET login page 
+// http://localhost:3001/login
 router.get('/login', async (req,res) => {
   try {
     const data = "This should present the login page!";
@@ -78,6 +86,8 @@ router.get('/login', async (req,res) => {
   }
 });
 
+//GET create account page 
+// http://localhost:3001/create
 router.get('/create', async (req,res) => {
   try {
     const data = "This should present the create account page!";
@@ -86,6 +96,8 @@ router.get('/create', async (req,res) => {
     res.status(500),json(err);
   }
 });
+
+
 
 
 // GET discussion page

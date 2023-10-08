@@ -149,4 +149,25 @@ const { Movie, Review } = require('../../models');
 //     }
 //   });
 
+
+
+// // POST (add Movie to favorites by ID)
+// // http://localhost:3001/api/users/movies/:id
+router.post('/movie/:id', async (req, res) => {
+  try {
+    const userFavorite = await Profile.findByPk(req.params.id,
+      {
+        where: {
+          id: req.params.id
+        },
+        
+      })
+
+      res.redirect('/profile')
+  } catch {
+
+
+  }
+})
+
 module.exports = router;
