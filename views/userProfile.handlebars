@@ -15,9 +15,9 @@ carousel }}
         />
         <div class="card user-info-card">
           <div class="card-body">
-            <p>USER NAME</p>
-            <p>USER LOCATION</p>
-            <p>SPOOKY SCALE</p>
+            <p>{{name}}</p>
+            <p>{{location}}</p>
+            <p>{{spooky_scale}}</p>
           </div>
         </div>
       </div>
@@ -29,19 +29,19 @@ carousel }}
           <div class="card">
             <div class="card-body prompt-question-cards">
               <h5>My Favorite Spooky Snack Is:</h5>
-              <p class="prompt-answer">{USER ANSWER 1}</p>
+              <p class="prompt-answer">{{answer_1}}</p>
             </div>
           </div>
           <div class="card">
             <div class="card-body prompt-question-cards">
               <h5>My Top 3 October Activities Are:</h5>
-              <p class="prompt-answer">{USER ANSWER 2}</p>
+              <p class="prompt-answer">{{answer_2}}</p>
             </div>
           </div>
           <div class="card">
             <div class="card-body prompt-question-cards">
               <h5>My Best Halloween Costume Ever Was::</h5>
-              <p class="prompt-answer">{USER ANSWER 3}</p>
+              <p class="prompt-answer">{{answer_3}}</p>
             </div>
           </div>
 
@@ -55,79 +55,51 @@ carousel }}
         <div class="card-body">
           <p class="top5">My Top Five Movies</p>
           <div class="card user-movie m-1 p-1">
-            <p>{MOVIE 1}</p>
+            <p>{{}}</p>
           </div>
           <div class="card user-movie m-1 p-1">
-            <p>{MOVIE 2}</p>
+            <p>{{}}</p>
           </div>
           <div class="card user-movie m-1 p-1">
-            <p>{MOVIE 3}</p>
+            <p>{{}}</p>
           </div>
           <div class="card user-movie m-1 p-1">
-            <p>{MOVIE 4}</p>
+            <p>{{}}</p>
           </div>
           <div class="card user-movie m-1 p-1">
-            <p>{MOVIE 5}</p>
+            <p>{{}}</p>
           </div>
         </div>
       </div>
 
         <div>
-        <a href="/api/users/profile/edit">
+        <a href="/profile/edit">
         <button type="button" class="edit-profile-btn p-3">Edit Profile</button></a>
       </div>
     </div>
     {{! END OF SECOND COLUMN }}
     <div class="col-lg-4 d-flex flex-column justify-content-end">
-      <div class="carousel">
-        <div
-          id="carouselExampleControls"
-          class="carousel slide"
-          data-ride="carousel"
-        >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                class="d-block w-100"
-                src="https://m.media-amazon.com/images/M/MV5BMjlhODIwYTAtNzFhNi00Yzg5LWE3NmYtY2I3MjY4NWNmMjhlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-                alt="First slide"
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                class="d-block w-100"
-                src="https://m.media-amazon.com/images/M/MV5BMTE3N2IwNmMtOGE0Ny00NWFlLTliNmUtNjY3ODExYjgxNmUyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
-                alt="Second slide"
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                class="d-block w-100"
-                src="https://m.media-amazon.com/images/M/MV5BNzQ1NDBlNDItMDAyYS00YTI2LTgwMmYtMzAwMzg4NDFlM2ZmXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-                alt="Third slide"
-              />
-            </div>
-          </div>
-          <a
-            class="carousel-control-prev"
-            href="#carouselExampleControls"
-            role="button"
-            data-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only"></span>
-          </a>
-          <a
-            class="carousel-control-next"
-            href="#carouselExampleControls"
-            role="button"
-            data-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only"></span>
-          </a>
-        </div>
-      </div>
+      <div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://m.media-amazon.com/images/M/MV5BZDQzMmIxYTItOTJkMi00YzU1LWJkNGEtYWE1NjhiNWU5YmNkXkEyXkFqcGdeQXVyNjc5NjEzNA@@._V1_SX300.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://m.media-amazon.com/images/M/MV5BNjcyMDZlMTktYTIxOC00ZWFhLWJkYzgtNWNiYjAwYTFkNjIyXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://m.media-amazon.com/images/M/MV5BMGIzNTMxOGEtMzg3NC00M2ZhLWEwYzAtMjE5MTQyNzBhZTcwXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
     </div>
 
   </div>

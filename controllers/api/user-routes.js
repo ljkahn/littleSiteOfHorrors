@@ -41,11 +41,18 @@ router.post("/login", async (req, res) => {
 // http://localhost:3001/api/users/create
 router.post("/create", async (req, res) => {
   try {
+    console.log("==============");
+    console.log(req.body);
+    console.log("==============");
+
     const newUserData = await User.create({
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
     });
+    console.log("+++++++++++++++++++++++++");
+    console.log(newUserData);
+    console.log("+++++++++++++++++++++");
 
     req.session.save(() => {
       req.session.loggedIn = true;
@@ -78,35 +85,27 @@ router.post("/create", async (req, res) => {
 
 // GET user profile
 // http://localhost:3001/api/users/profile
-router.get("/profile", async (req, res) => {
-  try {
-    const data = "This page should return user profile!";
-    //we need to serilaize this "data" to have it return the profile information saved in the profile database that is connected to the particular user logging in
-    res.render("userProfile", { data });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
+// router.get("/profile", async (req, res) => {
+//   try {
+//     const data = "This page should return user profile!";
+//     //we need to serilaize this "data" to have it return the profile information saved in the profile database that is connected to the particular user logging in
+//     res.render("userProfile", { data });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+//   // ADD AUTHENTICATION:
+//   // This page should only be viewable if the user is logged in
+// });
 
-// GET edit profile page
-// http://localhost:3001/api/users/profile/edit
-router.get("/profile/edit", async (req, res) => {
-  try {
-    const data = "This page should return a profile page that can be edited!";
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
-});
+
 
 // PUT (edit) user profile
 // http://localhost:3001/api/users/profile/edit
 router.put("/profile/edit", async (req, res) => {
   try {
+    console.log("=================================")
+    console.log(req.body)
+    console.log("=================================")
     const data = "This action should allow the user to edit their profile!";
     res.status(200).json(data);
   } catch (err) {
@@ -115,5 +114,9 @@ router.put("/profile/edit", async (req, res) => {
   // ADD AUTHENTICATION:
   // This page should only be viewable if the user is logged in
 });
+
+
+
+
 
 module.exports = router;

@@ -36,7 +36,7 @@ Movie.init(
     },
 
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
 
     poster_url: {
@@ -51,7 +51,7 @@ Movie.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "movie",
+    modelName: "Movie",
   }
 );
 

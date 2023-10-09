@@ -68,6 +68,7 @@ color: var(--white-text);
   padding-left: 40px;
   padding-right: 40px;
   text-decoration: none; 
+  transition-duration: 1s;
 }
 
 .custom-nav-link:hover {
@@ -107,6 +108,7 @@ color: var(--white-text);
 width: 20rem;
 height: 10rem;
 font-size: 2rem;
+border: none;
 }
 
 .custom-all-movies-button:hover {
@@ -118,6 +120,22 @@ color: var(--white-text);
   color: var(--platinum);
   font-family: Work Sans;
 }
+
+#runaway-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 4rem;
+  width: 10rem;
+  font-size: 3rem;
+  border-radius: 5px;
+  border: none;
+  /* box-shadow: 1px 1px 5px black; */
+  background: transparent;
+}
+
+
 /* END HOMEPAGE CSS */
 
 
@@ -296,11 +314,41 @@ border-radius: 10px;
 background-color: #343434;
 color: var(--white-text)
 }
-/* .carousel {
 
+/* .home-carousel {
+width: 26rem;
+height: 37rem;
 
 } */
 
-
-
 /* END USER PROFILE CSS */
+
+
+
+
+
+
+/* USER PROFILE EDIT  */
+
+.updateLabel{
+  font-family: 'Work Sans';
+  color: var(--white-text);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.textUpdate {
+  font-family: 'Work Sans';
+  color: var(--background-black);
+}
+
+
+#previewIcon {
+border-radius: 100%;
+
+}
+
+
+
+/* END USER PROFILE EDIT CSS */
+
