@@ -1,78 +1,11 @@
-
-<main>
-<div class="album py-5">
-     {{!-- <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-          <a href="#" class="btn btn-primary my-2">Spooky Level</a>
-          <a href="#" class="btn btn-primary my-2">Genre</a>
-          <a href="#" class="btn btn-primary my-2">Year</a>
-        </p>
-      </div>
+<div class="movies">
+  {{#each posterData}}
+  <article class="card">
+    <div class="card-header flex-row justify-space-between">
+      <h2>
+      <a href="/movies/{{movie_id}}"><img src="{{poster_url}}" alt=""></a>
+      </h2>
     </div>
-  </section> --}}
-    <div class="container">
-        
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-            <a href="/movies/:id">
-            <div class="card shadow-sm">
-                <img src="https://m.media-amazon.com/images/M/MV5BNzQ1NDBlNDItMDAyYS00YTI2LTgwMmYtMzAwMzg4NDFlM2ZmXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" class="img-fluid img-thumbnail" alt="..." >
-            </div>
-            </a>
-        </div>
-
-        <div class="col">
-            <a href="/movies/:id">
-            <div class="card shadow-sm">
-                <img src="https://m.media-amazon.com/images/M/MV5BNWMxYTYzYWQtNGZmNy00MTg5LTk1N2MtNzQ5NjQxYjQ5NTJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" class="img-fluid img-thumbnail" alt="..." >
-                {{!-- <img src={{}}> --}}
-            </div>
-            </a>
-        </div>
-
-        <div class="col">
-            <a href="/movies/:id">
-            <div class="card shadow-sm">
-                <img src="https://m.media-amazon.com/images/M/MV5BYWFlZGY2NDktY2ZjOS00ZWNkLTg0ZDAtZDY4MTM1ODU4ZjljXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"class="img-fluid img-thumbnail" alt="..." >
-               {{!-- <img src={{}}> --}}
-            </div>
-            </a>
-        </div>
-          
-        <div class="col">
-            <a href="/movies/:id">
-            <div class="card shadow-sm">
-               
-                <img src="https://m.media-amazon.com/images/M/MV5BYWFlZGY2NDktY2ZjOS00ZWNkLTg0ZDAtZDY4MTM1ODU4ZjljXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"class="img-fluid img-thumbnail" alt="..." >
-                {{!-- <img src={{}}> --}}
-            </div>
-            </a>
-        </div>
-
-        <div class="col">
-            <a href="/movies/:id">
-            <div class="card shadow-sm">    
-              
-                <img src="https://m.media-amazon.com/images/M/MV5BYWFlZGY2NDktY2ZjOS00ZWNkLTg0ZDAtZDY4MTM1ODU4ZjljXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"class="img-fluid img-thumbnail" alt="..." >
-                {{!-- <img src={{}}> --}}
-            </div>
-            </a>
-        </div>
-        <div class="col">
-            <a href="/movies/:id">
-            <div class="card shadow-sm">    
-                <img src="https://m.media-amazon.com/images/M/MV5BYWFlZGY2NDktY2ZjOS00ZWNkLTg0ZDAtZDY4MTM1ODU4ZjljXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"class="img-fluid img-thumbnail" alt="..." >
-                {{!-- <img src={{}}> --}}
-            </div>
-            </a>
-        </div>
-
-
-    </div>
-    </div>
+  </article>
+  {{/each}}
 </div>
-
-</main>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="js/all-results.js"></script>
