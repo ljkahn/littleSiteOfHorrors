@@ -3,44 +3,46 @@ const { Movie, Review } = require('../../models');
 
 // /movies get all poster images
 // http://localhost:3001/movies/
-// router.get('/movies', async (req, res) => {
-//     try {
-//       const posterData = await Movie.findAll({
-//         // Selecting only the 'poster_url' attribute
-//         attributes: ['poster_url'], 
-//       });
+router.get('/', async (req, res) => {
+    try {
+      const posterData = await Movie.findAll({
+        // Selecting only the 'poster_url' attribute
+        attributes: ['poster_url'], 
+      });
   
  
-//     const poster = posterData.map((movie) => movie.get({ plain: true }));
-//     console.log(posterData)
+    const poster = posterData.map((movie) => movie.get({ plain: true }));
+    console.log(posterData)
 
-//     res.render('searchResults', { poster });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-//   });
-
-
-  // get posters, title, director, release_year, description, and rating for oneSearchResult
-  router.get('/movies/:id', async (req, res) => {
-
-    try {
-      
-      const movieData = await Movie.findByPk(req.params.id, {
-          include: [Movie],
-          attributes: {poster_url, title, director, release_year, description, rating}
-    });
-      if(movieData) {
-      const poster = posterData.get({ plain: true });
-
-      res.render('oneSearchResult', { poster, title, director, release_year, description, rating });
-  } else {
-    res.status(404)
-  }
+    res.render('searchResults', { poster });
   } catch (err) {
-      res.status(500).json(err);
-    }
+    res.status(500).json(err);
+  }
   });
+
+
+  // // get posters, title, director, release_year, description, and rating for oneSearchResult
+  // router.get('/movies/:id', async (req, res) => {
+
+  //   try {
+      
+  //     const movieData = await Movie.findByPk(req.params.id, {
+  //         include: [Movie],
+  //         attributes: {poster_url, title, director, release_year, description, rating},
+  //         raw: true,
+  //   });
+  //     // if(movieData) {
+  //     // const poster = posterData.get({ plain: true });
+  //       console.log(movieData)
+  //     res.render('oneSearchResult', { ...movieData });
+  // // } else {
+  // //   res.status(404)
+  // // }
+  // } catch (err) {
+  //   console.log(err)
+  //     res.status(500).json(err);
+  //   }
+  // });
 
 // // /movies/:id generate title on page
 // router.get('/movies/:id', async (req, res) => {
