@@ -66,7 +66,7 @@ router.post("/create", async (req, res) => {
     // id for who is logged in is stored in the session
 
     // res.status(200).json(newUserData);
-    res.redirect("/");
+    res.redirect("/profile");
     // ADD: message that pops up if password is less than 6 chars, if you enter less than 6 chars, it returns a white screen and does not direct or tell you what's wrong
     // });
   } catch (err) {
@@ -115,15 +115,11 @@ router.post("/:id", async (req, res) => {
     });
 
     res.redirect("/profile");
-    res.render('userProfile', {userFavorite});
+    res.render("userProfile", { userFavorite });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
-
-
-
 
 module.exports = router;
