@@ -120,6 +120,22 @@ color: var(--white-text);
   color: var(--platinum);
   font-family: Work Sans;
 }
+
+#runaway-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 4rem;
+  width: 10rem;
+  font-size: 3rem;
+  border-radius: 5px;
+  border: none;
+  /* box-shadow: 1px 1px 5px black; */
+  background: transparent;
+}
+
+
 /* END HOMEPAGE CSS */
 
 
@@ -326,6 +342,11 @@ height: 37rem;
   color: var(--background-black);
 }
 
+
+#previewIcon {
+border-radius: 100%;
+
+}
 
 
 
