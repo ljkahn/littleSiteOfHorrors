@@ -92,12 +92,16 @@ router.get("/movies/:id", async (req, res) => {
 // http://localhost:3001/profile
 router.get("/profile", async (req, res) => {
   try {
-    const profile = await Profile.findByPk(1, {
+    const profile = await Profile.findByPk(req.session.user_id, {
       raw: true,
       // include: [FavMovies]
-    });
+    },
+    {
+      include: [{model: FavMovies}]
+    })
     console.log(profile);
-    res.render("userProfile", { ...profile });
+    res.render('userProfile', {...profile});
+    
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
