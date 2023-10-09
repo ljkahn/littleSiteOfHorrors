@@ -10,7 +10,7 @@ const { Movie, Review, FavMovies, User, Profile } = require("../../models");
 router.post("/login", async (req, res) => {
   try {
     const userEmail = await User.findOne({
-      email: req.body.email,
+      where: { email: req.body.email },
     });
 
     if (!userEmail) {
@@ -20,7 +20,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = await userEmail.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -31,7 +31,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      res.redirect("/"); //don't know if this should be {data}
+      res.redirect("/profile"); //don't know if this should be {data}
     });
   } catch (err) {
     res.status(500).json(err);
@@ -88,8 +88,8 @@ router.put("/profile/edit", async (req, res) => {
         answer_1: req.body.answer1,
         answer_2: req.body.answer2,
         answer_3: req.body.answer3,
-        spooky_scale: req.body.spooky_scale,
-        user_icon: req.body.user_icon,
+        // spooky_scale: req.body.spooky_scale,
+        // user_icon: req.body.user_icon,
       },
       { where: { user_id: userId } }
     );
@@ -115,15 +115,11 @@ router.post("/:id", async (req, res) => {
     });
 
     res.redirect("/profile");
-    res.render('userProfile', {userFavorite});
+    res.render("userProfile", { userFavorite });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
-
-
-
 
 module.exports = router;
