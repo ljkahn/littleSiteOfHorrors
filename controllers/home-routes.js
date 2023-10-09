@@ -1,4 +1,4 @@
-const Movie = require("../models/Movie");
+const { Movie, Review, FavMovies, Profile, User } = require("../models");
 
 const router = require("express").Router();
 
@@ -79,9 +79,14 @@ console.log(posterData)
 // http://localhost:3001/profile
 router.get("/profile", async (req, res) => {
   try {
-    const data = "This page should return user profile!";
-    res.render("userProfile", { data });
+    const profile = await Profile.findByPk(1, {
+      raw: true,
+      // include: [FavMovies]
+    })
+    console.log(profile);
+    res.render('userProfile', {...profile});
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
   // ADD AUTHENTICATION:
