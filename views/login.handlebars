@@ -1,59 +1,52 @@
- <main
-      class="form-signin py-4 w-100 m-auto container d-flex align-items-center"
-    >
-      <div class="row">
-        <form>
-          <h1 class="h3 mb-3 fw-normal text-white">Please Sign In</h1>
+<main class="form-signin py-4 w-100 m-auto container d-flex align-items-center">
+  <div class="row">
+    <form action="api/users/login" method="POST">
+      <h1 class="h3 mb-3 fw-normal text-white">Please Sign In</h1>
 
-          <div class="form-floating">
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              placeholder="name@example.com"
-              name="email"
-            />
-            <label for="floatingInput">Email address</label>
-          </div>
-          <br />
-          <div class="form-floating">
-            <input
-              type="password"
-              class="form-control"
-              id="floatingPassword"
-              placeholder="Password"
-              name="password"
-            />
-            <label for="floatingPassword">Password</label>
-          </div>
-
-          <div class="form-check text-start my-3">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value="remember-me"
-              id="flexCheckDefault"
-            />
-            <label class="form-check-label text-white" for="flexCheckDefault">
-              Remember me
-            </label>
-          </div>
-
-          <button
-            class="d-flex btn btn-log text-white w-100 py-2"
-            type="submit"
-          >
-            Login
-          </button>
-          <br />
-          <a href="/create">
-          <button
-            class="d-flex btn btn-log1 text-white w-100 py-2"
-            type="button"
-          >
-            Create Account
-          </button></a>
-          <p class="mt-5 mb-3 text-white">Little Site of Horrors &copy; 2023</p>
-        </form>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+          name="email"
+        />
+        <label for="floatingInput">Email address</label>
       </div>
-    </main>
+      <br />
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+          name="password"
+        />
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <div class="form-check text-start my-3">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="remember-me"
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label text-white" for="flexCheckDefault">
+          Remember me
+        </label>
+      </div>
+      {{! <a href="/profile"> }}
+      <button class="d-flex btn btn-log text-white w-100 py-2" type="submit">
+        Login
+      </button>
+      {{! </a> }}
+      <br />
+      <a href="/create">
+        <button class="d-flex btn btn-log1 text-white w-100 py-2" type="button">
+          Create Account
+        </button></a>
+      <p class="mt-5 mb-3 text-white">Little Site of Horrors &copy; 2023</p>
+    </form>
+  </div>
+</main>
