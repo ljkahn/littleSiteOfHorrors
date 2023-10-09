@@ -31,7 +31,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      res.redirect("/"); //don't know if this should be {data}
+      res.redirect("/profile"); //don't know if this should be {data}
     });
   } catch (err) {
     res.status(500).json(err);
@@ -66,7 +66,7 @@ router.post("/create", async (req, res) => {
     // id for who is logged in is stored in the session
 
     // res.status(200).json(newUserData);
-    res.redirect("/");
+    res.redirect("/profile");
     // ADD: message that pops up if password is less than 6 chars, if you enter less than 6 chars, it returns a white screen and does not direct or tell you what's wrong
     // });
   } catch (err) {
@@ -107,9 +107,10 @@ router.put("/profile/edit", async (req, res) => {
 router.post("/:id", async (req, res) => {
   try {
     const userId = req.session.user_id;
+    console.log(userId);
     const userFavorite = await FavMovies.create({
       movie_id: req.params.id,
-      profile_id: req.session.user_id,
+      profile_id: userId,
       // movie_id: 5,
       // profile_id: 1,
     });
