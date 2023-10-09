@@ -31,9 +31,11 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = userEmail.id;
       res.redirect("/profile"); //don't know if this should be {data}
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -107,13 +109,20 @@ router.put("/profile/edit", async (req, res) => {
 router.post("/:id", async (req, res) => {
   try {
     const userId = req.session.user_id;
+    const currentProfile = Profile.findOne({
+      where: {
+        user_id: userId
+      }
+    })
+    console.log(userId, "this is the userID");
     const userFavorite = await FavMovies.create({
       movie_id: req.params.id,
-      profile_id: req.session.user_id,
+      profile_id: currentProfile.id,
       // movie_id: 5,
       // profile_id: 1,
     });
-
+    console.log(movie_id, "THIS IS THE MOVIE ID");
+    console.log(profile_id, "THIS IS THE PROFILE ID")
     res.redirect("/profile");
     res.render("userProfile", { userFavorite });
   } catch (err) {
