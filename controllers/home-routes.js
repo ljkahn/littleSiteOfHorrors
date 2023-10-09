@@ -2,6 +2,7 @@ const Movie = require("../models/Movie");
 
 const router = require("express").Router();
 
+
 // GET landing page
 // http://localhost:3001/
 router.get("/", async (req, res) => {
@@ -21,24 +22,59 @@ router.get("/", async (req, res) => {
 // http://localhost:3001/movies/
 router.get("/movies", async (req, res) => {
   try {
-    const data = "You have reached the all search page!";
+    const posterData = await Movie.findAll({
+      // // Selecting only the 'poster_url' attribute
+      attributes: ['poster_url'], 
+      raw: true,
+    });
+console.log(posterData)
+
+  // const poster = posterData.map((movie) => movie.get({ plain: true }));
+  // console.log(poster)
+    // const data = "You have reached the all search page!";
     // const allMoviesData = await movies.findAll();
-    res.render('searchResults', {data});
+    res.render('searchResults', {posterData});
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// GET one search result
-// http://localhost:3001/movies/:id
-router.get("/movies/:id", async (req, res) => {
-  try {
-    const data = "This page should return one movie!";
-    res.render('oneSearchResult', {data});
+
+
+  // get posters, title, director, release_year, description, and rating for oneSearchResult
+  router.get('/movies/:id', async (req, res) => {
+    console.log("id", req.params.id)
+  
+    try {
+      
+      const movieData = await Movie.findByPk(req.params.id, {
+          // include: [Movie],
+          attributes: ['poster_url', 'title', 'director', 'release_year', 'description', 'rating'],
+          raw: true,
+    });
+      // if(movieData) {
+      // const poster = posterData.get({ plain: true });
+        console.log(movieData)
+      res.render('oneSearchResult', { ...movieData });
+  // } else {
+  //   res.status(404)
+  // }
   } catch (err) {
-    res.status(500).json(err);
-  }
-});
+    console.log(err)
+      res.status(500).json(err);
+    }
+  });
+
+// GET one search result
+// // http://localhost:3001/movies/:id
+// router.get("/movies/:id", async (req, res) => {
+//   try {
+//     const data = "This page should return one movie!";
+//     res.render('oneSearchResult', {data});
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // GET user profile
 // http://localhost:3001/profile
@@ -73,7 +109,7 @@ router.get('/login', async (req,res) => {
     const data = "This should present the login page!";
     res.render('login', {data})
   } catch (err) {
-    res.status(500),json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -84,7 +120,7 @@ router.get('/create', async (req,res) => {
     const data = "This should present the create account page!";
     res.render('newAccount', {data})
   } catch (err) {
-    res.status(500),json(err);
+    res.status(500).json(err);
   }
 });
 

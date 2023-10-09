@@ -41,11 +41,18 @@ router.post("/login", async (req, res) => {
 // http://localhost:3001/api/users/create
 router.post("/create", async (req, res) => {
   try {
+    console.log("==============");
+    console.log(req.body);
+    console.log("==============");
+
     const newUserData = await User.create({
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
     });
+    console.log("+++++++++++++++++++++++++");
+    console.log(newUserData);
+    console.log("+++++++++++++++++++++");
 
     req.session.save(() => {
       req.session.loggedIn = true;
