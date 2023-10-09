@@ -20,7 +20,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = await userEmail.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -31,9 +31,11 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = userEmail.id;
       res.redirect("/profile"); //don't know if this should be {data}
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -107,10 +109,15 @@ router.put("/profile/edit", async (req, res) => {
 router.post("/:id", async (req, res) => {
   try {
     const userId = req.session.user_id;
+    const currentProfile = Profile.findOne({
+      where: {
+        user_id: userId
+      }
+    })
     console.log(userId);
     const userFavorite = await FavMovies.create({
       movie_id: req.params.id,
-      profile_id: userId,
+      profile_id: currentProfile.id,
       // movie_id: 5,
       // profile_id: 1,
     });

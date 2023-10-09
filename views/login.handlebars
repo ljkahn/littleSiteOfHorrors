@@ -2,7 +2,7 @@
       class="form-signin py-4 w-100 m-auto container d-flex align-items-center"
     >
       <div class="row">
-        <form>
+        <form action="api/users/login" method="post">
           <h1 class="h3 mb-3 fw-normal text-white">Please Sign In</h1>
 
           <div class="form-floating">
@@ -38,13 +38,14 @@
               Remember me
             </label>
           </div>
-          <a href="/profile">
+          {{!-- <a href="/profile"> --}}
           <button
             class="d-flex btn btn-log text-white w-100 py-2"
             type="submit"
           >
             Login
-          </button></a>
+          </button>
+          {{!-- </a> --}}
           <br />
           <a href="/create">
           <button 
