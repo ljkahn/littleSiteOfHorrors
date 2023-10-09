@@ -87,8 +87,8 @@ router.put("/profile/edit", async (req, res) => {
         answer_1: req.body.answer1,
         answer_2: req.body.answer2,
         answer_3: req.body.answer3,
-        spooky_scale: req.body.spooky_scale,
-        user_icon: req.body.user_icon,
+        // spooky_scale: req.body.spooky_scale,
+        // user_icon: req.body.user_icon,
       },
       { where: { user_id: userId } }
     );
