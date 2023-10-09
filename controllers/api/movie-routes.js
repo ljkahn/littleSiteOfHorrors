@@ -198,20 +198,20 @@ const { Movie, Review, FavMovies } = require("../../models");
 // // POST (add Movie to favorites by ID)
 //GOING to need to add in user profile ID (Alex) to traget the spc. user favoriting this movie
 // // http://localhost:3001/api/users/movies/:id
-router.post("/:id", async (req, res) => {
-  try {
-    const userFavorite = await FavMovies.create({
-      movie_id: req.params.id,
-      profile_id: req.session.user_id,
-      // movie_id: 5,
-      // profile_id: 1,
-    });
+// router.post("/:id", async (req, res) => {
+//   try {
+//     const userFavorite = await FavMovies.create({
+//       movie_id: req.params.id,
+//       profile_id: req.session.user_id,
+//       // movie_id: 5,
+//       // profile_id: 1,
+//     });
 
-    res.redirect("/profile");
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     res.redirect("/profile");
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;
