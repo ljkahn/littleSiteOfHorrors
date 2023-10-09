@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Profile } = require("../../models");
 
 // LOGIN & SIGN UP PAGE
 
@@ -37,7 +37,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// GET create account page
 // http://localhost:3001/api/users/create
 router.post("/create", async (req, res) => {
   try {
@@ -46,7 +45,7 @@ router.post("/create", async (req, res) => {
     console.log("==============");
 
     const newUserData = await User.create({
-      username: req.body.username,
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password,
     });
@@ -54,69 +53,54 @@ router.post("/create", async (req, res) => {
     console.log(newUserData);
     console.log("+++++++++++++++++++++");
 
-    req.session.save(() => {
-      req.session.loggedIn = true;
-      // req.session.userid = newuserdata.id
-      // id for who is logged in is stored in the session
-
-      // when we want to display a profile, this will help us find the correct one by using the userid
-
-      res.redirect("/");
+    const newProfile = await Profile.create({
+      user_id: newUserData.id, // makes the profile user_id, the same as the user id that is autoincremented
+      name: req.body.name, // profile name does not allow for a null, this takes the name that was input when creating an account and places it in profile name
     });
+
+    // req.session.save(() => {
+    req.session.loggedIn = true;
+    req.session.user_id = newUserData.id;
+    // when we want to display a profile, this should help us find the correct one by the user_id
+    // id for who is logged in is stored in the session
+
+    // res.status(200).json(newUserData);
+    res.redirect("/");
+    // ADD: message that pops up if password is less than 6 chars, if you enter less than 6 chars, it returns a white screen and does not direct or tell you what's wrong
+    // });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-// POST create account
-// http://localhost:3001/api/users/create
-// router.post("/create", async (req, res) => {
-//   try {
-//     const createAccount = "This action will let a user create a new account";
-//     res.status(200).json(createAccount);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
-// PROFILE PAGE
-
-// GET user profile
-// http://localhost:3001/api/users/profile
-// router.get("/profile", async (req, res) => {
-//   try {
-//     const data = "This page should return user profile!";
-//     //we need to serilaize this "data" to have it return the profile information saved in the profile database that is connected to the particular user logging in
-//     res.render("userProfile", { data });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-//   // ADD AUTHENTICATION:
-//   // This page should only be viewable if the user is logged in
-// });
-
-
-
 // PUT (edit) user profile
 // http://localhost:3001/api/users/profile/edit
 router.put("/profile/edit", async (req, res) => {
   try {
-    console.log("=================================")
-    console.log(req.body)
-    console.log("=================================")
-    const data = "This action should allow the user to edit their profile!";
-    res.status(200).json(data);
+    const userId = req.session.user_id;
+
+    const updatedProfile = await Profile.update(
+      {
+        name: req.body.name,
+        location: req.body.location,
+        answer_1: req.body.answer1,
+        answer_2: req.body.answer2,
+        answer_3: req.body.answer3,
+        spooky_scale: req.body.spooky_scale,
+        user_icon: req.body.user_icon,
+      },
+      { where: { user_id: userId } }
+    );
+    console.log("=================================");
+    console.log(req.body);
+    console.log("=================================");
+    res.redirect("/profile");
   } catch (err) {
     res.status(500).json(err);
   }
   // ADD AUTHENTICATION:
   // This page should only be viewable if the user is logged in
 });
-
-
-
-
 
 module.exports = router;
