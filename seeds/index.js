@@ -3,7 +3,7 @@ const seedMovies = require('./movieData');
 
 
 const seedAll = async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync({ force: false });
 
 
   await seedMovies();
