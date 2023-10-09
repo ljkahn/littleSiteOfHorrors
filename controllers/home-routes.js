@@ -65,7 +65,7 @@ router.get('/login', async (req,res) => {
     const data = "This should present the login page!";
     res.render('login', {data})
   } catch (err) {
-    res.status(500),json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -74,7 +74,7 @@ router.get('/create', async (req,res) => {
     const data = "This should present the create account page!";
     res.render('newAccount', {data})
   } catch (err) {
-    res.status(500),json(err);
+    res.status(500).json(err);
   }
 });
 

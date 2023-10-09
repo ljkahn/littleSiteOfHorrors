@@ -50,6 +50,7 @@ router.post("/create", async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
+    console.log(newUserData);
 
     req.session.save(() => {
       req.session.loggedIn = true;
