@@ -36,15 +36,17 @@ Profile.init(
     },
 
     top_movies: {
-      type: DataTypes.STRING,
-      validate: {
-        max: 5,
-        //Datatype correct?
-      },
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'FavMovies',
+        key: 'profile_id'
+      }
     },
 
     spooky_scale: {
       type: DataTypes.INTEGER,
+      allowNull: true,
       validate: {
         min: 1,
         max: 5,
