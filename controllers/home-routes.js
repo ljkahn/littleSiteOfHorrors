@@ -3,6 +3,14 @@ const { Movie, Review, FavMovies, Profile, User } = require("../models");
 const router = require("express").Router();
 
 
+// <<<<<<< HEAD
+// //get login 
+// // router.get("/login", async (req, res) => {
+// //   const data = "You have reached the login page!";
+// //       res.render('login', {data}); //don't know if this should be {data}}
+// // });
+// =======
+// >>>>>>> main
 // GET landing page
 // http://localhost:3001/
 router.get("/", async (req, res) => {
@@ -23,7 +31,7 @@ router.get("/movies", async (req, res) => {
   try {
     const posterData = await Movie.findAll({
       // // Selecting only the 'poster_url' attribute
-      attributes: ['poster_url'], 
+      attributes: ['movie_id', 'poster_url'], 
       raw: true,
     });
 console.log(posterData)
@@ -45,10 +53,10 @@ console.log(posterData)
     console.log("id", req.params.id)
   
     try {
-      
+      console.log('sup');
       const movieData = await Movie.findByPk(req.params.id, {
           // include: [Movie],
-          attributes: ['poster_url', 'title', 'director', 'release_year', 'description', 'rating'],
+          attributes: ['movie_id', 'poster_url', 'title', 'director', 'release_year', 'description', 'rating'],
           raw: true,
     });
       // if(movieData) {
