@@ -77,18 +77,17 @@ router.put("/profile/edit", async (req, res) => {
       {
         name: req.body.name,
         location: req.body.location,
-        answer_1: req.body.answer_1,
-        answer_2: req.body.answer_2,
-        answer_3: req.body.answer_3,
+        answer_1: req.body.answer1,
+        answer_2: req.body.answer2,
+        answer_3: req.body.answer3,
+        spooky_scale: req.body.spooky_scale,
+        user_icon: req.body.user_icon,
       },
       { where: { user_id: userId } }
-      // ).then((profileEdit) => {
-      //   res.json(profileEdit);
     );
     console.log("=================================");
     console.log(req.body);
     console.log("=================================");
-    const data = "This action should allow the user to edit their profile!";
     res.redirect("/profile");
   } catch (err) {
     res.status(500).json(err);
