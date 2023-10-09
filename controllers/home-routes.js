@@ -2,9 +2,8 @@ const { Movie, Review, FavMovies, Profile, User } = require("../models");
 
 const router = require("express").Router();
 
-
 // <<<<<<< HEAD
-// //get login 
+// //get login
 // // router.get("/login", async (req, res) => {
 // //   const data = "You have reached the login page!";
 // //       res.render('login', {data}); //don't know if this should be {data}}
@@ -31,46 +30,52 @@ router.get("/movies", async (req, res) => {
   try {
     const posterData = await Movie.findAll({
       // // Selecting only the 'poster_url' attribute
-      attributes: ['movie_id', 'poster_url'], 
+      attributes: ["movie_id", "poster_url"],
       raw: true,
     });
-console.log(posterData)
+    console.log(posterData);
 
-  // const poster = posterData.map((movie) => movie.get({ plain: true }));
-  // console.log(poster)
+    // const poster = posterData.map((movie) => movie.get({ plain: true }));
+    // console.log(poster)
     // const data = "You have reached the all search page!";
     // const allMoviesData = await movies.findAll();
-    res.render('searchResults', {posterData});
+    res.render("searchResults", { posterData });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// get posters, title, director, release_year, description, and rating for oneSearchResult
+router.get("/movies/:id", async (req, res) => {
+  console.log("id", req.params.id);
 
-
-  // get posters, title, director, release_year, description, and rating for oneSearchResult
-  router.get('/movies/:id', async (req, res) => {
-    console.log("id", req.params.id)
-  
-    try {
-      console.log('sup');
-      const movieData = await Movie.findByPk(req.params.id, {
-          // include: [Movie],
-          attributes: ['movie_id', 'poster_url', 'title', 'director', 'release_year', 'description', 'rating'],
-          raw: true,
+  try {
+    console.log("sup");
+    const movieData = await Movie.findByPk(req.params.id, {
+      // include: [Movie],
+      attributes: [
+        "movie_id",
+        "poster_url",
+        "title",
+        "director",
+        "release_year",
+        "description",
+        "rating",
+      ],
+      raw: true,
     });
-      // if(movieData) {
-      // const poster = posterData.get({ plain: true });
-        console.log(movieData)
-      res.render('oneSearchResult', { ...movieData });
-  // } else {
-  //   res.status(404)
-  // }
+    // if(movieData) {
+    // const poster = posterData.get({ plain: true });
+    console.log(movieData);
+    res.render("oneSearchResult", { ...movieData });
+    // } else {
+    //   res.status(404)
+    // }
   } catch (err) {
-    console.log(err)
-      res.status(500).json(err);
-    }
-  });
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // GET one search result
 // // http://localhost:3001/movies/:id
@@ -90,9 +95,9 @@ router.get("/profile", async (req, res) => {
     const profile = await Profile.findByPk(1, {
       raw: true,
       // include: [FavMovies]
-    })
+    });
     console.log(profile);
-    res.render('userProfile', {...profile});
+    res.render("userProfile", { ...profile });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

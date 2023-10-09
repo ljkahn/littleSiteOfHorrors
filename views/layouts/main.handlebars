@@ -14,7 +14,10 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <title>Document</title>
@@ -59,7 +62,11 @@
                 alt="Bootstrap"
               /></a>
             <li class="nav-item">
-              <a class="custom-nav-link" href="/login">Login</a>
+              {{#if loggedIn}}
+                <a class="custom-nav-link" href="#" id="logout">Logout</a>
+              {{else}}
+                <a class="custom-nav-link" href="/login">Login</a>
+              {{/if}}
             </li>
             <li class="nav-item">
               <a class="custom-nav-link" href="#">Discussion</a>
@@ -102,6 +109,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    {{!-- <script src="anime.min.js"></script> --}}
+    {{! <script src="anime.min.js"></script> }}
   </body>
 </html>

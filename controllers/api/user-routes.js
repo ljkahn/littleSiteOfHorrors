@@ -75,6 +75,18 @@ router.post("/create", async (req, res) => {
   }
 });
 
+// http://localhost:3001/api/users/logout
+router.post("/logout", (req, res) => {
+  // Add the function arrow here
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
 // PUT (edit) user profile
 // http://localhost:3001/api/users/profile/edit
 router.put("/profile/edit", async (req, res) => {
