@@ -1,6 +1,6 @@
 <main class="form-signin py-4 w-100 m-auto container d-flex align-items-center">
       <div class="row">
-        <form>
+        <form action="/api/users/create" method="POST">
           <h1 class="h3 mb-3 fw-normal">Create Account</h1>
 
           <div class="form-floating">
@@ -8,9 +8,10 @@
               type="text"
               class="form-control"
               id="floatingName"
-              placeholder="name"
+              placeholder="user name"
+              name="username"
             />
-            <label for="floatingInput">Name</label>
+            <label for="floatingInput">User Name</label>
           </div>
           <br />
           <div class="form-floating">
@@ -19,16 +20,18 @@
               class="form-control"
               id="floatingInput"
               placeholder="name@example.com"
+              name="email"
             />
             <label for="floatingPassword">Email</label>
           </div>
           <br />
           <div class="form-floating">
             <input
-              type="text"
+              type="password"
               class="form-control"
               id="floatingPassword"
               placeholder="Password"
+              name="password"
             />
             <label for="floatingPassword">Password</label>
           </div>

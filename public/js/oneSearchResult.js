@@ -13,8 +13,11 @@ const handleAddToFavorite = (event) => {
   console.log("hello");
 
   $.ajax({
-    url: '/api/users/movie/:id',
+    url: '/api/movies/3',
     method: "POST",
+  })
+  .done(() => {
+    window.location.href='/profile'
   })
 .then(() => {
   console.log("This movie has been added to your favorites")

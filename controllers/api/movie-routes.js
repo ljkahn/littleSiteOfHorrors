@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Movie, Review } = require('../../models');
+const { Movie, Review, FavMovies } = require("../../models");
 
 // /movies get all poster images
 // http://localhost:3001/movies/
@@ -14,12 +14,24 @@ const { Movie, Review } = require('../../models');
 //     const poster = posterData.map((movie) => movie.get({ plain: true }));
 //     console.log(posterData)
 
-//     res.render('searchResults', { poster });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-//   });
+    res.render("searchResults", { poster });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
+// get posters for oneSearchResult
+router.get("/movies", async (req, res) => {
+  try {
+    const posterData = await Movie.findByPk(req.params.id, {
+      attributes: {
+        title: movie.title,
+        director: movie.director,
+        year: movie.release_year,
+        rating: movie.rating,
+      },
+    });
+    const poster = posterData.map((movie) => movie.get({ plain: true }));
 
   // // get posters, title, director, release_year, description, and rating for oneSearchResult
   // router.get('/movies/:id', async (req, res) => {
@@ -61,6 +73,16 @@ const { Movie, Review } = require('../../models');
 //     }
 //   });
 
+    if (!movie) {
+      res.status(404).send("Movie not found");
+    } else {
+      res.render("oneSearchResult", { title: movie.title });
+    }
+  } catch (error) {
+    console.error("Error fetching movie title:", error);
+    res.status(500).send("An error occurred while fetching the movie title.");
+  }
+});
 
 // // /movies/:id generate director on page
 // router.get('/movie/:id', async (req, res) => {
@@ -79,6 +101,18 @@ const { Movie, Review } = require('../../models');
 //     }
 //   });
 
+//     if (!movie) {
+//       res.status(404).send("Movie not found");
+//     } else {
+//       res.render("oneSearchResult", { title: movie.director });
+//     }
+//   } catch (error) {
+//     console.error("Error fetching movie director:", error);
+//     res
+//       .status(500)
+//       .send("An error occurred while fetching the movie director.");
+//   }
+// });
 
 // // /movies/:id generate year on page
 // router.get('/movie/:id', async (req, res) => {
@@ -131,6 +165,16 @@ const { Movie, Review } = require('../../models');
 //     }
 //   });
 
+//     if (!movie) {
+//       res.status(404).send("Movie not found");
+//     } else {
+//       res.render("oneSearchResult", { title: movie.rating });
+//     }
+//   } catch (error) {
+//     console.error("Error fetching movie rating:", error);
+//     res.status(500).send("An error occurred while fetching the movie rating.");
+//   }
+// });
 
 // /movies/:id create modal for user reviews to save to reviews
 
@@ -139,7 +183,7 @@ const { Movie, Review } = require('../../models');
 //     try {
 //       const reviewId = parseInt(req.params.id);
 //       const movie = await Review.findByPk(reviewId);
-  
+
 //       if (!review) {
 //         res.status(404).send('Review not found');
 //       } else {
@@ -151,25 +195,23 @@ const { Movie, Review } = require('../../models');
 //     }
 //   });
 
-
-
 // // POST (add Movie to favorites by ID)
+//GOING to need to add in user profile ID (Alex) to traget the spc. user favoriting this movie
 // // http://localhost:3001/api/users/movies/:id
-router.post('/movie/:id', async (req, res) => {
+router.post("/:id", async (req, res) => {
   try {
-    const userFavorite = await Profile.findByPk(req.params.id,
-      {
-        where: {
-          id: req.params.id
-        },
-        
-      })
+    const userFavorite = await FavMovies.create({
+      movie_id: req.params.id,
+      profile_id: req.session.user_id,
+      // movie_id: 5,
+      // profile_id: 1,
+    });
 
-      res.redirect('/profile')
-  } catch {
-
-
+    res.redirect("/profile");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
-})
+});
 
 module.exports = router;
