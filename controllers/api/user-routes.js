@@ -1,7 +1,6 @@
 const router = require("express").Router();
-const { User } = require("../../models");
-const { Movie, Review, FavMovies, User } = require("../../models");
-const { User, Profile } = require("../../models");
+// const { User } = require("../../models");
+const { Movie, Review, FavMovies, User, Profile } = require("../../models");
 
 // LOGIN & SIGN UP PAGE
 
@@ -107,6 +106,7 @@ router.put("/profile/edit", async (req, res) => {
 
 router.post("/:id", async (req, res) => {
   try {
+    const userId = req.session.user_id;
     const userFavorite = await FavMovies.create({
       movie_id: req.params.id,
       profile_id: req.session.user_id,
@@ -115,6 +115,7 @@ router.post("/:id", async (req, res) => {
     });
 
     res.redirect("/profile");
+    res.render('userProfile', {userFavorite});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
