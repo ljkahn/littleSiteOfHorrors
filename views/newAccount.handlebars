@@ -1,66 +1,37 @@
 <main class="form-signin py-4 w-100 m-auto container d-flex align-items-center">
-      <div class="row">
-        <form action="/api/users/create" method="POST">
-          <h1 class="h3 mb-3 fw-normal">Create Account</h1>
+  <div class="row">
+    <form action="/api/users/create" method="POST">
+      <h1 class="h3 mb-3 fw-normal">Create Account</h1>
 
-          <div class="form-floating">
-            <input
-              type="text"
-              class="form-control"
-              id="floatingName"
-              placeholder="user name"
-              name="username"
-            />
-            <label for="floatingInput">User Name</label>
-          </div>
-          <br />
-          <div class="form-floating">
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              placeholder="name@example.com"
-              name="email"
-            />
-            <label for="floatingPassword">Email</label>
-          </div>
-          <br />
-          <div class="form-floating">
-            <input
-              type="password"
-              class="form-control"
-              id="floatingPassword"
-              placeholder="Password"
-              name="password"
-            />
-            <label for="floatingPassword">Password</label>
-          </div>
-          <br />
-          <button class="btn btn-log1 text-white w-100 py-2" type="submit">
-            Create Account
-          </button>
-          <p class="mt-5 mb-3 text-white">Little Site of Horrors &copy; 2023</p>
-        </form>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingName"
+          placeholder="user name"
+          name="username"
+        />
+        <label for="floatingInput">User Name</label>
       </div>
       <br />
       <div class="form-floating">
         <input
           type="text"
-          name="email"
           class="form-control"
           id="floatingInput"
           placeholder="name@example.com"
+          name="email"
         />
         <label for="floatingPassword">Email</label>
       </div>
       <br />
       <div class="form-floating">
         <input
-          type="text"
-          name="password"
+          type="password"
           class="form-control"
           id="floatingPassword"
           placeholder="Password"
+          name="password"
         />
         <label for="floatingPassword">Password</label>
       </div>
@@ -71,4 +42,5 @@
       <p class="mt-5 mb-3 text-white">Little Site of Horrors &copy; 2023</p>
     </form>
   </div>
+  <br />
 </main>
