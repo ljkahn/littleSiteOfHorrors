@@ -3,22 +3,22 @@ const { Movie, Review } = require('../../models');
 
 // /movies get all poster images
 // http://localhost:3001/movies/
-router.get('/', async (req, res) => {
-    try {
-      const posterData = await Movie.findAll({
-        // Selecting only the 'poster_url' attribute
-        attributes: ['poster_url'], 
-      });
+// router.get('/', async (req, res) => {
+//     try {
+//       const posterData = await Movie.findAll({
+//         // Selecting only the 'poster_url' attribute
+//         attributes: ['poster_url'], 
+//       });
   
  
-    const poster = posterData.map((movie) => movie.get({ plain: true }));
-    console.log(posterData)
+//     const poster = posterData.map((movie) => movie.get({ plain: true }));
+//     console.log(posterData)
 
-    res.render('searchResults', { poster });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-  });
+//     res.render('searchResults', { poster });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+//   });
 
 
   // // get posters, title, director, release_year, description, and rating for oneSearchResult
