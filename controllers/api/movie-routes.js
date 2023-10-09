@@ -150,10 +150,10 @@ router.get("/movie/:id", async (req, res) => {
 router.post("/:id", async (req, res) => {
   try {
     const userFavorite = await FavMovies.create({
-      // movie_id: req.params.id,
-      // profile_id: req.session.user_id,
-      movie_id: 5,
-      profile_id: 1,
+      movie_id: req.params.id,
+      profile_id: req.session.user_id,
+      // movie_id: 5,
+      // profile_id: 1,
     });
 
     res.redirect("/profile");
