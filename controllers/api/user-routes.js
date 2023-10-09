@@ -40,11 +40,18 @@ router.post("/login", async (req, res) => {
 // http://localhost:3001/api/users/create
 router.post("/create", async (req, res) => {
   try {
+    console.log("==============");
+    console.log(req.body);
+    console.log("==============");
+
     const newUserData = await User.create({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
     });
+    console.log("+++++++++++++++++++++++++");
+    console.log(newUserData);
+    console.log("+++++++++++++++++++++");
 
     const newProfile = await Profile.create({
       user_id: newUserData.id, // makes the profile user_id, the same as the user id that is autoincremented

@@ -2,7 +2,7 @@
 // const Post = require('../Post'); // ICEBOX
 // const Review = require('../Review'); //
 const User = require("../models/user");
-const Movies = require("../models/Movie");
+const Movie = require("../models/Movie");
 const Profile = require("../models/Profile");
 const FavMovies = require("../models/favMovies");
 
@@ -14,12 +14,12 @@ Profile.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-Movies.belongsToMany(Profile, {
+Movie.belongsToMany(Profile, {
   through: FavMovies,
   foreignKey: "movie_id",
 });
 
-Profile.belongsToMany(Movies, {
+Profile.belongsToMany(Movie, {
   through: FavMovies,
   foreignKey: "profile_id",
 });
@@ -31,7 +31,7 @@ Profile.belongsToMany(Movies, {
 
 module.exports = {
   User,
-  Movies,
+  Movie,
   Profile,
   FavMovies,
 };
