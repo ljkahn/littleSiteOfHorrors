@@ -61,9 +61,10 @@ router.post("/create", async (req, res) => {
       name: req.body.name, // profile name does not allow for a null, this takes the name that was input when creating an account and places it in profile name
     });
 
-    // req.session.save(() => {
-    req.session.loggedIn = true;
-    req.session.user_id = newUserData.id;
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      // req.session.user_id = newUserData.id;
+    });
     // when we want to display a profile, this should help us find the correct one by the user_id
     // id for who is logged in is stored in the session
 
@@ -123,9 +124,9 @@ router.post("/:id", async (req, res) => {
     const userId = req.session.user_id;
     const currentProfile = Profile.findOne({
       where: {
-        user_id: userId
-      }
-    })
+        user_id: userId,
+      },
+    });
     console.log(userId, "this is the userID");
     const userFavorite = await FavMovies.create({
       movie_id: req.params.id,
@@ -134,7 +135,7 @@ router.post("/:id", async (req, res) => {
       // profile_id: 1,
     });
     console.log(movie_id, "THIS IS THE MOVIE ID");
-    console.log(profile_id, "THIS IS THE PROFILE ID")
+    console.log(profile_id, "THIS IS THE PROFILE ID");
     res.redirect("/profile");
     res.render("userProfile", { userFavorite });
   } catch (err) {
