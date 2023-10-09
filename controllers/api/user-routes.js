@@ -31,10 +31,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-<<<<<<< HEAD
       req.session.user_id = userEmail.id;
-=======
->>>>>>> origin
       res.redirect("/profile"); //don't know if this should be {data}
     });
   } catch (err) {
