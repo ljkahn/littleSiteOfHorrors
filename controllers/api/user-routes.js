@@ -114,14 +114,15 @@ router.post("/:id", async (req, res) => {
         user_id: userId
       }
     })
-    console.log(userId);
+    console.log(userId, "this is the userID");
     const userFavorite = await FavMovies.create({
       movie_id: req.params.id,
       profile_id: currentProfile.id,
       // movie_id: 5,
       // profile_id: 1,
     });
-
+    console.log(movie_id, "THIS IS THE MOVIE ID");
+    console.log(profile_id, "THIS IS THE PROFILE ID")
     res.redirect("/profile");
     res.render("userProfile", { userFavorite });
   } catch (err) {
