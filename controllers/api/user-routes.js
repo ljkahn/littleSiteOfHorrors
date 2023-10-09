@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { User, Profile } = require("../../models");
+// const { User } = require("../../models");
+const { Movie, Review, FavMovies, User, Profile } = require("../../models");
 
 // LOGIN & SIGN UP PAGE
 
@@ -102,5 +103,27 @@ router.put("/profile/edit", async (req, res) => {
   // ADD AUTHENTICATION:
   // This page should only be viewable if the user is logged in
 });
+
+router.post("/:id", async (req, res) => {
+  try {
+    const userId = req.session.user_id;
+    const userFavorite = await FavMovies.create({
+      movie_id: req.params.id,
+      profile_id: req.session.user_id,
+      // movie_id: 5,
+      // profile_id: 1,
+    });
+
+    res.redirect("/profile");
+    res.render('userProfile', {userFavorite});
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
+
+
 
 module.exports = router;
