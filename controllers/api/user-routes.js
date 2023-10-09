@@ -31,7 +31,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      res.redirect("/"); //don't know if this should be {data}
+      res.redirect("/profile"); //don't know if this should be {data}
     });
   } catch (err) {
     res.status(500).json(err);
