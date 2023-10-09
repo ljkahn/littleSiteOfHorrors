@@ -1,17 +1,19 @@
-
-<main>
-<div class="album py-5">
-     {{!-- <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-          <a href="#" class="btn btn-primary my-2">Spooky Level</a>
-          <a href="#" class="btn btn-primary my-2">Genre</a>
-          <a href="#" class="btn btn-primary my-2">Year</a>
-        </p>
-      </div>
+<div class="movies">
+  {{#each posterData}}
+  <article class="card">
+    <div class="card-header flex-row justify-space-between">
+      <h2>
+      <a href="/movies/{{movie_id}}"><img src="{{poster_url}}" alt=""></a>
+      </h2>
     </div>
+<<<<<<< HEAD
   </section> --}}
    
 </div>
 
 </main>
+=======
+  </article>
+  {{/each}}
+</div>
+>>>>>>> main
