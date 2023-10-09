@@ -31,8 +31,8 @@ Profile.init(
       allowNull: true,
     },
     name: {
-      type:DataTypes.STRING,
-      allowNull:false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
 
     top_movies: {
@@ -56,7 +56,7 @@ Profile.init(
     user_icon: {
       type: DataTypes.INTEGER,
       allowNull: true,
-    }
+    },
   },
 
   {

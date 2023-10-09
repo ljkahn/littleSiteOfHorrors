@@ -14,8 +14,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-
-// GET landing page carousel movies 
+// GET landing page carousel movies
 //http://localhost:3001/
 
 // GET all movie results
@@ -99,7 +98,7 @@ router.get("/profile", async (req, res) => {
 router.get("/profile/edit", async (req, res) => {
   try {
     const data = "This page should return a profile page that can be edited!";
-    res.render('profileEdit', {data})
+    res.render("profileEdit", { data });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -107,30 +106,27 @@ router.get("/profile/edit", async (req, res) => {
   // This page should only be viewable if the user is logged in
 });
 
-//GET login page 
+//GET login page
 // http://localhost:3001/login
-router.get('/login', async (req,res) => {
+router.get("/login", async (req, res) => {
   try {
     const data = "This should present the login page!";
-    res.render('login', {data})
+    res.render("login", { data });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-//GET create account page 
+//GET create account page
 // http://localhost:3001/create
-router.get('/create', async (req,res) => {
+router.get("/create", async (req, res) => {
   try {
     const data = "This should present the create account page!";
-    res.render('newAccount', {data})
+    res.render("newAccount", { data });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
-
-
 
 // GET discussion page
 // http://localhost:3001/forum
