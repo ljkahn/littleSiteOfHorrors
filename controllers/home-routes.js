@@ -1,5 +1,11 @@
 const router = require("express").Router();
 
+
+//get login 
+// router.get("/login", async (req, res) => {
+//   const data = "You have reached the login page!";
+//       res.render('login', {data}); //don't know if this should be {data}}
+// });
 // GET landing page
 // http://localhost:3001/
 router.get("/", async (req, res) => {
