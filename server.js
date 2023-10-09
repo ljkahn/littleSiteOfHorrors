@@ -6,7 +6,7 @@ const exphbs = require("express-handlebars");
 const helpers = require("./utils/helpers");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const animejs = require('animejs');
+// const animejs = require('animejs');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
