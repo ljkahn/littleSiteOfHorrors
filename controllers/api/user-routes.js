@@ -10,7 +10,7 @@ const { Movie, Review, FavMovies, User, Profile } = require("../../models");
 router.post("/login", async (req, res) => {
   try {
     const userEmail = await User.findOne({
-      email: req.body.email,
+      where: { email: req.body.email },
     });
 
     if (!userEmail) {
@@ -20,7 +20,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = await userEmail.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
