@@ -1,4 +1,5 @@
 const { Movie, Review, FavMovies, Profile, User } = require("../models");
+const withAuth = require('../utils/auth');
 
 const router = require("express").Router();
 
@@ -71,7 +72,7 @@ router.get("/movies/:id", async (req, res) => {
   console.log("id", req.params.id);
 
   try {
-    console.log("sup");
+    // console.log("sup");
     const movieData = await Movie.findByPk(req.params.id, {
       // include: [Movie],
       attributes: [
@@ -87,7 +88,7 @@ router.get("/movies/:id", async (req, res) => {
     });
     // if(movieData) {
     // const poster = posterData.get({ plain: true });
-    console.log(movieData);
+    // console.log(movieData);
     res.render("oneSearchResult", {
       ...movieData,
       loggedIn: req.session.loggedIn || false,
@@ -114,38 +115,41 @@ router.get("/movies/:id", async (req, res) => {
 
 // GET user profile
 // http://localhost:3001/profile
-router.get("/profile", async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
-    const profile = await Profile.findByPk(
-      req.session.user_id,
-      {
-        raw: true,
-        // include: [FavMovies]
+    const profileData = await Profile.findOne({
+      where: {
+        user_id:  req.session.user_id
       },
-      {
-        include: [{ model: FavMovies }],
-      }
-    );
+      include: [
+            {
+              model: Movie,
+              attributes: ['title', 'poster_url', 'movie_id']
+            },
+      ],
+    });
+    // console.log(profileData);
+    if (!profileData) {
+      return res.status(404).json({message: 'Profile not found.'});
+    }
+    // const profile = profileData.map((profile) => profile.get({plain: true}));
+
+    const profile = profileData.get({plain: true});
     console.log(profile);
     res.render("userProfile", {
-      ...profile,
+      profile,
       loggedIn: req.session.loggedIn || false,
-    });
-    req.session.save(() => {
-      req.session.loggedIn = true;
-      // req.session.user_id = newUserData.id;
     });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
+
 });
 
 // GET edit profile page
 // http://localhost:3001/profile/edit
-router.get("/profile/edit", async (req, res) => {
+router.get("/profile/edit", withAuth, async (req, res) => {
   try {
     const data = "This page should return a profile page that can be edited!";
     res.render("profileEdit", {
