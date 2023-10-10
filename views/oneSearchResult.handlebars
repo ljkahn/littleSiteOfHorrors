@@ -11,7 +11,6 @@
                     <p class="lead movie-info">{{description}}</p>
                     <br />
                     <div class="d-flex flex-column">
-                  
                        <button
                         class="d-flex btn btn-log1 text-white w-100 py-2"
                         type="button" id="add-to-fav" >
@@ -23,7 +22,7 @@
                         type="button">
                         post a review
                         </button>
-                         <br />
+                        <br />
                         <h2 class="fs-4">Spooky Scale:</h2>
                         <h2 class="p-2 movie-info">
                             {{#if (eq rating 1)}}
@@ -40,8 +39,10 @@
                             Unsure how spooky this is...
                             {{/if}}
                         </h2>
-                    </div>
-                </div>
+                    {{!-- </div>
+                    <h1 class="display-5 fw-bolder">Spooky Scale: <span class="badge bg-secondary">{{rating}}</span></h1>
+                --}}
+               </div>
             </div>
         </div>
     </section>

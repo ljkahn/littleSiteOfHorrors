@@ -6,6 +6,7 @@ const exphbs = require("express-handlebars");
 const helpers = require("./utils/helpers");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+
 // const animejs = require('animejs');
 
 const app = express();
@@ -14,7 +15,9 @@ const PORT = process.env.PORT || 3001;
 const sess = {
   secret: process.env.SESSION_SECRET,
   // need to require in ENV
-  cookie: {},
+  cookie: {
+
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -28,11 +31,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-const hbs = exphbs.create({ helpers: {
-  eq: function (a,b) {
-    return a===b;
-  }
-} });
+const hbs = exphbs.create({
+  helpers: {
+    eq: function (a, b) {
+      return a === b;
+    },
+  },
+});
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
