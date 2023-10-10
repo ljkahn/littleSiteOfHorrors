@@ -4,11 +4,11 @@
                 <div class="col-md-6"><img src={{poster_url}}class="img-fluid img-thumbnail" alt="..."></div>
                 <div class="col-md-6">
                     <h1 class="display-5 fw-bolder">{{title}}</h1>
-                    <h2 class="display-5 fw-bolder">{{director}}</h2>
-                    <h3 class="display-5 fw-bolder">{{release_year}}</h3>
+                    <h2 class="display-5 fw-bolder movie-info">{{director}}</h2>
+                    <h3 class="display-5 fw-bolder movie-info">{{release_year}}</h3>
                     <div class="fs-5 mb-5">
                     </div>
-                    <p class="lead">{{description}}</p>
+                    <p class="lead movie-info">{{description}}</p>
                     <br />
                     <div class="d-flex flex-column">
                        <button
@@ -23,6 +23,22 @@
                         post a review
                         </button>
                          <br />
+                        <h2 class="fs-4">Spooky Scale:</h2>
+                        <h2 class="p-2 movie-info">
+                            {{#if (eq rating 1)}}
+                            🎃 G
+                            {{else if (eq rating 2)}}
+                            🎃🎃 PG
+                            {{else if (eq rating 3)}}
+                            🎃🎃🎃 PG-13
+                            {{else if (eq rating 4)}}
+                            🎃🎃🎃🎃 R
+                            {{else if (eq rating 5)}}
+                            🎃🎃🎃🎃🎃 NC-17
+                            {{else}}
+                            Unsure how spooky this is...
+                            {{/if}}
+                        </h2>
                     </div>
                     <h1 class="display-5 fw-bolder">Spooky Scale: <span class="badge bg-secondary">{{rating}}</span></h1>
                 </div>
