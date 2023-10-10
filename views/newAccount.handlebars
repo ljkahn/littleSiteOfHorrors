@@ -1,3 +1,9 @@
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
 <main class="form-signin py-4 w-100 m-auto container d-flex align-items-center">
   <div
     class="modal fade"
@@ -31,7 +37,7 @@
     </div>
   </div>
   <div class="row">
-    <form action="/api/users/create" method="POST">
+    <form action="/api/users/create" method="POST" id="registrationForm">
       <h1 class="h3 mb-3 fw-normal">Create Account</h1>
 
       <div class="form-floating">
@@ -67,12 +73,16 @@
         <label for="floatingPassword">Password</label>
       </div>
       <br />
-      <button class="btn btn-log1 text-white w-100 py-2" type="submit" id="registrationForm">
+      <button class="btn btn-log1 text-white w-100 py-2" type="submit" id>
         Create Account
       </button>
+  
       <p class="mt-5 mb-3 text-white">Little Site of Horrors &copy; 2023</p>
+      <div id="userNameDisplay"></div>
     </form>
 
   </div>
   <br />
 </main>
+<script src="/js/newAccount.js"></script>
+</body>

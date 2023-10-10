@@ -62,8 +62,8 @@ router.post("/create", async (req, res) => {
       user_id: newUserData.id, // makes the profile user_id, the same as the user id that is autoincremented
       name: req.body.name, // profile name does not allow for a null, this takes the name that was input when creating an account and places it in profile name
     });
-    const userProfile = newProfile.get({plain: true});
-    console.log(userProfile);
+    // const userProfile = newProfile.get({plain: true});
+    // console.log(userProfile);
 
     req.session.save(() => {
       req.session.loggedIn = true;
