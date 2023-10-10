@@ -2,16 +2,14 @@ const { Movie, Review, FavMovies, Profile, User } = require("../models");
 
 const router = require("express").Router();
 
-
 // <<<<<<< HEAD
-// //get login 
+// //get login
 // // router.get("/login", async (req, res) => {
 // //   const data = "You have reached the login page!";
 // //       res.render('login', {data}); //don't know if this should be {data}}
 // // });
 // =======
 // >>>>>>> main
-
 
 // GET landing page and random movies to carousel
 // http://localhost:3001/
@@ -21,25 +19,28 @@ router.get("/", async (req, res) => {
     const numberOfRandomMovies = 10;
     const randomList = [];
     while (randomList.length < numberOfRandomMovies) {
-      const randomIndex = Math.floor(Math.random() * count) +1;
+      const randomIndex = Math.floor(Math.random() * count) + 1;
       if (!randomList.includes(randomIndex)) {
         randomList.push(randomIndex);
       }
     }
     const randomMovies = await Movie.findAll({
-      attributes: ['movie_id','poster_url'],
+      attributes: ["movie_id", "poster_url"],
       raw: true,
       where: {
-        movie_id: randomList
-      }
-    })
-    res.render("homepage", { randomMovies });
+        movie_id: randomList,
+      },
+    });
+    // console.log(req.session.loggedIn);
+    res.render("homepage", {
+      randomMovies,
+      loggedIn: req.session.loggedIn || false,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
 
 // GET all movie results
 // http://localhost:3001/movies/
@@ -47,46 +48,58 @@ router.get("/movies", async (req, res) => {
   try {
     const posterData = await Movie.findAll({
       // // Selecting only the 'poster_url' attribute
-      attributes: ['movie_id', 'poster_url'], 
+      attributes: ["movie_id", "poster_url"],
       raw: true,
     });
-console.log(posterData)
+    console.log(posterData);
 
-  // const poster = posterData.map((movie) => movie.get({ plain: true }));
-  // console.log(poster)
+    // const poster = posterData.map((movie) => movie.get({ plain: true }));
+    // console.log(poster)
     // const data = "You have reached the all search page!";
     // const allMoviesData = await movies.findAll();
-    res.render('searchResults', {posterData});
+    res.render("searchResults", {
+      posterData,
+      loggedIn: req.session.loggedIn || false,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// get posters, title, director, release_year, description, and rating for oneSearchResult
+router.get("/movies/:id", async (req, res) => {
+  console.log("id", req.params.id);
 
-
-  // get posters, title, director, release_year, description, and rating for oneSearchResult
-  router.get('/movies/:id', async (req, res) => {
-    console.log("id", req.params.id)
-  
-    try {
-      console.log('sup');
-      const movieData = await Movie.findByPk(req.params.id, {
-          // include: [Movie],
-          attributes: ['movie_id', 'poster_url', 'title', 'director', 'release_year', 'description', 'rating'],
-          raw: true,
+  try {
+    console.log("sup");
+    const movieData = await Movie.findByPk(req.params.id, {
+      // include: [Movie],
+      attributes: [
+        "movie_id",
+        "poster_url",
+        "title",
+        "director",
+        "release_year",
+        "description",
+        "rating",
+      ],
+      raw: true,
     });
-      // if(movieData) {
-      // const poster = posterData.get({ plain: true });
-        console.log(movieData)
-      res.render('oneSearchResult', { ...movieData });
-  // } else {
-  //   res.status(404)
-  // }
+    // if(movieData) {
+    // const poster = posterData.get({ plain: true });
+    console.log(movieData);
+    res.render("oneSearchResult", {
+      ...movieData,
+      loggedIn: req.session.loggedIn || false,
+    });
+    // } else {
+    //   res.status(404)
+    // }
   } catch (err) {
-    console.log(err)
-      res.status(500).json(err);
-    }
-  });
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // GET one search result
 // // http://localhost:3001/movies/:id
@@ -103,16 +116,25 @@ console.log(posterData)
 // http://localhost:3001/profile
 router.get("/profile", async (req, res) => {
   try {
-    const profile = await Profile.findByPk(req.session.user_id, {
-      raw: true,
-    
-    },
-    {
-      include: [{model: FavMovies}]
-    })
+    const profile = await Profile.findByPk(
+      req.session.user_id,
+      {
+        raw: true,
+        // include: [FavMovies]
+      },
+      {
+        include: [{ model: FavMovies }],
+      }
+    );
     console.log(profile);
-    res.render('userProfile', {...profile});
-    
+    res.render("userProfile", {
+      ...profile,
+      loggedIn: req.session.loggedIn || false,
+    });
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      // req.session.user_id = newUserData.id;
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -126,7 +148,10 @@ router.get("/profile", async (req, res) => {
 router.get("/profile/edit", async (req, res) => {
   try {
     const data = "This page should return a profile page that can be edited!";
-    res.render("profileEdit", { data });
+    res.render("profileEdit", {
+      data,
+      loggedIn: req.session.loggedIn || false,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -139,7 +164,7 @@ router.get("/profile/edit", async (req, res) => {
 router.get("/login", async (req, res) => {
   try {
     const data = "This should present the login page!";
-    res.render("login", { data });
+    res.render("login", { data, loggedIn: req.session.loggedIn || false });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -150,7 +175,7 @@ router.get("/login", async (req, res) => {
 router.get("/create", async (req, res) => {
   try {
     const data = "This should present the create account page!";
-    res.render("newAccount", { data });
+    res.render("newAccount", { data, loggedIn: req.session.loggedIn || false });
   } catch (err) {
     res.status(500).json(err);
   }
