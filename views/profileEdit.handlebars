@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-lg-4">
 
+
       <img
         class="d-flex mb-5"
         id="previewIcon"
@@ -10,25 +11,16 @@
         width="200px"
         height="200px"
       />
+
       <select id="dropdownIcon" class="form-select" aria-label="Filter select">
         <option selected>&#x29E9; Choose your profile image</option>
       </select>
 
       <div class="form-group">
-        <label
-          class="updateLabel"
-          for="exampleFormControlTextarea1"
-        >Name</label>
+        <label class="updateLabel" for="exampleFormControlTextarea1">Name</label>
         <textarea class="form-control textUpdate" id="name" rows="3"></textarea>
-        <label
-          class="updateLabel"
-          for="exampleFormControlTextarea1"
-        >Location</label>
-        <textarea
-          class="form-control textUpdate"
-          id="location"
-          rows="3"
-        ></textarea>
+        <label class="updateLabel" for="exampleFormControlTextarea1">Location</label>
+        <textarea class="form-control textUpdate" id="location" rows="3"></textarea>
 
         <label for="exampleFormControlSelect1">Spooky Scale</label>
         <select class="form-control" id="spooky_scale">
@@ -46,23 +38,17 @@
       <div class="card user-top5">
         <ul class="card-body" id="sortable-container">
           <p class="top5">My Top Five Movies</p>
+          {{#each profile.Movies as |movie| }}
           <div id="top_movie1 sortable" class="card p-1">
-            <li>{{favMovies}}</li>
-            {{! HOW WOULD I TIE THIS TO THE USERS/PROFILE TABLE AND ADDING DELETE BY ID BUTTON - likely with updat movie function on profileEdit.js }}
-          </div>
-          <div id="top_movie2" class="card p-1 sortable-item">
-            <li>{{movie.title}}</li>
-          </div>
-          <div id="top_movie3" class="card p-1">
-            <li>{{movie.title}}</li>
-          </div>
-          <div id="top_movie4" class="card p-1">
-            <li>{{movie.title}}</li>
-          </div>
-          <div id="top_movie5" class="card p-1">
-            <li>{{movie.title}}</li>
+
+            <div class="p-1 fav-movie-cards">
+              <li class="top5Edit fs-5">{{movie.title}}</li>
+              
+              <button id="deleteMovie">⚰️</button>
+            </div>
 
           </div>
+            {{/each}}
         </ul>
         <p class="p-3">Drag the titles to sort into a different order. </p>
       </div>
@@ -70,7 +56,7 @@
         {{!-- <a href="/profile"> --}}
           <button id="save-profile-btn" class="edit-profile-btn p-3">Save
             Profile</button>
-        {{!-- </a> --}}
+          {{!-- </a> --}}
       </div>
     </div>
 
@@ -78,25 +64,13 @@
       <div class="form-group">
         <label class="updateLabel" for="exampleFormControlTextarea1">My Favorite
           Spooky Movie Snack Is:</label>
-        <textarea
-          class="form-control textUpdate"
-          id="answer_1"
-          rows="3"
-        ></textarea>
+        <textarea class="form-control textUpdate" id="answer_1" rows="3"></textarea>
         <label class="updateLabel" for="exampleFormControlTextarea1">My Top 3
           October Activites Are:</label>
-        <textarea
-          class="form-control textUpdate"
-          id="answer_2"
-          rows="3"
-        ></textarea>
+        <textarea class="form-control textUpdate" id="answer_2" rows="3"></textarea>
         <label class="updateLabel" for="exampleFormControlTextarea1">My Best
           Halloween Costume Ever Was:</label>
-        <textarea
-          class="form-control textUpdate"
-          id="answer_3"
-          rows="3"
-        ></textarea>
+        <textarea class="form-control textUpdate" id="answer_3" rows="3"></textarea>
       </div>
 
     </div>
