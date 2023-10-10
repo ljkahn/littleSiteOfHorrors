@@ -28,6 +28,11 @@ FavMovies.init(
         id: "id",
       },
     },
+    // rank: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: true,
+      
+    // }
 
     // title: {
     //     type: DataTypes.STRING
