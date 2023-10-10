@@ -185,4 +185,10 @@ router.get("/create", async (req, res) => {
 //   // This page should only be viewable if the user is logged in
 // });
 
+
+router.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, 'public/pages/404.html'))
+);
+
+
 module.exports = router;

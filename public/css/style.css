@@ -357,3 +357,12 @@ height: 37rem;
   font-family: "Work Sans";
   color: var(--white-text);
 }
+
+
+.four {
+  background-color: #212121;
+  text-align: center;
+  padding-top: 10%;
+  font-family: "Montserrat Subrayada";
+  color: white;
+}
