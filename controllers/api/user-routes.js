@@ -1,5 +1,7 @@
 const router = require("express").Router();
-const withAuth = require('../../utils/auth');
+const withAuth = require("../../utils/auth");
+const emailJs = require("emailjs-com");
+const axios = require("axios");
 
 const { Movie, Review, FavMovies, User, Profile } = require("../../models");
 
@@ -42,7 +44,7 @@ router.post("/login", async (req, res) => {
 });
 
 // http://localhost:3001/api/users/create
-//Create new user and send them to profile page 
+//Create new user and send them to profile page
 router.post("/create", async (req, res) => {
   try {
     console.log("==============");
@@ -56,12 +58,42 @@ router.post("/create", async (req, res) => {
     });
     if (req.body.password.length < 6) {
       // Password is less than six characters
-      return res.status(400).json({ error: "Password must be at least six characters long." });}
+      return res
+        .status(400)
+        .json({ error: "Password must be at least six characters long." });
+    }
+    // console.log(newUserData);
 
+    // send email to users email after creation account (needs to be to actual users)
+    const emailData = newUserData.get({
+      plain: true,
+    });
+
+    const userInfo = {
+      name: emailData.name,
+    };
+    console.log(userInfo.name);
+    axios
+      .post("https://api.emailjs.com/api/v1.0/email/send", {
+        service_id: "service_lshncog",
+        template_id: "template_it71bwo",
+        user_id: "QOrRg2TDOjIGS0-hD",
+        template_params: {
+          name: userInfo.name,
+        },
+      })
+      .then((response) => {
+        console.log("email sent!!!", response);
+      })
+      .catch((err) => {
+        console.log("email failed to send", err);
+      });
+    
     await Profile.create({
       user_id: newUserData.id, // makes the profile user_id, the same as the user id that is autoincremented
       name: req.body.name, // profile name does not allow for a null, this takes the name that was input when creating an account and places it in profile name
     });
+
     // const userProfile = newProfile.get({plain: true});
     // console.log(userProfile);
 
@@ -125,7 +157,6 @@ router.put("/profile/edit", withAuth, async (req, res) => {
   // This page should only be viewable if the user is logged in
 });
 
-
 //POST FAvorite Movie to favMovie table based on user selecting add-to-favorites
 //htp://localhost:3001/api/movies/:id
 router.post("/:id", withAuth, async (req, res) => {
@@ -133,19 +164,19 @@ router.post("/:id", withAuth, async (req, res) => {
     const userId = req.session.user_id;
     const currentProfile = Profile.findOne({
       where: {
-        user_id: userId
+        user_id: userId,
       },
     });
     //Serialize the data - need to do so for Handlebars
-    const newProfile = currentProfile.get({plain: true});
-    console.log(newProfile)
+    const newProfile = currentProfile.get({ plain: true });
+    console.log(newProfile);
 
     const userFavorite = await FavMovies.create({
       movie_id: req.params.id,
       profile_id: currentProfile.id,
     });
-    
-    res.status(200).json({message: "Movie has been added to favorites"})
+
+    res.status(200).json({ message: "Movie has been added to favorites" });
     res.redirect("/profile");
     // res.render("userProfile", { userFavorite });
   } catch (err) {
