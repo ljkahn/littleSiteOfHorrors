@@ -62,8 +62,8 @@ router.post("/create", async (req, res) => {
       user_id: newUserData.id, // makes the profile user_id, the same as the user id that is autoincremented
       name: req.body.name, // profile name does not allow for a null, this takes the name that was input when creating an account and places it in profile name
     });
-    // const userProfile = newProfile.get({plain: true});
-    // console.log(userProfile);
+    const userProfile = newProfile.get({plain: true});
+    console.log(userProfile);
 
     req.session.save(() => {
       req.session.loggedIn = true;
@@ -101,9 +101,6 @@ router.get("/logout", (req, res) => {
 router.put("/profile/edit", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;
-    console.log("=================================");
-    console.log(req.body);
-    console.log("=================================");
 
     const updatedProfile = await Profile.update(
       {
@@ -112,14 +109,16 @@ router.put("/profile/edit", withAuth, async (req, res) => {
         answer_1: req.body.answer1,
         answer_2: req.body.answer2,
         answer_3: req.body.answer3,
-        spooky_scale: req.body.spooky_scale,
-        user_icon: req.body.user_icon,
+        // spooky_scale: req.body.spooky_scale,
+        // user_icon: req.body.user_icon,
       },
       { where: { user_id: userId } }
     );
+    console.log("=================================");
+    console.log(req.body);
+    console.log("=================================");
     res.redirect("/profile");
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
   // ADD AUTHENTICATION:
@@ -129,11 +128,10 @@ router.put("/profile/edit", withAuth, async (req, res) => {
 
 //POST FAvorite Movie to favMovie table based on user selecting add-to-favorites
 //htp://localhost:3001/api/movies/:id
-router.get("/:id", withAuth, async (req, res) => {
+router.post("/:id", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;
-
-    const currentProfile = await Profile.findOne({
+    const currentProfile = Profile.findOne({
       where: {
         user_id: userId
       },
@@ -147,7 +145,7 @@ router.get("/:id", withAuth, async (req, res) => {
       profile_id: currentProfile.id,
     });
     
-    // res.status(200).json({message: "Movie has been added to favorites"})
+    res.status(200).json({message: "Movie has been added to favorites"})
     res.redirect("/profile");
     // res.render("userProfile", { userFavorite });
   } catch (err) {
