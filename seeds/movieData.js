@@ -1,4 +1,4 @@
-const {Movies} =require('../models')
+const {Movie} =require('../models')
 
 
 
@@ -606,6 +606,6 @@ const movieData =
 
 ]
 
-const seedMovies = () => Movies.bulkCreate(movieData);
+const seedMovies = () => Movie.bulkCreate(movieData);
 
 module.exports = seedMovies;

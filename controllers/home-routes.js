@@ -11,19 +11,35 @@ const router = require("express").Router();
 // // });
 // =======
 // >>>>>>> main
-// GET landing page
+
+
+// GET landing page and random movies to carousel
 // http://localhost:3001/
 router.get("/", async (req, res) => {
   try {
-    const data = "You have reached the landing page!";
-    res.render("homepage", { data });
+    const count = await Movie.count();
+    const numberOfRandomMovies = 10;
+    const randomList = [];
+    while (randomList.length < numberOfRandomMovies) {
+      const randomIndex = Math.floor(Math.random() * count) +1;
+      if (!randomList.includes(randomIndex)) {
+        randomList.push(randomIndex);
+      }
+    }
+    const randomMovies = await Movie.findAll({
+      attributes: ['movie_id','poster_url'],
+      raw: true,
+      where: {
+        movie_id: randomList
+      }
+    })
+    res.render("homepage", { randomMovies });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
-// GET landing page carousel movies
-//http://localhost:3001/
 
 // GET all movie results
 // http://localhost:3001/movies/
@@ -87,12 +103,16 @@ console.log(posterData)
 // http://localhost:3001/profile
 router.get("/profile", async (req, res) => {
   try {
-    const profile = await Profile.findByPk(1, {
+    const profile = await Profile.findByPk(req.session.user_id, {
       raw: true,
       // include: [FavMovies]
+    },
+    {
+      include: [{model: FavMovies}]
     })
     console.log(profile);
     res.render('userProfile', {...profile});
+    
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

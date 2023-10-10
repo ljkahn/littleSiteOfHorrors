@@ -11,31 +11,33 @@
       </div>
     </div>
 
-    <button id='runaway-btn'>👻</button>
 
     <div class="col-sm-12 col-lg-6">
-      <div id="carouselExample" class="carousel slide ">
-        <div class="carousel-inner" id="carouselEl">
-          {{!-- <div class="carousel-item active">
-            <img src="https://m.media-amazon.com/images/M/MV5BZDQzMmIxYTItOTJkMi00YzU1LWJkNGEtYWE1NjhiNWU5YmNkXkEyXkFqcGdeQXVyNjc5NjEzNA._V1_SX300.jpg" class="d-block w-100" alt="...">
+      <div id="carouselExample" class="carousel slide carouselSize ">
+        <div class="carousel-inner ">
+
+
+          {{#each randomMovies}}
+          <div class="carousel-item {{#if @first}} active{{/if}}" id="activePoster">
+            <a href="/movies/{{movie_id}}">
+              <img src="{{poster_url}}" class="d-block w-100" alt="movie poster"></a>
           </div>
-          <div class="carousel-item">
-            <img src="{{poster_url}}" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="https://m.media-amazon.com/images/M/MV5BYTllYWY5ZDYtZjExYy00ZTY5LTk2OWEtMTQ3NTdlNzE5NjcyXkEyXkFqcGdeQXVyMTUzMDUzNTI3._V1_SX300.jpg" class="d-block w-100" alt="...">
-          </div> --}}
+          {{/each}}
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" id="previousBtn">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" id="nextBtn">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
     </div>
+        <button id="runaway-btn">👻</button>     
   </div>
 </main>
-{{!-- <script src="anime.min.js"></script> --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/homepage.js"></script>
+<script src="anime.min.js"></script>
