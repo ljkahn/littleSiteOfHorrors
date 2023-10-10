@@ -8,15 +8,24 @@ carousel }}
   <div class="row">
     <div class="col-lg-5">
       <div class="col-12 profile-info">
-        <img class="user-image" src="" alt="User Image" />
-        <div class="card user-info-card">
-          <div class="card-body">
+        {{!-- <img class="user-image" src="" alt="User Image" /> --}}
+        <img
+        class="d-flex mb-5"
+        id="previewIcon"
+        src="/icons/placeholder.jpg"
+        alt="placeholder"
+        width="200px"
+        height="200px"
+      />
+        <div class="card user-info-card d-flex mb-3">
+          <div class="card-body d-flex flex-column">
             <p>{{name}}</p>
             <p>{{location}}</p>
             <p>{{spooky_scale}}</p>
           </div>
         </div>
       </div>
+      <br/>
 
       {{! <div class="d-flex justify-content-evenly"> }}
       <div class="card user-prompt-card">
