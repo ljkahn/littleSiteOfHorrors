@@ -13,93 +13,98 @@ carousel }}
           <div class="card-body">
             <p>{{profile.name}}</p>
             <p>{{profile.location}}</p>
-            <p>{{profile.spooky_scale}}</p>
+            <p>Spooky Scale:</p>
+            <p>
+              {{#if (eq profile.spooky_scale 1)}}
+              🎃 G
+              {{else if (eq profile.spooky_scale 2)}}
+              🎃🎃 PG
+              {{else if (eq profile.spooky_scale 3)}}
+              🎃🎃🎃 PG-13
+              {{else if (eq profile.spooky_scale 4)}}
+              🎃🎃🎃🎃 R
+              {{else if (eq profile.spooky_scale 5)}}
+              🎃🎃🎃🎃🎃 NC-17
+              {{else}}
+              Unsure how spooky this is...
+              {{/if}}
+            </p>
           </div>
         </div>
       </div>
-      <br/>
+      <br />
 
       {{! <div class="d-flex justify-content-evenly"> }}
-      <div class="card user-prompt-card">
-        <div class="card-body">
+        <div class="card user-prompt-card">
+          <div class="card-body">
 
-          <div class="card">
-            <div class="card-body prompt-question-cards">
-              <h5>My Favorite Spooky Snack Is:</h5>
-              <p class="prompt-answer">{{profile.answer_1}}</p>
+            <div class="card">
+              <div class="card-body prompt-question-cards">
+                <h5>My Favorite Spooky Snack Is:</h5>
+                <p class="prompt-answer">{{profile.answer_1}}</p>
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="card-body prompt-question-cards">
-              <h5>My Top 3 October Activities Are:</h5>
-              <p class="prompt-answer">{{profile.answer_2}}</p>
+            <div class="card">
+              <div class="card-body prompt-question-cards">
+                <h5>My Top 3 October Activities Are:</h5>
+                <p class="prompt-answer">{{profile.answer_2}}</p>
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="card-body prompt-question-cards">
-              <h5>My Best Halloween Costume Ever Was::</h5>
-              <p class="prompt-answer">{{profile.answer_3}}</p>
+            <div class="card">
+              <div class="card-body prompt-question-cards">
+                <h5>My Best Halloween Costume Ever Was::</h5>
+                <p class="prompt-answer">{{profile.answer_3}}</p>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
-    </div>
-    {{! END OF FIRST COLUMN }}
-    <div class="col-lg-3 d-flex flex-column justify-content-end">
+      {{! END OF FIRST COLUMN }}
+      <div class="col-lg-3 d-flex flex-column justify-content-end">
 
-      <div class="card user-top5">
-        <div class="card-body">
-          <p class="top5">My Top Five Movies</p>
-          {{#each profile.Movies as |movie| }}
-          
-          <div class="card user-movie m-1 p-1">
-            <a href="/movies/{{movie_id}}">{{title}}</a>
-            
+        <div class="card user-top5">
+          <div class="card-body">
+            <p class="top5">My Top Five Movies</p>
+            {{#each profile.Movies as |movie| }}
+
+            <div class="card user-movie m-1 p-1">
+              <a href="/movies/{{movie_id}}">{{title}}</a>
+
+            </div>
+            {{/each}}
           </div>
-          {{/each}}
+        </div>
+
+        <div>
+          <a href="/profile/edit">
+            <button type="button" class="edit-profile-btn p-3">Edit Profile</button></a>
         </div>
       </div>
-
-      <div>
-        <a href="/profile/edit">
-          <button type="button" class="edit-profile-btn p-3">Edit Profile</button></a>
-      </div>
-    </div>
-    {{! END OF SECOND COLUMN }}
-    <div class="col-lg-4 d-flex flex-column justify-content-end">
-      <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
+      {{! END OF SECOND COLUMN }}
+      <div class="col-lg-4 d-flex flex-column justify-content-end">
+        <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner">
 
 
-           {{#each profile.Movies}}
-          <div class="carousel-item {{#if @first}} active{{/if}}" id="activePoster">
-            <a href="/movies/{{movie_id}}">
-              <img src="{{poster_url}}" class="d-block w-100" alt="movie poster"></a>
+            {{#each profile.Movies}}
+            <div class="carousel-item {{#if @first}} active{{/if}}" id="activePoster">
+              <a href="/movies/{{movie_id}}">
+                <img src="{{poster_url}}" class="d-block w-100" alt="movie poster"></a>
+            </div>
+            {{/each}}
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-          {{/each}}
-          
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExample"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExample"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
+        </div>
 
-  </div>
+      </div>
 
 </main>

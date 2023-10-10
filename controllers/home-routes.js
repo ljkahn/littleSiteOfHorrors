@@ -132,7 +132,7 @@ router.get("/profile", withAuth, async (req, res) => {
     if (!profileData) {
       return res.status(404).json({message: 'Profile not found.'});
     }
-    // const profile = profileData.map((profile) => profile.get({plain: true}));
+    
 
     const profile = profileData.get({plain: true});
     console.log(profile);
@@ -151,16 +151,31 @@ router.get("/profile", withAuth, async (req, res) => {
 // http://localhost:3001/profile/edit
 router.get("/profile/edit", withAuth, async (req, res) => {
   try {
-    const data = "This page should return a profile page that can be edited!";
+    const profileData = await Profile.findOne({
+      where: {
+        user_id:  req.session.user_id
+      },
+      include: [
+            {
+              model: Movie,
+              attributes: ['title', 'movie_id']
+            },
+      ],
+    });
+    // console.log(profileData);
+    if (!profileData) {
+      return res.status(404).json({message: 'Profile not found.'});
+    }
+  
+    const profile = profileData.get({plain: true});
+    console.log(profile);
     res.render("profileEdit", {
-      data,
+      profile,
       loggedIn: req.session.loggedIn || false,
     });
   } catch (err) {
     res.status(500).json(err);
   }
-  // ADD AUTHENTICATION:
-  // This page should only be viewable if the user is logged in
 });
 
 //GET login page
@@ -215,9 +230,9 @@ router.get("/create", async (req, res) => {
 // });
 
 
-router.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/pages/404.html'))
-);
+// router.get('*', (req, res) =>
+//   res.sendFile(path.join(__dirname, 'public/pages/404.html'))
+// );
 
 
 module.exports = router;
