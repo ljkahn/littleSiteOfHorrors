@@ -2,11 +2,9 @@
 
 ## Description
 
-
-The Little Site of Horrors was created for the die-hard gore fans and the easily startled fans alike! Our motivation for creating this website was to have a place where horror movie fans of all genre's and spooky scales can come together to meet and bond over their favorite movies. 
+The Little Site of Horrors was created for the die-hard gore fans and the easily startled fans alike! Our motivation for creating this website was to have a place where horror movie fans of all genre's can discover new movies, create a user profile to save their favorites, and answer fun spooky questions about themselves. The user can also leave reviews on the movies that theyve enjoyed (or not).
 
 ## Table of Contents (Optional)
-
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -34,7 +32,6 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 [Maya Nettath](https://github.com/mnettath).
 [Alex Purfield](https://github.com/AlexPurfield).
 [Lia Kahn](https://github.com/ljkahn).
-
 
 ## License
 
