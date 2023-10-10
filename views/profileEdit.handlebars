@@ -32,8 +32,10 @@
           {{#each profile.Movies as |movie| }}
           <div id="top_movie1 sortable" class="card p-1">
 
-            <div class="card p-1">
-              <li>{{movie.title}}</li>
+            <div class="p-1 fav-movie-cards">
+              <li class="top5Edit fs-5">{{movie.title}}</li>
+              
+              <button id="deleteMovie">⚰️</button>
             </div>
 
           </div>

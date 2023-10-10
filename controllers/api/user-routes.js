@@ -117,7 +117,7 @@ router.put("/profile/edit", withAuth, async (req, res) => {
       },
       { where: { user_id: userId } }
     );
-    res.redirect("/profile");
+    res.status(200).json({ message: "Your profile has been updated!" });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -127,7 +127,7 @@ router.put("/profile/edit", withAuth, async (req, res) => {
 });
 
 
-//POST FAvorite Movie to favMovie table based on user selecting add-to-favorites
+//GET FAvorite Movie to favMovie table based on user selecting add-to-favorites
 //htp://localhost:3001/api/movies/:id
 router.get("/:id", withAuth, async (req, res) => {
   try {
@@ -155,5 +155,27 @@ router.get("/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+router.delete('/:id', withAuth, async (req,res) => {
+  try {
+    const userId = req.session.user_id;
+    const currentFavMovie = await FavMovies.destroy({
+      where: {
+        id: req.params.id,
+        user_id: userId
+      },
+    });
+    if (!currentFavMovie) {
+    res.status(404).json({ message: 'No movie found with this id!' });
+    return;
+    }
+    res.status(200).json(currentFavMovie)
+  }
+  catch (err) {
+    res.status(500).json(err);
+  } 
+})
+
 
 module.exports = router;

@@ -3,7 +3,7 @@ console.log("profile Js");
 const dropdownIcon = $("#dropdownIcon");
 const previewIcon = $("#previewIcon");
 const saveProfileBtn = $("#save-profile-btn");
-
+const deleteBtn = $('#deleteMovie');
 const userProfileData = {};
 
 //Iterating through the array of svg's that users can choose as their profile image.
@@ -71,20 +71,27 @@ function submitChanges(event) {
     method: "PUT",
     contentType: "application/json",
     data: JSON.stringify(userProfileData),
-  }).then(() => {
-    console.log({ message: "Your profile has been updated!" });
+  }).then((response) => {
+    console.log(response);
+    window.location.replace('/profile')
   });
 }
 
-// const updateTopMovies = async function (event) {
-//   const topMovie1 = $("#top_movie1");
-//   const topMovie2 = $("#top_movie2");
-//   const topMovie3 = $("#top_movie3");
-//   const topMovie4 = $("#top_movie4");
-//   const topMovie5 = $("#top_movie5");
-// };
+
+const deleteFavMovie = () => {
+$.ajax({
+  url: "/api/users/profile/edit/:id",
+  method: "DELETE"
+}).then((response) => {
+  console.log(response)
+})
+}
+
+
 
 //EVENT LISTENERS
 dropdownIcon.on("change", iconChange);
 saveProfileBtn.on("click", submitChanges);
+
+
 
