@@ -39,6 +39,10 @@ Profile.init(
       type: DataTypes.INTEGER,
       allowNull: true,
       // references: {
+      //   model: 'FavMovies',
+      //   key: 'profile_id'
+      // }
+      // references: {
       //   // model: 'FavMovies',
       //   key: 'profile_id'
       // }

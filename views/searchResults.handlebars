@@ -1,4 +1,5 @@
-<div class="movies">
+
+{{!-- <div class="movies">
   {{#each posterData}}
   <article class="card">
     <div class="card-header flex-row justify-space-between">
@@ -8,4 +9,56 @@
     </div>
   </article>
   {{/each}}
+</div> --}}
+
+
+{{!-- <section class="py-5">
+<div class="container d-flex">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 d-flex">
+    <div class="col">
+      <a href="/movies/{{movie_id}}">
+        <div class"card shadow-sm">
+        {{#each posterData}}
+        <img src="{{poster_url}}" alt="">
+         {{/each}}
+        </div>
+      </a>
+    </div>
+  </div>
 </div>
+</section> --}}
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+{{#each posterData}}
+<section class="py-4">
+<div class="container">  
+  <div>
+    <div class="col">
+      <a href="/movies/{{movie_id}}">
+        <div class="card shadow-sm h">
+          <img src="{{poster_url}}"  class="img-fluid img-thumbnail" alt="...">
+        </div>
+      </a>
+    </div> 
+  </div>
+</div>
+</section>
+{{/each}}
+</div>
+</div>
+
+
+
+{{!-- <div class="container">  
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="col">
+      <a href="/movies/:id">
+        <div class="card shadow-sm">
+          <img src="https://m.media-amazon.com/images/M/MV5BNzQ1NDBlNDItMDAyYS00YTI2LTgwMmYtMzAwMzg4NDFlM2ZmXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" class="img-fluid img-thumbnail" alt="..." > 
+        </div>
+      </a>
+    </div>
+        
+  </div>
+</div> --}}

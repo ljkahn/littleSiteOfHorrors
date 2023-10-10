@@ -2,6 +2,9 @@
 const favoriteBtn = $('#add-to-fav');
 
 
+const spookyScale = $('#spooky-scale')
+
+
 
 
 
@@ -29,6 +32,21 @@ const handleAddToFavorite = (event) => {
 })
 }
 
+
+const spookyScaleConvert = () => {
+  switch(spookyScale) {
+    case 1:
+      rating.text("🎃")
+      break;
+    case rating === 4:
+      rating.text("🎃🎃🎃🎃")
+      break;
+    default:
+      // code block
+  }
+}
+
+spookyScaleConvert();
 
 
 
