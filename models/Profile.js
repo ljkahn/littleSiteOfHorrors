@@ -42,6 +42,10 @@ Profile.init(
       //   model: 'FavMovies',
       //   key: 'profile_id'
       // }
+      // references: {
+      //   // model: 'FavMovies',
+      //   key: 'profile_id'
+      // }
     },
 
     spooky_scale: {

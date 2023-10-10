@@ -101,6 +101,7 @@ const movieData =
         rating: 2,
         release_year: 2005,
         description: "When a shy groom practices his wedding vows in the inadvertent presence of a deceased young woman, she rises from the grave assuming he has married her.",
+        poster_url: "https://m.media-amazon.com/images/M/MV5BMTk1MTY1NjU4MF5BMl5BanBnXkFtZTcwNjIzMTEzMw@@._V1_SX300.jpg"
     },
     {
         title: "Beetlejuice",
@@ -109,7 +110,7 @@ const movieData =
         rating: 2,
         release_year: 1988,
         description: "The spirits of a deceased couple are harassed by an unbearable family that has moved into their home, and hire a malicious spirit to drive them out.",
-        poster_url: "https://m.media-amazon.com/images/M/MV5BMTk1MTY1NjU4MF5BMl5BanBnXkFtZTcwNjIzMTEzMw@@._V1_SX300.jpg"
+        poster_url: "https://m.media-amazon.com/images/M/MV5BZDdmNjBlYTctNWU0MC00ODQxLWEzNDQtZGY1NmRhYjNmNDczXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
     },
     {
         title: "Little Shop of Horrors",
@@ -417,6 +418,7 @@ const movieData =
         rating: 3,
         release_year: 2015,
         description: 'A young woman grieving the loss of her mother, a famous scream queen from the 1980s, finds herself pulled into the world of her mom\'s most famous movie. Reunited, the women must fight off the film\'s maniacal killer.',
+        poster_url: "https://m.media-amazon.com/images/M/MV5BNjU3N2QxNzYtMjk1NC00MTc4LTk1NTQtMmUxNTljM2I0NDA5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg"
     },
     {
         title: 'The Thing',
