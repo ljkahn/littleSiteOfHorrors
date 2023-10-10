@@ -56,24 +56,39 @@ router.post("/create", async (req, res) => {
       // Password is less than six characters
       return res.status(400).json({ error: "Password must be at least six characters long." });}
 
-    const newProfile = await Profile.create({
+    await Profile.create({
       user_id: newUserData.id, // makes the profile user_id, the same as the user id that is autoincremented
       name: req.body.name, // profile name does not allow for a null, this takes the name that was input when creating an account and places it in profile name
     });
 
-    // req.session.save(() => {
-    req.session.loggedIn = true;
-    req.session.user_id = newUserData.id;
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      req.session.user_id = newUserData.id;
+      res.redirect("/profile");
+    });
     // when we want to display a profile, this should help us find the correct one by the user_id
     // id for who is logged in is stored in the session
 
     // res.status(200).json(newUserData);
-    res.redirect("/profile");
     // ADD: message that pops up if password is less than 6 chars, if you enter less than 6 chars, it returns a white screen and does not direct or tell you what's wrong
     // });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
+  }
+});
+
+// http://localhost:3001/api/users/logout
+router.get("/logout", (req, res) => {
+  // Add the function arrow here
+  console.log(req.session.loggedIn);
+  if (req.session.loggedIn) {
+    console.log("Logging out");
+    req.session.destroy(() => {
+      res.redirect("/");
+    });
+  } else {
+    res.status(404).end();
   }
 });
 
@@ -111,9 +126,9 @@ router.post("/:id", async (req, res) => {
     const userId = req.session.user_id;
     const currentProfile = Profile.findOne({
       where: {
-        user_id: userId
-      }
-    })
+        user_id: userId,
+      },
+    });
     console.log(userId, "this is the userID");
     const userFavorite = await FavMovies.create({
       movie_id: req.params.id,
@@ -122,7 +137,7 @@ router.post("/:id", async (req, res) => {
       // profile_id: 1,
     });
     console.log(movie_id, "THIS IS THE MOVIE ID");
-    console.log(profile_id, "THIS IS THE PROFILE ID")
+    console.log(profile_id, "THIS IS THE PROFILE ID");
     res.redirect("/profile");
     res.render("userProfile", { userFavorite });
   } catch (err) {

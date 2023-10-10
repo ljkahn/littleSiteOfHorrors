@@ -3,7 +3,7 @@
     <form action="api/users/login" method="POST">
       <h1 class="h3 mb-3 fw-normal text-white">Please Sign In</h1>
 
-      <div class="form-floating">
+      <div class="form-floating" id="login-form">
         <input
           type="text"
           class="form-control"
@@ -11,7 +11,7 @@
           placeholder="name@example.com"
           name="email"
         />
-        <label for="floatingInput">Email address</label>
+        <label for="floatingInput" id="email-login">Email address</label>
       </div>
       <br />
       <div class="form-floating">
@@ -22,7 +22,7 @@
           placeholder="Password"
           name="password"
         />
-        <label for="floatingPassword">Password</label>
+        <label for="floatingPassword" id="password-login">Password</label>
       </div>
 
       <div class="form-check text-start my-3">
