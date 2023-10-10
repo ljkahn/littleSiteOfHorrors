@@ -52,9 +52,9 @@ router.post("/create", async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-    console.log("+++++++++++++++++++++++++");
-    console.log(newUserData);
-    console.log("+++++++++++++++++++++");
+    if (req.body.password.length < 6) {
+      // Password is less than six characters
+      return res.status(400).json({ error: "Password must be at least six characters long." });}
 
     await Profile.create({
       user_id: newUserData.id, // makes the profile user_id, the same as the user id that is autoincremented

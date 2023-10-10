@@ -466,6 +466,168 @@ const movieData = [
   },
 
   {
+    title: "The Final Girls",
+    director: "Todd Strauss-Schulson",
+    genre: "Female-led Horror",
+    rating: 3,
+    release_year: 2015,
+    description:
+      "A young woman grieving the loss of her mother, a famous scream queen from the 1980s, finds herself pulled into the world of her mom's most famous movie. Reunited, the women must fight off the film's maniacal killer.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BMjI4Nzk2NzAzOV5BMl5BanBnXkFtZTgwNjI1NzY4NjE@._V1_SX300.jpg",
+  },
+
+  {
+    title: "Ready of Not",
+    director: "2019",
+    genre: "Female-led Horror",
+    rating: 4,
+    release_year: 2019,
+    description:
+      "A bride's wedding night takes a sinister turn when her eccentric new in-laws force her to take part in a terrifying game.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BYzBkMzAyMDUtZTFkZS00OWUyLTgwM2ItNGI3MTQ5NzA3NTVkXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+  },
+
+  {
+    title: "House of the Devil",
+    director: "Ti West",
+    genre: "Female-led Horror",
+    rating: 4,
+    release_year: 2009,
+    description:
+      "In 1983, financially struggling college student Samantha Hughes takes a strange babysitting job that coincides with a full lunar eclipse. She slowly realizes her clients harbor a terrifying secret, putting her life in mortal danger.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BMTAxMDAxODg5ODReQTJeQWpwZ15BbWU3MDI5ODYxODI@._V1_SX300.jpg",
+  },
+
+  {
+    title: "X",
+    director: "Ti West",
+    genre: "Female-led Horror",
+    rating: 4,
+    release_year: 2022,
+    description:
+      "In 1979, a group of young filmmakers set out to make an adult film in rural Texas, but when their reclusive, elderly hosts catch them in the act, the cast find themselves fighting for their lives.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BMTJiMmE5YWItOWZjYS00YTg0LWE0MTYtMzg2ZTY4YjNkNDEzXkEyXkFqcGdeQXVyMTAzMDg4NzU0._V1_SX300.jpg",
+  },
+
+  {
+    title: "Pearl",
+    director: "Ti West",
+    genre: "Female-led Horror",
+    rating: 4,
+    release_year: 2022,
+    description:
+      "In 1918, a young woman on the brink of madness pursues stardom in a desperate attempt to escape the drudgery, isolation, and lovelessness of life on her parents' farm.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BZTFkNmE5MjUtZDE1Yi00ZmQyLTk2YWUtN2EwODA1ZmNlOTA5XkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg",
+  },
+
+  {
+    title: "Hostel",
+    direcotr: "Eli Roth",
+    genre: "Torture",
+    rating: 5,
+    release_year: 2005,
+    description:
+      "Three backpackers head to a Slovak city that promises to meet their hedonistic expectations, with no idea of the hell that awaits them.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BMTY1NDA3ODM1OV5BMl5BanBnXkFtZTcwMDM5NzEzMQ@@._V1_SX300.jpg",
+  },
+  {
+    title: "The Blair Witch Project",
+    director: "Daniel Myrick, Eduardo Sánchez",
+    genre: "the woods",
+    rating: 4,
+    release_year: 1999,
+    description:
+      "Three film students vanish after traveling into a Maryland forest to film a documentary on the local Blair Witch legend, leaving only their footage behind.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BNzQ1NDBlNDItMDAyYS00YTI2LTgwMmYtMzAwMzg4NDFlM2ZmXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+  },
+
+  {
+    title: "Wrong Turn",
+    director: "Mike P. Nelson",
+    genre: "the woods",
+    rating: 4,
+    release_year: 2021,
+    description:
+      'Friends hiking the Appalachian Trail are confronted by "The Foundation", a community of people who have lived in the mountains for hundreds of years.',
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BMTQwMTkyMTY4M15BMl5BanBnXkFtZTYwMDc0NDE3._V1_SX300.jpg",
+  },
+
+  {
+    title: "Dead End",
+    director: "Jean-Baptiste Andrea, Fabrice Canepa",
+    genre: "the woods",
+    rating: 4,
+    release_year: 2023,
+    description:
+      "Christmas Eve. On his way to his in-laws with his family, Frank Harrington decides to try a shortcut, for the first time in 20 years. It turns out to be the biggest mistake of his life.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BNTM2YWZhMjktMDk5My00YzMxLTk5ZDAtNmM0NTkyMDZmMWE2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+  },
+  {
+    title: "Friday the 13th",
+    director: "Sean S. Cunningham",
+    genre: "the woods",
+    rating: 4,
+    release_year: 1980,
+    description:
+      "A group of camp counselors trying to reopen a summer camp called Crystal Lake, which has a grim past, are stalked by a mysterious killer.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BNWMxYTYzYWQtNGZmNy00MTg5LTk1N2MtNzQ5NjQxYjQ5NTJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+  },
+  {
+    title: "The Ritual",
+    director: "David Bruckner",
+    genre: "the woods",
+    rating: 4,
+    release_year: 1997,
+    description:
+      "A group of old college friends reunite for a trip to a most dangerous country in Europe - Sweden, encountering a menacing presence there stalking them.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BMjAzMzAyMDI4Ml5BMl5BanBnXkFtZTgwODMwOTY2NDM@._V1_SX300.jpg",
+  },
+  {
+    title: "The Evil Dead",
+    director: "Sam Raimi",
+    genre: "the woods",
+    rating: 5,
+    release_year: 1981,
+    description:
+      "Five friends travel to a cabin in the woods, where they unknowingly release flesh-possessing demons.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BNjRmY2NmN2UtMmRlMS00Mjg2LTgwNjUtZjYyZjc0NDJjODFkXkEyXkFqcGdeQXVyNjc5NjEzNA@@._V1_SX300.jpg",
+  },
+  {
+    title: "The Evil Dead 2",
+    director: "Sam Raimi",
+    genre: "the woods",
+    rating: 4,
+    release_year: 1987,
+    description:
+      "The lone survivor of an onslaught of flesh-possessing spirits holes up in a cabin with a group of strangers while the demons continue their attack.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BMWY3ODZlOGMtNzJmOS00ZTNjLWI3ZWEtZTJhZTk5NDZjYWRjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+  },
+  {
+    title: "Cabin in the Woods",
+    director: "Drew Goddard",
+    genre: "meta horror",
+    rating: 4,
+    release_year: 2011,
+    description:
+      "Five friends go for a break at a remote cabin, where they get more than they bargained for, discovering the truth behind the cabin in the woods.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BNTUxNzYyMjg2N15BMl5BanBnXkFtZTcwMTExNzExNw@@._V1_SX300.jpg",
+  },
+
+  {
     title: "Scream",
     director: "Wes Craven",
     genre: "meta horror",
@@ -484,6 +646,8 @@ const movieData = [
     release_year: 2015,
     description:
       "A young woman grieving the loss of her mother, a famous scream queen from the 1980s, finds herself pulled into the world of her mom's most famous movie. Reunited, the women must fight off the film's maniacal killer.",
+    poster_url:
+      "https://m.media-amazon.com/images/M/MV5BNjU3N2QxNzYtMjk1NC00MTc4LTk1NTQtMmUxNTljM2I0NDA5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
   },
   {
     title: "The Thing",
