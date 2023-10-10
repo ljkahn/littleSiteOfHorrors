@@ -101,6 +101,7 @@ const movieData =
         rating: 2,
         release_year: 2005,
         description: "When a shy groom practices his wedding vows in the inadvertent presence of a deceased young woman, she rises from the grave assuming he has married her.",
+        poster_url: "https://m.media-amazon.com/images/M/MV5BMTk1MTY1NjU4MF5BMl5BanBnXkFtZTcwNjIzMTEzMw@@._V1_SX300.jpg"
     },
     {
         title: "Beetlejuice",
@@ -410,14 +411,14 @@ const movieData =
         description: 'A year after the murder of her mother, a teenage girl is terrorized by a masked killer who targets her and her friends by using scary movies as part of a deadly game.',
         poster_url: "https://m.media-amazon.com/images/M/MV5BMjA2NjU5MTg5OF5BMl5BanBnXkFtZTgwOTkyMzQxMDE@._V1_SX300.jpg",
     },
-    {
-        title: 'Final Girls',
-        director: 'Todd Strauss-Schulson',
-        genre: 'meta horror',
-        rating: 3,
-        release_year: 2015,
-        description: 'A young woman grieving the loss of her mother, a famous scream queen from the 1980s, finds herself pulled into the world of her mom\'s most famous movie. Reunited, the women must fight off the film\'s maniacal killer.',
-    },
+    // {
+    //     title: 'Final Girls',
+    //     director: 'Todd Strauss-Schulson',
+    //     genre: 'meta horror',
+    //     rating: 3,
+    //     release_year: 2015,
+    //     description: 'A young woman grieving the loss of her mother, a famous scream queen from the 1980s, finds herself pulled into the world of her mom\'s most famous movie. Reunited, the women must fight off the film\'s maniacal killer.',
+    // },
     {
         title: 'The Thing',
         director: 'John Carpenter',
@@ -542,7 +543,7 @@ const movieData =
         rating: 4,
         release_year: 2013,
         description: 'Searching for a missing student, two private investigators break into his house and find collection of VHS tapes. Viewing the horrific contents of each cassette, they realize there may be dark motives behind the student\'s disappearance.',
-        posster_url: "https://m.media-amazon.com/images/M/MV5BODg4OTMxNDAxMV5BMl5BanBnXkFtZTcwMjM4ODQ0OQ@@._V1_SX300.jpg",
+        poster_url: "https://m.media-amazon.com/images/M/MV5BODg4OTMxNDAxMV5BMl5BanBnXkFtZTcwMjM4ODQ0OQ@@._V1_SX300.jpg",
     },
     {
         title: 'Barbarian',
