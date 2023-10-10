@@ -1,5 +1,5 @@
 const router = require("express").Router();
-// const { User } = require("../../models");
+
 const { Movie, Review, FavMovies, User, Profile } = require("../../models");
 
 // LOGIN & SIGN UP PAGE
