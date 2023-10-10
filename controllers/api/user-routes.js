@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const withAuth = require('../../utils/auth');
 
 const { Movie, Review, FavMovies, User, Profile } = require("../../models");
 
@@ -41,6 +42,7 @@ router.post("/login", async (req, res) => {
 });
 
 // http://localhost:3001/api/users/create
+//Create new user and send them to profile page 
 router.post("/create", async (req, res) => {
   try {
     console.log("==============");
@@ -60,15 +62,23 @@ router.post("/create", async (req, res) => {
       user_id: newUserData.id, // makes the profile user_id, the same as the user id that is autoincremented
       name: req.body.name, // profile name does not allow for a null, this takes the name that was input when creating an account and places it in profile name
     });
+    const userProfile = newProfile.get({plain: true});
+    console.log(userProfile);
 
-    // req.session.save(() => {
+    req.session.save(() => {
     req.session.loggedIn = true;
     req.session.user_id = newUserData.id;
+    })
     // when we want to display a profile, this should help us find the correct one by the user_id
     // id for who is logged in is stored in the session
 
     // res.status(200).json(newUserData);
-    res.redirect("/profile");
+
+    //user is created and you want them to go to their profile page 
+    //res.render('/profile, {data you want to send to profile page })
+    // res.redirect("/profile");
+    res.render('userProfile', newProfile)
+
     // ADD: message that pops up if password is less than 6 chars, if you enter less than 6 chars, it returns a white screen and does not direct or tell you what's wrong
     // });
   } catch (err) {
@@ -79,7 +89,7 @@ router.post("/create", async (req, res) => {
 
 // PUT (edit) user profile
 // http://localhost:3001/api/users/profile/edit
-router.put("/profile/edit", async (req, res) => {
+router.put("/profile/edit", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;
 
@@ -106,25 +116,29 @@ router.put("/profile/edit", async (req, res) => {
   // This page should only be viewable if the user is logged in
 });
 
-router.post("/:id", async (req, res) => {
+
+//POST FAvorite Movie to favMovie table based on user selecting add-to-favorites
+//htp://localhost:3001/api/movies/:id
+router.post("/:id", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;
     const currentProfile = Profile.findOne({
       where: {
         user_id: userId
-      }
-    })
-    console.log(userId, "this is the userID");
+      },
+    });
+    //Serialize the data - need to do so for Handlebars
+    const newProfile = currentProfile.get({plain: true});
+    console.log(newProfile)
+
     const userFavorite = await FavMovies.create({
       movie_id: req.params.id,
       profile_id: currentProfile.id,
-      // movie_id: 5,
-      // profile_id: 1,
     });
-    console.log(movie_id, "THIS IS THE MOVIE ID");
-    console.log(profile_id, "THIS IS THE PROFILE ID")
+    
+    res.status(200).json({message: "Movie has been added to favorites"})
     res.redirect("/profile");
-    res.render("userProfile", { userFavorite });
+    // res.render("userProfile", { userFavorite });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
