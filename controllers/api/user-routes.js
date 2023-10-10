@@ -56,20 +56,20 @@ router.post("/create", async (req, res) => {
     console.log(newUserData);
     console.log("+++++++++++++++++++++");
 
-    const newProfile = await Profile.create({
+    await Profile.create({
       user_id: newUserData.id, // makes the profile user_id, the same as the user id that is autoincremented
       name: req.body.name, // profile name does not allow for a null, this takes the name that was input when creating an account and places it in profile name
     });
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      // req.session.user_id = newUserData.id;
+      req.session.user_id = newUserData.id;
+      res.redirect("/profile");
     });
     // when we want to display a profile, this should help us find the correct one by the user_id
     // id for who is logged in is stored in the session
 
     // res.status(200).json(newUserData);
-    res.redirect("/profile");
     // ADD: message that pops up if password is less than 6 chars, if you enter less than 6 chars, it returns a white screen and does not direct or tell you what's wrong
     // });
   } catch (err) {
@@ -79,11 +79,13 @@ router.post("/create", async (req, res) => {
 });
 
 // http://localhost:3001/api/users/logout
-router.post("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
   // Add the function arrow here
+  console.log(req.session.loggedIn);
   if (req.session.loggedIn) {
+    console.log("Logging out");
     req.session.destroy(() => {
-      res.status(204).end();
+      res.redirect("/");
     });
   } else {
     res.status(404).end();

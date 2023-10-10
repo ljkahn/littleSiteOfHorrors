@@ -11,7 +11,6 @@ const router = require("express").Router();
 // =======
 // >>>>>>> main
 
-
 // GET landing page and random movies to carousel
 // http://localhost:3001/
 router.get("/", async (req, res) => {
@@ -20,25 +19,28 @@ router.get("/", async (req, res) => {
     const numberOfRandomMovies = 10;
     const randomList = [];
     while (randomList.length < numberOfRandomMovies) {
-      const randomIndex = Math.floor(Math.random() * count) +1;
+      const randomIndex = Math.floor(Math.random() * count) + 1;
       if (!randomList.includes(randomIndex)) {
         randomList.push(randomIndex);
       }
     }
     const randomMovies = await Movie.findAll({
-      attributes: ['movie_id','poster_url'],
+      attributes: ["movie_id", "poster_url"],
       raw: true,
       where: {
-        movie_id: randomList
-      }
-    })
-    res.render("homepage", { randomMovies });
+        movie_id: randomList,
+      },
+    });
+    // console.log(req.session.loggedIn);
+    res.render("homepage", {
+      randomMovies,
+      loggedIn: req.session.loggedIn || false,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
 
 // GET all movie results
 // http://localhost:3001/movies/
@@ -55,7 +57,10 @@ router.get("/movies", async (req, res) => {
     // console.log(poster)
     // const data = "You have reached the all search page!";
     // const allMoviesData = await movies.findAll();
-    res.render("searchResults", { posterData });
+    res.render("searchResults", {
+      posterData,
+      loggedIn: req.session.loggedIn || false,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -83,7 +88,10 @@ router.get("/movies/:id", async (req, res) => {
     // if(movieData) {
     // const poster = posterData.get({ plain: true });
     console.log(movieData);
-    res.render("oneSearchResult", { ...movieData });
+    res.render("oneSearchResult", {
+      ...movieData,
+      loggedIn: req.session.loggedIn || false,
+    });
     // } else {
     //   res.status(404)
     // }
@@ -119,7 +127,10 @@ router.get("/profile", async (req, res) => {
       }
     );
     console.log(profile);
-    res.render("userProfile", { ...profile });
+    res.render("userProfile", {
+      ...profile,
+      loggedIn: req.session.loggedIn || false,
+    });
     req.session.save(() => {
       req.session.loggedIn = true;
       // req.session.user_id = newUserData.id;
@@ -137,7 +148,10 @@ router.get("/profile", async (req, res) => {
 router.get("/profile/edit", async (req, res) => {
   try {
     const data = "This page should return a profile page that can be edited!";
-    res.render("profileEdit", { data });
+    res.render("profileEdit", {
+      data,
+      loggedIn: req.session.loggedIn || false,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -150,7 +164,7 @@ router.get("/profile/edit", async (req, res) => {
 router.get("/login", async (req, res) => {
   try {
     const data = "This should present the login page!";
-    res.render("login", { data });
+    res.render("login", { data, loggedIn: req.session.loggedIn || false });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -161,7 +175,7 @@ router.get("/login", async (req, res) => {
 router.get("/create", async (req, res) => {
   try {
     const data = "This should present the create account page!";
-    res.render("newAccount", { data });
+    res.render("newAccount", { data, loggedIn: req.session.loggedIn || false });
   } catch (err) {
     res.status(500).json(err);
   }
