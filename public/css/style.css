@@ -350,3 +350,10 @@ height: 37rem;
 }
 
 /* END USER PROFILE EDIT CSS */
+
+/* ONE MOVIE RESULT CSS */
+
+.movie-info {
+  font-family: "Work Sans";
+  color: var(--white-text);
+}

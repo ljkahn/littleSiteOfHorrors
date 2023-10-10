@@ -11,6 +11,8 @@ const router = require("express").Router();
 // // });
 // =======
 // >>>>>>> main
+
+
 // GET landing page and random movies to carousel
 // http://localhost:3001/
 router.get("/", async (req, res) => {

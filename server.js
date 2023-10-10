@@ -28,7 +28,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ helpers: {
+  eq: function (a,b) {
+    return a===b;
+  }
+} });
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
