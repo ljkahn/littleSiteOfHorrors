@@ -1,11 +1,11 @@
 :root {
---background-black: #212121;
---button-black: #343434;
---dark-red: #660000;
---medium-red: #8B0000;
---regular-red: #a50021;
---platinum: #e5e4e2;
---white-text: #f5f5f5;
+  --background-black: #212121;
+  --button-black: #343434;
+  --dark-red: #660000;
+  --medium-red: #8b0000;
+  --regular-red: #a50021;
+  --platinum: #e5e4e2;
+  --white-text: #f5f5f5;
 }
 
 /* * {
@@ -24,50 +24,31 @@
 /* NAV BAR CSS */
 .custom-nav-bar {
   background: transparent;
-  
 }
 
 .custom-nav-hamburger {
   background-color: var(--regular-red);
   color: var(--white-text);
-
 }
 
-.custom-all-movies-card {
-  background-color: #343434;
-  margin: 3rem;
-  padding: 3rem;
-  width: 36rem;
-  height: 17rem;
-  align-items: center;
-}
 
-.custom-all-movies-button {
-font-family: 'Montserrat Subrayada';
-background-color: var(--regular-red);
-color: var(--white-text);
-width: 20rem;
-height: 10rem;
-font-size: 2rem;
-}
-
-.custom-all-movies-button:hover {
-background-color: #660000;
-color: var(--white-text);
-}
 
 .body-text {
   color: var(--platinum);
   font-family: Work Sans;
 }
 
+nav li {
+  padding-top: 60px;
+}
+
 .custom-nav-link {
   color: var(--platinum);
-  font-family: 'Montserrat Subrayada';
+  font-family: "Montserrat Subrayada";
   font-size: 2.5rem;
   padding-left: 40px;
   padding-right: 40px;
-  text-decoration: none; 
+  text-decoration: none;
   transition-duration: 1s;
 }
 
@@ -78,7 +59,6 @@ color: var(--white-text);
 .custom-nav-link:hover::after {
   content: "🩸";
 }
-
 
 /* ADD IN ACTIVE NAV TAB TO BE RED WITH BLOOD */
 
@@ -97,24 +77,29 @@ color: var(--white-text);
   background-color: #343434;
   margin: 3rem;
   padding: 3rem;
-  width: 36rem;
-  height: 17rem;
+  /* width: 36rem;
+  height: 17rem; */
   align-items: center;
 }
 
 .custom-all-movies-button {
-font-family: 'Montserrat Subrayada';
-background-color: var(--regular-red);
-color: var(--white-text);
-width: 20rem;
-height: 10rem;
-font-size: 2rem;
-border: none;
+  font-family: "Montserrat Subrayada";
+  background-color: var(--regular-red);
+  color: var(--white-text);
+  /* width: 20rem;
+  height: 10rem; */
+  font-size: 2rem;
+  border: none;
+  transition-duration: 1s;
 }
 
 .custom-all-movies-button:hover {
-background-color: #660000;
-color: var(--white-text);
+  background-color: var(--white-text);
+  color: var(--dark-red);
+}
+
+.custom-all-movies-button:hover::after {
+  content: "☠️";
 }
 
 .body-text {
@@ -122,27 +107,53 @@ color: var(--white-text);
   font-family: Work Sans;
 }
 
+.carouselSize {
+  height: 35rem;
+  width: 25rem;
+}
+
+.custom-all-movies-card {
+  background-color: #343434;
+  margin: 3rem;
+  padding: 3rem;
+  width: 36rem;
+  height: 17rem;
+  align-items: center;
+}
+
+.custom-all-movies-button {
+  font-family: "Montserrat Subrayada";
+  background-color: var(--regular-red);
+  color: var(--white-text);
+  width: 20rem;
+  height: 10rem;
+  font-size: 2rem;
+}
+
+.custom-all-movies-button:hover {
+  background-color: #660000;
+  color: var(--white-text);
+}
+
 #runaway-btn {
-  position: absolute;
+  /* position: absolute; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 4rem;
   width: 10rem;
-  font-size: 3rem;
+  font-size: 1.5rem;
   border-radius: 5px;
   border: none;
   /* box-shadow: 1px 1px 5px black; */
-  background: transparent;
+  background: transparent
 }
-
 
 /* END HOMEPAGE CSS */
 
-
 /* FOOTER CSS */
 footer {
-  background: transparent; 
+  background: transparent;
   bottom: 0;
   color: var(--white-text);
   border: none;
@@ -151,11 +162,11 @@ footer {
 
 footer h3 {
   color: var(--regular-red);
-  font-family: 'Montserrat Subrayada';
+  font-family: "Montserrat Subrayada";
 }
 
 footer p {
-font-family: 'Work Sans';
+  font-family: "Work Sans";
 }
 
 .footer-brand {
@@ -164,30 +175,30 @@ font-family: 'Work Sans';
 }
 /* END FOOTER CSS */
 
-
 /* FOR NAV BAR LOGO */
 @media (min-width: 0px) and (max-width: 991px) {
-.logo {
-width: 100px;
-height: 100px;
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+  .brand2 {
+    display: none;
+  }
+  .brand1 {
+    display: block;
+  }
 }
-.brand2 {
-  display: none;
-}
-.brand1 {
-  display: block;
-}
-}
-
 
 @media (min-width: 0px) and (max-width: 1250px) {
-.custom-nav-link {
-  font-size: 2rem; 
-  padding-left: 20px; 
-  padding-right: 20px;
+  .custom-nav-link {
+    font-size: 2rem;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  nav li {
+    padding-top:10px;
+  }
 }
-}
-
 
 /*  ---------------  sign in css ---------------  */
 html,
@@ -242,10 +253,8 @@ body {
 /* --------------- on search css ----- ----------  */
 .text {
   color: var(--white-text);
-
 }
 /* --------------- on search css END ---------------  */
-
 
 /* USER PROFILE CSS */
 
@@ -256,23 +265,22 @@ body {
 }
 
 .user-info-card {
-/* height: 6.25rem; */
-width: 18rem;
-background-color: var(--regular-red);
-color: var(--white-text);
-font-family: 'Work Sans';
+  /* height: 6.25rem; */
+  width: 18rem;
+  background-color: var(--regular-red);
+  color: var(--white-text);
+  font-family: "Work Sans";
 }
 
 .user-prompt-card {
-width: 100%;
-/* height: 24rem; */
-background-color: var(--platinum);
-
+  width: 100%;
+  /* height: 24rem; */
+  background-color: var(--platinum);
 }
 
 .prompt-answer {
-  font-family: 'Work Sans';
-  margin:auto;
+  font-family: "Work Sans";
+  margin: auto;
   padding-top: 10px;
   font-size: 1.5rem;
 }
@@ -287,15 +295,15 @@ background-color: var(--platinum);
 .user-top5 {
   /* height: 40rem; */
   width: 100%;
-  font-family: 'Work Sans';
+  font-family: "Work Sans";
   background: var(--platinum);
   margin-right: auto;
   margin-top: 50px;
 }
-.top5{
-  font-family: 'Montserrat Subrayada';
+.top5 {
+  font-family: "Montserrat Subrayada";
   text-align: center;
-  color:#660000
+  color: #660000;
 }
 .user-movie {
   background-color: #343434;
@@ -303,17 +311,16 @@ background-color: var(--platinum);
   padding: 10px;
   margin: 10px;
   font-size: 1.5rem;
-
 }
 
 /* .profile-info {
 
 } */
 .edit-profile-btn {
-margin-top: 50px;
-border-radius: 10px;
-background-color: #343434;
-color: var(--white-text)
+  margin-top: 50px;
+  border-radius: 10px;
+  background-color: #343434;
+  color: var(--white-text);
 }
 
 /* .home-carousel {
@@ -324,32 +331,29 @@ height: 37rem;
 
 /* END USER PROFILE CSS */
 
-
-
-
-
-
 /* USER PROFILE EDIT  */
 
-.updateLabel{
-  font-family: 'Work Sans';
+.updateLabel {
+  font-family: "Work Sans";
   color: var(--white-text);
   margin-bottom: 10px;
   margin-top: 10px;
 }
 
 .textUpdate {
-  font-family: 'Work Sans';
+  font-family: "Work Sans";
   color: var(--background-black);
 }
 
-
 #previewIcon {
-border-radius: 100%;
-
+  border-radius: 100%;
 }
-
-
 
 /* END USER PROFILE EDIT CSS */
 
+/* ONE MOVIE RESULT CSS */
+
+.movie-info {
+  font-family: "Work Sans";
+  color: var(--white-text);
+}
