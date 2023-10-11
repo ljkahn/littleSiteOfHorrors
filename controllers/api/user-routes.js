@@ -36,7 +36,7 @@ router.post("/login", async (req, res) => {
       req.session.loggedIn = true;
       req.session.user_id = userEmail.id;
       res.redirect("/profile"); //don't know if this should be {data}
-      //The redirect only works when cache is disabled on browsers. 
+      //The redirect only works when cache is disabled on browsers.
     });
   } catch (err) {
     console.log(err);
@@ -89,7 +89,7 @@ router.post("/create", async (req, res) => {
       .catch((err) => {
         console.log("email failed to send", err);
       });
-    
+
     await Profile.create({
       user_id: newUserData.id, // makes the profile user_id, the same as the user id that is autoincremented
       name: req.body.name, // profile name does not allow for a null, this takes the name that was input when creating an account and places it in profile name
@@ -158,38 +158,39 @@ router.put("/profile/edit", withAuth, async (req, res) => {
 });
 
 //htp://localhost:3001/api/movies/:id
-// THIS IS FOR FAVORITING A MOVIE 
+// THIS IS FOR FAVORITING A MOVIE
 router.get("/:id", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;
-    const currentProfile = Profile.findOne({
+    const currentProfile = await Profile.findOne({
       where: {
         user_id: userId,
       },
     });
     //Serialize the data - need to do so for Handlebars
-    // const newProfile = currentProfile.get({ plain: true });
-    // console.log(newProfile);
+    const newProfile = currentProfile.get({ plain: true });
+    console.log(newProfile);
 
     const userFavorite = await FavMovies.create({
       movie_id: req.params.id,
       profile_id: currentProfile.id,
     });
-    
+
     // res.status(200).json({message: "Movie has been added to favorites"})
-    res.redirect("/profile");
-    // res.render("userProfile", { userFavorite });
+    // res.redirect("/profile");
+    return res.render("userProfile", { userFavorite });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-
-router.get('/delete/:id', withAuth, async (req,res) => {
+router.get("/delete/:id", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;
-    const currentProfile = await Profile.findOne({where: {user_id: userId}})
+    const currentProfile = await Profile.findOne({
+      where: { user_id: userId },
+    });
     const currentFavMovie = await FavMovies.destroy({
       where: {
         movie_id: req.params.id,
@@ -197,16 +198,14 @@ router.get('/delete/:id', withAuth, async (req,res) => {
       },
     });
     if (!currentFavMovie) {
-    res.status(404).json({ message: 'No movie found with this id!' });
-    return;
+      res.status(404).json({ message: "No movie found with this id!" });
+      return;
     }
-    res.redirect('/profile/edit')
+    res.redirect("/profile/edit");
     // res.status(200).json(currentFavMovie)
-  }
-  catch (err) {
+  } catch (err) {
     res.status(500).json(err);
-  } 
+  }
 });
-
 
 module.exports = router;
