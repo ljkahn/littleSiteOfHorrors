@@ -36,6 +36,7 @@ router.post("/login", async (req, res) => {
       req.session.loggedIn = true;
       req.session.user_id = userEmail.id;
       res.redirect("/profile"); //don't know if this should be {data}
+      //The redirect only works when cache is disabled on browsers. 
     });
   } catch (err) {
     console.log(err);
@@ -135,9 +136,6 @@ router.get("/logout", (req, res) => {
 router.put("/profile/edit", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;
-    console.log("=================================");
-    console.log(req.body);
-    console.log("=================================");
 
     const updatedProfile = await Profile.update(
       {
@@ -146,14 +144,13 @@ router.put("/profile/edit", withAuth, async (req, res) => {
         answer_1: req.body.answer1,
         answer_2: req.body.answer2,
         answer_3: req.body.answer3,
-        spooky_scale: req.body.spooky_scale,
-        user_icon: req.body.user_icon,
+        // spooky_scale: req.body.spooky_scale,
+        // user_icon: req.body.user_icon,
       },
       { where: { user_id: userId } }
     );
     res.status(200).json({ message: "Your profile has been updated!" });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
   // ADD AUTHENTICATION:
@@ -161,18 +158,18 @@ router.put("/profile/edit", withAuth, async (req, res) => {
 });
 
 //htp://localhost:3001/api/movies/:id
+// THIS IS FOR FAVORITING A MOVIE 
 router.get("/:id", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;
-
-    const currentProfile = await Profile.findOne({
+    const currentProfile = Profile.findOne({
       where: {
         user_id: userId,
       },
     });
     //Serialize the data - need to do so for Handlebars
-    const newProfile = currentProfile.get({ plain: true });
-    console.log(newProfile);
+    // const newProfile = currentProfile.get({ plain: true });
+    // console.log(newProfile);
 
     const userFavorite = await FavMovies.create({
       movie_id: req.params.id,
