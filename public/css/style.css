@@ -258,7 +258,10 @@ body {
   background-color: var(--regular-red);
   color: var(--white-text);
   font-family: "Work Sans";
+  font-size: 1.5rem;
 }
+
+
 
 .user-prompt-card {
   width: 100%;
@@ -293,12 +296,18 @@ body {
   text-align: center;
   color: #660000;
 }
+
 .user-movie {
+  background-color: var(--button-black);
+}
+.user-movie a {
   background-color: #343434;
   color: var(--white-text);
-  padding: 10px;
-  margin: 10px;
+  padding: 5px;
+  margin: 5px;
   font-size: 1.5rem;
+  text-decoration: none;
+  border-radius: 10px;
 }
 
 /* .profile-info {
@@ -339,9 +348,13 @@ height: 37rem;
 
 .fav-movie-cards {
   text-align: center;
-  background-color: var(--regular-red); 
+  background-color: var(--button-black); 
   color: var(--white-text);
   border-radius: 10px;
+}
+
+#sortable {
+  background-color: var(--button-black);
 }
 
 #deleteMovie {

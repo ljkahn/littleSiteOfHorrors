@@ -7,13 +7,13 @@ carousel }}
 <main class="container">
   <div class="row">
     <div class="col-lg-5">
-      <div class="col-12 profile-info">
+      <div class="col-12 profile-info d-flex align-items-end">
         <img class="user-image" src="/icons/UserIconChoices/{{profile.user_icon}}.svg" alt="User Image" />
         <div class="card user-info-card">
           <div class="card-body">
             <p>{{profile.name}}</p>
             <p>{{profile.location}}</p>
-            <p>Spooky Scale:</p>
+            {{!-- <p>Spooky Scale:</p> --}}
             <p>
               {{#if (eq profile.spooky_scale 1)}}
               🎃 G
@@ -65,7 +65,7 @@ carousel }}
 
         <div class="card user-top5">
           <div class="card-body">
-            <p class="top5">My Top Five Movies</p>
+            <p class="top5 fs-5">My Top Five Movies</p>
             {{#each profile.Movies as |movie| }}
 
             <div class="card user-movie m-1 p-1">
