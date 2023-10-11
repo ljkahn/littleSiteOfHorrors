@@ -3,7 +3,7 @@ console.log("profile Js");
 const dropdownIcon = $("#dropdownIcon");
 const previewIcon = $("#previewIcon");
 const saveProfileBtn = $("#save-profile-btn");
-const deleteBtn = $('#deleteMovie');
+// const deleteBtn = $('#deleteMovie');
 const userProfileData = {};
 
 //Iterating through the array of svg's that users can choose as their profile image.
@@ -78,14 +78,14 @@ function submitChanges(event) {
 }
 
 
-const deleteFavMovie = () => {
-$.ajax({
-  url: "/api/users/profile/edit/:id",
-  method: "DELETE"
-}).then((response) => {
-  console.log(response)
-})
-}
+// const deleteFavMovie = () => {
+// $.ajax({
+//   url: `/api/users/${movie_id}`,
+//   method: "DELETE"
+// }).then((response) => {
+//   console.log(response)
+// })
+// }
 
 
 

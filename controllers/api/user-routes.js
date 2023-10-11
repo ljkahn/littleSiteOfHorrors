@@ -181,7 +181,7 @@ router.get("/:id", withAuth, async (req, res) => {
       profile_id: currentProfile.id,
     });
     
-    res.status(200).json({message: "Movie has been added to favorites"})
+    // res.status(200).json({message: "Movie has been added to favorites"})
     res.redirect("/profile");
     // res.render("userProfile", { userFavorite });
   } catch (err) {
@@ -191,25 +191,27 @@ router.get("/:id", withAuth, async (req, res) => {
 });
 
 
-router.delete('/:id', withAuth, async (req,res) => {
+router.get('/delete/:id', withAuth, async (req,res) => {
   try {
     const userId = req.session.user_id;
+    const currentProfile = await Profile.findOne({where: {user_id: userId}})
     const currentFavMovie = await FavMovies.destroy({
       where: {
-        id: req.params.id,
-        user_id: userId
+        movie_id: req.params.id,
+        profile_id: currentProfile.id,
       },
     });
     if (!currentFavMovie) {
     res.status(404).json({ message: 'No movie found with this id!' });
     return;
     }
-    res.status(200).json(currentFavMovie)
+    res.redirect('/profile/edit')
+    // res.status(200).json(currentFavMovie)
   }
   catch (err) {
     res.status(500).json(err);
   } 
-})
+});
 
 
 module.exports = router;
