@@ -1,50 +1,48 @@
-    <section class="py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class=" text row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6"><img src={{poster_url}}class="img-fluid img-thumbnail" alt="..."></div>
-                <div class="col-md-6">
-                    <h1 class="display-5 fw-bolder">{{title}}</h1>
-                    <h2 class="display-5 fw-bolder movie-info">{{director}}</h2>
-                    <h3 class="display-5 fw-bolder movie-info">{{release_year}}</h3>
-                    <div class="fs-5 mb-5">
-                    </div>
-                    <p class="lead movie-info">{{description}}</p>
-                    <br />
-                    <div class="d-flex flex-column">
-                       <button
-                        class="d-flex btn btn-log1 text-white w-100 py-2"
-                        type="button" id="add-to-fav" >
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class=" text row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img src={{poster_url}}class="img-fluid img-thumbnail" alt="..."></div>
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bolder">{{title}}</h1>
+                <h2 class="display-5 fw-bolder movie-info">{{director}}</h2>
+                <h3 class="display-5 fw-bolder movie-info">{{release_year}}</h3>
+                <div class="fs-5 mb-5">
+                </div>
+                <p class="lead movie-info">{{description}}</p>
+                <br />
+                <div class="d-flex flex-column">
+                    <a href="/api/movies/{{movie_id}}">
+                    <button class="d-flex btn btn-log1 text-white w-100 py-2" type="button" id="add-to-fav">
                         Add to Favorites
-                        </button></a>
-                        <br />
-                        <button
-                        class="d-flex btn btn-log1 text-white w-100 py-2"
-                        type="button">
+                    </button></a>
+                    <br />
+                    <button class="d-flex btn btn-log1 text-white w-100 py-2" type="button">
                         post a review
-                        </button>
-                        <br />
-                        <h2 class="fs-4">Spooky Scale:</h2>
-                        <h2 class="p-2 movie-info">
-                            {{#if (eq rating 1)}}
-                            🎃 G
-                            {{else if (eq rating 2)}}
-                            🎃🎃 PG
-                            {{else if (eq rating 3)}}
-                            🎃🎃🎃 PG-13
-                            {{else if (eq rating 4)}}
-                            🎃🎃🎃🎃 R
-                            {{else if (eq rating 5)}}
-                            🎃🎃🎃🎃🎃 NC-17
-                            {{else}}
-                            Unsure how spooky this is...
-                            {{/if}}
-                        </h2>
-                    {{!-- </div>
-                    <h1 class="display-5 fw-bolder">Spooky Scale: <span class="badge bg-secondary">{{rating}}</span></h1>
+                    </button>
+                    <br />
+                    <h2 class="fs-4">Spooky Scale:</h2>
+                    <h2 class="p-2 movie-info">
+                        {{#if (eq rating 1)}}
+                        🎃 G
+                        {{else if (eq rating 2)}}
+                        🎃🎃 PG
+                        {{else if (eq rating 3)}}
+                        🎃🎃🎃 PG-13
+                        {{else if (eq rating 4)}}
+                        🎃🎃🎃🎃 R
+                        {{else if (eq rating 5)}}
+                        🎃🎃🎃🎃🎃 NC-17
+                        {{else}}
+                        Unsure how spooky this is...
+                        {{/if}}
+                    </h2>
+                    {{!--
+                </div>
+                <h1 class="display-5 fw-bolder">Spooky Scale: <span class="badge bg-secondary">{{rating}}</span></h1>
                 --}}
-               </div>
             </div>
         </div>
-    </section>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/js/oneSearchResult.js"></script>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/oneSearchResult.js"></script>
