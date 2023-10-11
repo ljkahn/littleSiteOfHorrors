@@ -1,35 +1,6 @@
+
+<body>
 <main class="form-signin py-4 w-100 m-auto container d-flex align-items-center">
-  <div
-    class="modal fade"
-    id="passwordModal"
-    tabindex="-1"
-    aria-labelledby="passwordModal"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="passwordModal">Try Again</h1>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          Password must be six or more characters. Please try again.
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="row">
     <form action="/api/users/create" method="POST">
       <h1 class="h3 mb-3 fw-normal">Create Account</h1>
@@ -74,17 +45,50 @@
       >
         Create Account
       </button>
+  
       <p class="mt-5 mb-3 text-white">Little Site of Horrors &copy; 2023</p>
+      <div id="userNameDisplay"></div>
     </form>
+  </div>
 
+  <div
+    class="modal fade"
+    id="passwordModal"
+    tabindex="-1"
+    aria-labelledby="passwordModal"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="passwordModal">Try Again</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          Password must be six or more characters. Please try again.
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >Close</button>
+        </div>
+      </div>
+    </div>
   </div>
   <br />
 </main>
-<script
-  type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
->
-</script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+  <script src="/js/newAccount.js"></script>
 {{!-- <script type="text/javascript">
   (function(){ emailjs.init("QOrRg2TDOjIGS0-hD"); })();
 </script> --}}
