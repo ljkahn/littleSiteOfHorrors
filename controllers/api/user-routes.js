@@ -36,6 +36,7 @@ router.post("/login", async (req, res) => {
       req.session.loggedIn = true;
       req.session.user_id = userEmail.id;
       res.redirect("/profile"); //don't know if this should be {data}
+      //The redirect only works when cache is disabled on browsers. 
     });
   } catch (err) {
     console.log(err);
@@ -161,6 +162,7 @@ router.put("/profile/edit", withAuth, async (req, res) => {
 });
 
 //htp://localhost:3001/api/movies/:id
+// THIS IS FOR FAVORITING A MOVIE 
 router.get("/:id", withAuth, async (req, res) => {
   try {
     const userId = req.session.user_id;

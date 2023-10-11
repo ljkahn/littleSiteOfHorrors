@@ -39,12 +39,12 @@
         <ul class="card-body" id="sortable-container">
           <p class="top5">My Top Five Movies</p>
           {{#each profile.Movies as |movie| }}
-          <div id="top_movie1 sortable" class="card p-1">
+          <div id="top-movie1 sortable" class="card p-1">
 
             <div class="p-1 fav-movie-cards">
               <li class="top5Edit fs-5">{{movie.title}}</li>
               
-              <button id="deleteMovie">⚰️</button>
+              <button id="deleteMovie">❌</button>
             </div>
 
           </div>
@@ -53,10 +53,9 @@
         <p class="p-3">Drag the titles to sort into a different order. </p>
       </div>
       <div>
-        {{!-- <a href="/profile"> --}}
           <button id="save-profile-btn" class="edit-profile-btn p-3">Save
             Profile</button>
-          {{!-- </a> --}}
+
       </div>
     </div>
 
