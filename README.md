@@ -2,11 +2,9 @@
 
 ## Description
 
-
-The Little Site of Horrors was created for the die-hard gore fans and the easily startled fans alike! Our motivation for creating this website was to have a place where horror movie fans of all genre's and spooky scales can come together to meet and bond over their favorite movies. 
+The Little Site of Horrors was created for the die-hard gore fans and the easily startled fans alike! Our motivation for creating this website was to have a place where horror movie fans of all genre's and spooky scales can come together to meet and bond over their favorite movies.
 
 ## Table of Contents (Optional)
-
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -19,9 +17,9 @@ N/A
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+When the user arrives at The Little Site of Horrors they can click a “See All Movies” button to see all the movies on the database. To create a profile click the “Login” button and sign up. Once they are logged in they can create a profile.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+On their profile they can pick an avatar, answer three questions about their favorite spooky season snacks, activities, and costumes. In addition to answering questions, once the user is logged in they can also add movies from the all movies page to their favorited movies. When the user goes to their profile they can list their top five favorite movies and have a carousel of their favorited movies.
 
     ```md
     ![alt text](assets/images/screenshot.png)
@@ -34,7 +32,6 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 [Maya Nettath](https://github.com/mnettath).
 [Alex Purfield](https://github.com/AlexPurfield).
 [Lia Kahn](https://github.com/ljkahn).
-
 
 ## License
 
