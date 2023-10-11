@@ -166,8 +166,8 @@ router.post("/:id", withAuth, async (req, res) => {
       },
     });
     //Serialize the data - need to do so for Handlebars
-    const newProfile = currentProfile.get({ plain: true });
-    console.log(newProfile);
+    // const newProfile = currentProfile.get({ plain: true });
+    // console.log(newProfile);
 
     const userFavorite = await FavMovies.create({
       movie_id: req.params.id,

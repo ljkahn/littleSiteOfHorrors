@@ -15,7 +15,6 @@ function showPasswordModal() {
     } else {
         window.location.href='/profile';
     }
-    return
     
 
   });
